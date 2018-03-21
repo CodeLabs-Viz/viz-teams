@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { EditComponentComponent } from './edit-component/edit-component.component';
+import { EditPersonComponent } from './edit-person/edit-person.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditComponentComponent,
+    EditPersonComponent
   ],
   imports: [
     BrowserModule
