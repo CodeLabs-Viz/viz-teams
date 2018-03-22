@@ -5,4 +5,7 @@
   </h1>
 </div>
 <h2>Choose CSV File for Upload:</h2>
-<input type="file" name="srcfile" id="srcfile" accept=".csv">
+<input type="file" id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv">
+<h2>
+  File Type: <span [style.color]="validation">{{valid}}</span>
+</h2>
