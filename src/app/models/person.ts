@@ -1,4 +1,6 @@
 export class Person {
-    name: String;
-    id: number;
+    firstName: String;
+    lastName: String;
+    position: String;
+    team: String;
 }
