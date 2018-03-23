@@ -5,10 +5,17 @@
   </h1>
 </div>
 <h2>Choose CSV File for Upload:</h2>
-<input type="file" id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv">
+<div class="test"><input type="file" id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv">
+</div>
+
 <h2>
   File Type: <span [style.color]="validation">{{valid}}</span>
 </h2>
-<a href="path" download="new_file_name.fileType"> <button>Download</button></a>
+<div class="test">
+<!-- <a href="path" download="new_file_name.fileType">  -->
+  <button class="app-download-button">Download</button>
+<!-- </a> -->
+</div>
+
 
 
