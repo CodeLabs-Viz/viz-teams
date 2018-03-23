@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-person.component.scss']
 })
 export class EditPersonComponent implements OnInit {
-  firstName: '';
-  lastName: '';
-  position: '';
-  team: '';
+  firstName = '';
+  lastName = '';
+  position = '';
+  team = '';
+
+  validateInputs() {
+    if(this.firstName === '' || this.lastName === ''
+      || this.position === '' || this.team === '') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   constructor() { }
 

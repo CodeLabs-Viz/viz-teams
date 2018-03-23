@@ -23,7 +23,7 @@ export class AppComponent {
     var fileName = fileList[0].name.split('.');
     var extension = fileName[1];
     if (extension === 'csv') {
-      this.valid = "Valid";
+      this.valid = "Valid"
       this.validation = "green";
     } else {
       this.valid = "Invalid";

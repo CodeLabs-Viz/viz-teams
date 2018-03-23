@@ -3,24 +3,32 @@
   type="text"
   class="form-control"
   [(ngModel)]="firstName">
-<br>
+<span>{{ firstName }}</span>
+<br><br>
+
 <label>Last Name</label>
 <input
   type="text"
   class="form-control"
   [(ngModel)]="lastName">
-<br>
+<span>{{ lastName }}</span>
+<br><br>
+
 <label>Position</label>
 <input
   type="text"
   class="form-control"
   [(ngModel)]="position">
-<br>
+<span>{{ position }}</span>
+<br><br>
+
 <label>Team</label>
 <input
   type="text"
   class="form-control"
   [(ngModel)]="team">
-<br>
+<span>{{ team }}</span>
+<br><br>
+
 <button>Cancel</button>
-<button>Save</button>
+<button [disabled]="validateInputs()">Save</button>
