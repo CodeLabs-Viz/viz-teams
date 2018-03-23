@@ -9,6 +9,20 @@
 <h2>
   File Type: <span [style.color]="validation">{{valid}}</span>
 </h2>
+
+<div *ngFor='let person of people'>
+  <div>
+    <span>{{person.firstName}}</span>
+    <span>{{person.lastName}}</span>
+    <span>{{person.position}}</span>
+    <span>{{person.team}}</span>
+  </div>
+
+
+</div>
+
+
+
 <a href="path" download="new_file_name.fileType"> <button>Download</button></a>
 
 
