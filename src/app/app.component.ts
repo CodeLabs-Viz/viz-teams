@@ -8,8 +8,6 @@ import { Person } from './models/person';
 })
 
 export class AppComponent {
-  valid = '';
-  validation = '';
 
   people: Person[] = [
     { firstName: 'Ted', lastName: 'Jones', position:'janitor', team: 'blue' },
@@ -17,16 +15,4 @@ export class AppComponent {
     { firstName: 'Fred', lastName: 'Waldon', position:'Policeman', team: 'green' },
   ];
 
-  checkExtension (val) {
-    var fileList = val.srcElement.files;
-    var fileName = fileList[0].name.split('.');
-    var extension = fileName[1];
-    if (extension === 'csv') {
-      this.valid = "Valid"
-      this.validation = "green";
-    } else {
-      this.valid = "Invalid";
-      this.validation = "red";
-    }
-  }
 }

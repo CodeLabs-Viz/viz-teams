@@ -1,24 +1,5 @@
 <app-header></app-header>
 
-<h2>Choose CSV File for Upload:</h2>
-<div class="test"><input type="file" id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv">
-</div>
-
-<h2>
-  File Type: <span [style.color]="validation">{{valid}}</span>
-</h2>
-
 <app-team-list [people]="people"></app-team-list>
 
-
-
-<a href="path" download="new_file_name.fileType"> <button>Download</button></a>
-<div class="test">
-<!-- <a href="path" download="new_file_name.fileType">  -->
-  <button class="app-download-button">Download</button>
-<!-- </a> -->
-</div>
-
-
-<hr>
 <app-edit-person></app-edit-person>

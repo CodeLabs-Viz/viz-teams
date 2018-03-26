@@ -3,3 +3,15 @@
       Welcome to {{ title }}!
     </h1>
 </div>
+
+<h2>Choose CSV File for Upload:</h2>
+<div class="test">
+  <input type="file" id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv">
+</div>
+
+<h2>
+  File Type: <span [style.color]="validation">{{valid}}</span>
+</h2>
+
+
+<button class="app-download-button">Download</button>
