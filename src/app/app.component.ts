@@ -8,12 +8,11 @@ import { Person } from './models/person';
 })
 
 export class AppComponent {
-  title = 'app';
   valid = '';
   validation = '';
 
   people: Person[] = [
-    { firstName: 'Mr.', lastName: 'Jones', position:'janitor', team: 'blue' },
+    { firstName: 'Ted', lastName: 'Jones', position:'janitor', team: 'blue' },
     { firstName: 'John', lastName: 'Smith', position:'Baker', team: 'red' },
     { firstName: 'Fred', lastName: 'Waldon', position:'Policeman', team: 'green' },
   ];
