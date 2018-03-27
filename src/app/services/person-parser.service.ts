@@ -4,6 +4,8 @@ import { Person } from '../models/person';
 @Injectable()
 export class PersonParserService {
 
+  people: Array<Person> = [];
+
   constructor() { }
 
   parsecsv(file){
@@ -13,7 +15,7 @@ export class PersonParserService {
       result= this.parseFileIntoPeople(reader.result);
     }
     reader.readAsText(file);
-    return result;
+    this.people = result;
   }
 
   parseFileIntoPeople(text){
@@ -36,4 +38,9 @@ export class PersonParserService {
   }
 }
 
+unparseIntoFile(){
+  this.people.forEach(p => {
 
+
+  });
+}
