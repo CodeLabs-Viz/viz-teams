@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
   validation = '';
 
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }
