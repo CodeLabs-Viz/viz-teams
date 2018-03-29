@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    clear: both;
+    .app-sidebar{
+        width: 15%;
+    }
+    .app-team-list{
+        width: 85%;
+    }
+}

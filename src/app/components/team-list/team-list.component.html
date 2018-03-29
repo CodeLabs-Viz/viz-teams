@@ -1,6 +1,7 @@
-<div *ngFor='let team of teams'>
-  <span>{{team.name}}</span>
-  <div *ngFor='let person of team.people'>
+<div class="team-list">
+  <div *ngFor='let team of teams'>
+    <span>{{team.name}}</span>
+    <div *ngFor='let person of team.people'>
       <div>
         <span>{{person.firstName}}</span>
         <span>{{person.lastName}}</span>
@@ -8,4 +9,5 @@
         <span>{{person.team}}</span>
       </div>
     </div>
+  </div>
 </div>
