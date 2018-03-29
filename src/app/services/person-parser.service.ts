@@ -38,9 +38,15 @@ export class PersonParserService {
   }
 }
 
-unparseIntoFile(){
-  this.people.forEach(p => {
+  unparseIntoFile(){
+    let fileText = 'Firstname, Lastname, Position, Team' + '\n'
+    this.people.forEach(p => {
+      fileText +=this.getLineFromPerson(p) + ('\n');
+    })
+  };
 
-
-  });
+  getLineFromPerson(p){
+    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.team
+  }
+  
 }
