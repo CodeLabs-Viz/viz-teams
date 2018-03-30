@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <div *ngFor="let person of people">{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</div>
+  <button *ngIf="!isAdding" (click)="startAdding()">Add</button>
+  <div *ngIf="isAdding" class="add-form">
+    <input [type]="text" [(ngModel)]="firstName" placeholder="First Name">
+    <input [type]="text" [(ngModel)]="lastName" placeholder="Last Name">
+    <input [type]="text" [(ngModel)]="position" placeholder="Position">
+    <button (click)="finishAdding()">Done</button>
+
+
+  </div>
+</div>

@@ -1,6 +1,13 @@
 <app-header-bar> </app-header-bar>
 <app-header></app-header>
 
-<app-team-list [people]="people"></app-team-list>
+<div class="container">
+   <div class="app-sidebar"> 
+       <app-sidebar></app-sidebar>
+    </div>
+    <div class="app-team-list">
+        <app-team-list [people]="people"></app-team-list>
+    </div>
+</div>
 
 <app-edit-person></app-edit-person>
