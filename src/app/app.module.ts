@@ -8,7 +8,11 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
 import { HeaderComponent } from './components/header/header.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { PersonParserService } from './services/person-parser.service';
+<<<<<<< HEAD
+import { HeaderBarComponent } from './header-bar/header-bar.component';
+=======
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+>>>>>>> 9b5fa26f1af04441d68d7858c6befb95fee73f4e
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     EditPersonComponent,
     HeaderComponent,
     TeamListComponent,
+<<<<<<< HEAD
+    HeaderBarComponent
+=======
     SidebarComponent
+>>>>>>> 9b5fa26f1af04441d68d7858c6befb95fee73f4e
   ],
   imports: [
     BrowserModule,
