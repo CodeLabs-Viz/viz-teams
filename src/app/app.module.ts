@@ -8,6 +8,7 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
 import { HeaderComponent } from './components/header/header.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { PersonParserService } from './services/person-parser.service';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PersonParserService } from './services/person-parser.service';
     AppComponent,
     EditPersonComponent,
     HeaderComponent,
-    TeamListComponent
+    TeamListComponent,
+    HeaderBarComponent
   ],
   imports: [
     BrowserModule,
