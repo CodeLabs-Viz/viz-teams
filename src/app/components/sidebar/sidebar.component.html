@@ -1,5 +1,9 @@
 <div class="sidebar">
-  <div *ngFor="let person of people">{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</div>
+  <div *ngFor="let person of people">
+    <div [appDraggable]="{data: [person.firstName,person.lastName,person.position]}" class="draggable" > 
+      {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
+    </div>
+  </div>
   <button *ngIf="!isAdding" (click)="startAdding()">Add</button>
   <div *ngIf="isAdding" class="add-form">
     <input [type]="text" [(ngModel)]="firstName" placeholder="First Name">

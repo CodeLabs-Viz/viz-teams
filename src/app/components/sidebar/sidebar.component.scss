@@ -2,3 +2,18 @@
     height: 900px;
     background: lightgray;
 }
+
+.draggable {
+    border: 1px solid #ccc;
+    margin: 1rem;
+    padding: 1rem;
+    width: 6rem;
+    cursor: move;
+}
+
+.drop-target {
+    border: 1px dashed #ebebeb;
+    margin: 1rem;
+    padding: 1rem;
+    width: 6rem;
+}

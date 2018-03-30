@@ -10,6 +10,9 @@ import { TeamListComponent } from './components/team-list/team-list.component';
 import { PersonParserService } from './services/person-parser.service';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DraggableDirective } from './directives/draggable.directive';
+import { DropTargetDirective } from './directives/drop-target.directive';
+import { DragService } from './services/drag.service';
 
 
 @NgModule({
@@ -19,13 +22,18 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderComponent,
     TeamListComponent,
     HeaderBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DraggableDirective,
+    DropTargetDirective
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [PersonParserService],
+  providers: [
+    PersonParserService,
+    DragService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

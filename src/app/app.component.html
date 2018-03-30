@@ -1,13 +1,19 @@
 <app-header-bar> </app-header-bar>
 <app-header></app-header>
 
+
+
 <div class="container">
-   <div class="app-sidebar"> 
-       <app-sidebar></app-sidebar>
-    </div>
-    <div class="app-team-list">
-        <app-team-list [people]="people"></app-team-list>
-    </div>
+  <div class="app-sidebar"> 
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="app-team-list">
+    <app-team-list [people]="people"></app-team-list>
+  </div>
+  <div appDropTarget (myDrop)="onDrop($event)" class="drop-target">
+      <h1>DROP HERE<br/> TEST</h1>
+  </div>
 </div>
 
 <app-edit-person></app-edit-person>
+
