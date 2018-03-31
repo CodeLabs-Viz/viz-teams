@@ -1,12 +1,15 @@
 <div class="team-list">
-  <div *ngFor='let team of teams'>
-    <span>{{team.name}}</span>
-    <div *ngFor='let person of team.people'>
-      <div>
-        <span>{{person.firstName}}</span>
-        <span>{{person.lastName}}</span>
-        <span>{{person.position}}</span>
-        <span>{{person.team}}</span>
+  <div 
+    *ngFor='let team of teams' 
+    appDropTarget (myDrop)="onDrop($event)"
+    class="drop-target"
+    style="color: white; background-color: #6565ff; padding: 1rem;">
+    <h3>{{team.name}} Team</h3>
+    <div *ngFor='let person of team.members'>
+      <div class="team-member">
+        <span>First Name: {{person.firstName}}</span><br>
+        <span>Last Name: {{person.lastName}}</span><br>
+        <span>Position: {{person.position}}</span>
       </div>
     </div>
   </div>

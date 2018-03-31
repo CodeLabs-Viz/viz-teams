@@ -9,14 +9,7 @@ import { DragService } from './services/drag.service';
 })
 
 export class AppComponent {
-
-
-  people: Person[] = [
-    { firstName: 'Ted', lastName: 'Jones', position:'janitor', team: 'blue' },
-    { firstName: 'John', lastName: 'Smith', position:'Baker', team: 'red' },
-    { firstName: 'Fred', lastName: 'Waldon', position:'Policeman', team: 'green' },
-  ];
-
+  
   onDrop(data: any) {
     alert(`dropped: ${data}`);
   }
