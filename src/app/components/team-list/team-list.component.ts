@@ -11,8 +11,11 @@ import { Team } from '../../models/team';
 export class TeamListComponent implements OnInit {
   @Input() people: Person[] = [
     {firstName: 'Andrew', lastName: 'Palmer', position: 'WebDev', team: 'Blue'},
+    {firstName: 'Jesse', lastName: 'Smith', position: 'WebDev', team: 'Blue'},
+    {firstName: 'Laura', lastName: 'Nothdurft', position: 'WebDev', team: 'Blue'},
     {firstName: 'Mathew', lastName: 'Skaggs', position: 'WebDev', team: 'Blue'},
-    {firstName: 'Jesse', lastName: 'Smith', position: 'WebDev', team: 'Blue'}  
+    {firstName: 'Prabesh', lastName: 'Amatya', position: 'WebDev', team: 'Blue'}
+
   ];
 
   teams: Team[] = [
