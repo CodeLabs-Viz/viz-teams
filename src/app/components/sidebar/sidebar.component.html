@@ -2,7 +2,7 @@
   <div *ngFor="let person of people">
     <div [appDraggable]="{data: [person.firstName,person.lastName,person.position]}" class="draggable" > 
       {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
-      <button (click)="removePerson()">Remove</button>
+      <button (click)="removePerson(person)">Remove</button>
     </div>
   </div>
   <button *ngIf="!isAdding" (click)="startAdding()">Add</button>

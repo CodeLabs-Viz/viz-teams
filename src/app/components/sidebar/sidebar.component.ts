@@ -45,8 +45,8 @@ export class SidebarComponent implements OnInit {
   }
 
   //Remove person from people array
-  removePerson(){
-    this.people.pop();
+  removePerson(person: Person): void{
+    this.people.splice(this.people.indexOf(person), 1);
   }
 
 }
