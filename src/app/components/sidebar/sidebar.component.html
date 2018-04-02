@@ -2,6 +2,7 @@
   <div *ngFor="let person of people">
     <div [appDraggable]="{data: [person.firstName,person.lastName,person.position]}" class="draggable" > 
       {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
+      <button (click)="removePerson()">Remove</button>
     </div>
   </div>
   <button *ngIf="!isAdding" (click)="startAdding()">Add</button>
@@ -11,7 +12,5 @@
     <input [type]="text" [(ngModel)]="position" placeholder="Position">
     <button (click)="stopAdding()">Cancel</button>
     <button (click)="finishAdding()">Done</button>
-
-
   </div>
 </div>
