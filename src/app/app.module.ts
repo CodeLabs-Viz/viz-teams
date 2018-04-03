@@ -13,6 +13,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DraggableDirective } from './directives/draggable.directive';
 import { DropTargetDirective } from './directives/drop-target.directive';
 import { DragService } from './services/drag.service';
+import { PersonService } from './services/person.service';
+import { PersonStore } from './services/person-store';
+import { TeamService } from './services/team.service';
+
 
 
 @NgModule({
@@ -32,7 +36,10 @@ import { DragService } from './services/drag.service';
   ],
   providers: [
     PersonParserService,
-    DragService
+    DragService,
+    PersonService,
+    PersonStore,
+    TeamService
   ],
   bootstrap: [AppComponent]
 })

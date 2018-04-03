@@ -1,6 +1,6 @@
 <div class="sidebar">
   <div *ngFor="let person of people">
-    <div [appDraggable]="{data: [person.firstName,person.lastName,person.position]}" class="draggable" > 
+    <div [appDraggable]="{data:person}" class="draggable" > 
       {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
     </div>
   </div>
@@ -9,6 +9,7 @@
     <input [type]="text" [(ngModel)]="firstName" placeholder="First Name">
     <input [type]="text" [(ngModel)]="lastName" placeholder="Last Name">
     <input [type]="text" [(ngModel)]="position" placeholder="Position">
+    <input [type]="text" [(ngModel)]="teamName" placeholder="Team Name">
     <button (click)="stopAdding()">Cancel</button>
     <button (click)="finishAdding()">Done</button>
 

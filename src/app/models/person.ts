@@ -1,6 +1,6 @@
 export class Person {
-    firstName: String;
-    lastName: String;
-    position: String;
-    team: String;
+    firstName: string;
+    lastName: string;
+    position: string;
+    teamName: string;
 }

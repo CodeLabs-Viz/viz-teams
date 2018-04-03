@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Person } from '../../models/person';
 import { PersonParserService } from '../../services/person-parser.service';
 import { Team } from '../../models/team';
+import { PersonService } from '../../services/person.service';
+import { TeamService } from  '../../services/team.service';
 
 @Component({
   selector: 'app-team-list',
@@ -10,41 +12,31 @@ import { Team } from '../../models/team';
 })
 export class TeamListComponent implements OnInit {
   @Input() people: Person[] = [
-    {firstName: 'Andrew', lastName: 'Palmer', position: 'WebDev', team: 'Blue'},
-    {firstName: 'Jesse', lastName: 'Smith', position: 'WebDev', team: 'Blue'},
-    {firstName: 'Laura', lastName: 'Nothdurft', position: 'WebDev', team: 'Blue'},
-    {firstName: 'Mathew', lastName: 'Skaggs', position: 'WebDev', team: 'Blue'},
-    {firstName: 'Prabesh', lastName: 'Amatya', position: 'WebDev', team: 'Blue'}
+    // {firstName: 'Andrew', lastName: 'Palmer', position: 'WebDev', team: 'Blue'},
+    // {firstName: 'Jesse', lastName: 'Smith', position: 'WebDev', team: 'Blue'},
+    // {firstName: 'Laura', lastName: 'Nothdurft', position: 'WebDev', team: 'Blue'},
+    // {firstName: 'Mathew', lastName: 'Skaggs', position: 'WebDev', team: 'Blue'},
+    // {firstName: 'Prabesh', lastName: 'Amatya', position: 'WebDev', team: 'Blue'}
 
   ];
 
-  teams: Team[] = [
-    {name: 'Blue', members: this.people}
-  ];
+  teams: Team[] = [];
 
-  constructor(private personParsingService: PersonParserService) { }
+  constructor(
+    private personParsingService: PersonParserService, 
+    private personService: PersonService,
+    private teamService: TeamService
+  ) {
+    this.teamService.getTeams().subscribe(t => this.teams = t);
+  }
 
   ngOnInit() {
     // this.people = this.personParsingService.people;
     // this.teams = this.buildTeams(this.people)  
   }
-  buildTeams(people): Array<Team> {
-    let teams: Array<Team> = [];
-    people.forEach(element => {
-      var team = element.team;
-      let addTeam = true;
-      teams.forEach(t => {
-        if (t == team)
-          addTeam = false;
-      });
-      if (addTeam) 
-        teams.push(team);
-    });
-    return teams;
-  }
 
-  onDrop(data: any) {
-    data.push("Blue")
-    alert(`dropped: ${data}`);
+
+  onDrop(person: Person, team: Team) {
+    this.personService.addToTeam(person, team);
   }
 }

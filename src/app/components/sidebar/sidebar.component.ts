@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../../models/person';
+import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,9 +14,11 @@ export class SidebarComponent implements OnInit {
     firstName = '';
     lastName = '';
     position = '';
-
+    teamName = '';
     
-  constructor() { }
+  constructor(private personService: PersonService) {
+  
+  }
 
   ngOnInit() {  
   }
@@ -34,7 +37,8 @@ export class SidebarComponent implements OnInit {
     person.firstName = this.firstName;
     person.lastName = this.lastName;
     person.position = this.position;
-    this.people.push(person);
+    person.teamName = this.teamName;
+    this.personService.addPerson(person);
     this.stopAdding(); 
   }
 
@@ -42,6 +46,7 @@ export class SidebarComponent implements OnInit {
     this.firstName = '';
     this.lastName = '';
     this.position = '';
+    this.teamName = '';
   }
 
 
