@@ -3,7 +3,7 @@ import { Person } from '../../models/person';
 import { PersonParserService } from '../../services/person-parser.service';
 import { Team } from '../../models/team';
 import { PersonService } from '../../services/person.service';
-import { TeamService } from  '../../services/team.service';
+import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-team-list',
@@ -17,13 +17,12 @@ export class TeamListComponent implements OnInit {
     // {firstName: 'Laura', lastName: 'Nothdurft', position: 'WebDev', team: 'Blue'},
     // {firstName: 'Mathew', lastName: 'Skaggs', position: 'WebDev', team: 'Blue'},
     // {firstName: 'Prabesh', lastName: 'Amatya', position: 'WebDev', team: 'Blue'}
-
   ];
 
   teams: Team[] = [];
 
   constructor(
-    private personParsingService: PersonParserService, 
+    private personParsingService: PersonParserService,
     private personService: PersonService,
     private teamService: TeamService
   ) {
@@ -32,11 +31,12 @@ export class TeamListComponent implements OnInit {
 
   ngOnInit() {
     // this.people = this.personParsingService.people;
-    // this.teams = this.buildTeams(this.people)  
+    // this.teams = this.buildTeams(this.people)
   }
 
 
   onDrop(person: Person, team: Team) {
+    person = new Person(person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, team);
   }
 }

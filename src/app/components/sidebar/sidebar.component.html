@@ -1,18 +1,16 @@
 <div class="sidebar">
   <div *ngFor="let person of people">
-    <div [appDraggable]="{data:person}" class="draggable" > 
+    <div [appDraggable]="{data:person}" class="draggable" >
       {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
     </div>
   </div>
   <button *ngIf="!isAdding" (click)="startAdding()">Add</button>
   <div *ngIf="isAdding" class="add-form">
-    <input [type]="text" [(ngModel)]="firstName" placeholder="First Name">
-    <input [type]="text" [(ngModel)]="lastName" placeholder="Last Name">
-    <input [type]="text" [(ngModel)]="position" placeholder="Position">
-    <input [type]="text" [(ngModel)]="teamName" placeholder="Team Name">
+    <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (change)="validatePerson()">
+    <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (change)="validatePerson()">
+    <input type="text" [(ngModel)]="person.position" placeholder="Position" (change)="validatePerson()">
+    <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (change)="validatePerson()">
     <button (click)="stopAdding()">Cancel</button>
-    <button (click)="finishAdding()">Done</button>
-
-
+    <button (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
   </div>
 </div>

@@ -4,7 +4,7 @@ import { Person } from '../models/person';
 @Injectable()
 export class PersonStore {
   people: Person[];
-  
+
   constructor() {
     this.people = [];
   }
@@ -13,7 +13,7 @@ export class PersonStore {
     this.people = people;
     return this.people;
   }
-  
+
   add(person: Person): Person[] {
     this.people.push(person);
     return this.people;
@@ -29,9 +29,19 @@ export class PersonStore {
     this.people[index] = newPerson;
     return this.people;
   }
-  
+
   getIndex(person: Person): number {
-    return this.people.indexOf(person);
+    let index: number;
+    this.people.forEach(p => {
+      if (this.isPersonEqual(person, p)) {
+        index = this.people.indexOf(p);
+      }
+    });
+    return index;
+  }
+
+  isPersonEqual(a: Person, b: Person) {
+    return a.firstName === b.firstName && a.lastName === b.lastName && a.position === b.position && a.teamName === b.teamName;
   }
 
   getPerson(index: number): Person {

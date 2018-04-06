@@ -9,45 +9,46 @@ import { PersonService } from '../../services/person.service';
 })
 export class SidebarComponent implements OnInit {
 
-  people: Array<Person>=[]; 
-    isAdding = false;
-    firstName = '';
-    lastName = '';
-    position = '';
-    teamName = '';
-    
+  people: Array<Person> = [];
+  isAdding = false;
+  person: Person = new Person('', '', '', '');
+  canSubmit = false;
+
   constructor(private personService: PersonService) {
-  
+    this.personService.getFreeAgents().subscribe(p => this.people = p);
   }
 
-  ngOnInit() {  
+  ngOnInit() {
   }
 
-  startAdding(){
+  startAdding() {
     this.isAdding = true;
   }
 
-  stopAdding(){
+  stopAdding() {
     this.isAdding = false;
     this.clearFields();
   }
 
-  finishAdding(){
-    let person = new Person;
-    person.firstName = this.firstName;
-    person.lastName = this.lastName;
-    person.position = this.position;
-    person.teamName = this.teamName;
+  finishAdding() {
+    const person = new Person(this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
     this.personService.addPerson(person);
-    this.stopAdding(); 
+    this.stopAdding();
   }
 
-  clearFields(){
-    this.firstName = '';
-    this.lastName = '';
-    this.position = '';
-    this.teamName = '';
+  clearFields() {
+    this.person = new Person('', '', '', '');
+    this.canSubmit = false;
   }
 
+  validatePerson() {
+    this.person.firstName !== ''
+      && this.person.lastName !== ''
+      && this.person.position !== ''
+      ? this.canSubmit = true : this.canSubmit = false;
+  }
 
+  isDisabled() {
+    return !this.canSubmit;
+  }
 }
