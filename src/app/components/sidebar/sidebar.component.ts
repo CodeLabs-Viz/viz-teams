@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   canSubmit = false;
 
   constructor(private personService: PersonService) {
-    this.personService.getFreeAgents().subscribe(p => this.people = p);
+    // this.personService.getFreeAgents().subscribe(p => this.people = p);
   }
 
   ngOnInit() {
