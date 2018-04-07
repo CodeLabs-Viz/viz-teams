@@ -8,7 +8,7 @@ export class DropTargetDirective {
 
   constructor(private dragService: DragService) { }
 
-  @Input() 
+  @Input()
   set myDropTarget(options: DropTargetOptions) {
     if (options) {
       this.options = options;
@@ -32,7 +32,7 @@ export class DropTargetDirective {
   @HostListener('drop', ['$event'])
   onDrop(event) {
     const data = JSON.parse(event.dataTransfer.getData('Text'));
-    console.log('onDrop log: ',event.appDropTarget);
+    // console.log('onDrop log: ', event.appDropTarget);
 
     this.drop.next(data);
   }

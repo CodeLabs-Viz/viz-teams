@@ -12,14 +12,13 @@ export class PersonService {
   constructor(private personStore: PersonStore) { }
 
   addToTeam(person: Person, team: Team): void {
-    const newPerson = person;
-    newPerson.teamName = team.name;
+    const newPerson = new Person(person.firstName, person.lastName, person.position, team.name);
     this.peopleSubject.next(this.personStore.update(person, newPerson));
   }
 
   getPeople(): Observable<Person[]> {
     return this.peopleSubject;
-  } 
+  }
 
   setPeople(people: Person[]): void {
     this.peopleSubject.next(this.personStore.init(people));
@@ -28,5 +27,4 @@ export class PersonService {
   addPerson(person: Person): void {
     this.peopleSubject.next(this.personStore.add(person));
   }
-
 }
