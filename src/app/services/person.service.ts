@@ -27,4 +27,8 @@ export class PersonService {
   addPerson(person: Person): void {
     this.peopleSubject.next(this.personStore.add(person));
   }
+
+  // getFreeAgents(): Observable<Person[]> {
+    
+  // }
 }

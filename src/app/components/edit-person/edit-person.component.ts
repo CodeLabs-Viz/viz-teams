@@ -12,7 +12,7 @@ export class EditPersonComponent implements OnInit {
   team = '';
 
   validateInputs() {
-    if(this.firstName === '' || this.lastName === ''
+    if (this.firstName === '' || this.lastName === ''
       || this.position === '' || this.team === '') {
       return true;
     } else {
