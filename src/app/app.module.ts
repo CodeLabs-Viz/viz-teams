@@ -16,6 +16,7 @@ import { DragService } from './services/drag.service';
 import { PersonService } from './services/person.service';
 import { PersonStore } from './services/person-store';
 import { TeamService } from './services/team.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -32,7 +33,8 @@ import { TeamService } from './services/team.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     PersonParserService,
