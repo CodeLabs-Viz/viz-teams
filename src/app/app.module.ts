@@ -17,8 +17,6 @@ import { PersonService } from './services/person.service';
 import { PersonStore } from './services/person-store';
 import { TeamService } from './services/team.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
