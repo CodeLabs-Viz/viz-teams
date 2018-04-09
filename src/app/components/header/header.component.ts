@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   title = 'app';
   valid = '';
   validation = '';
+  
 
 
   constructor() { 
