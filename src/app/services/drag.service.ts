@@ -9,6 +9,6 @@ export class DragService {
   }
 
   accepts(zone: string): boolean {
-    return zone == this.zone;
+    return zone === this.zone;
   }
 }

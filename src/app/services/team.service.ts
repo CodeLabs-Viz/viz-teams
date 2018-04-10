@@ -13,8 +13,8 @@ export class TeamService {
     this.personService.getPeople().subscribe(p => this.buildTeams(p));
   }
 
-  buildTeams(people: Person[]): void {  
-    let teams: Array<Team> = [];
+  buildTeams(people: Person[]): void {
+    const teams: Array<Team> = [];
     people.forEach(person => {
       if (!teams.find(t => t.name === person.teamName)) {
         teams.push(new Team(person.teamName, [person]));
@@ -29,6 +29,4 @@ export class TeamService {
   getTeams(): Observable<Team[]> {
     return this.teamsSubject;
   }
-  
-
 }

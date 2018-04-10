@@ -28,7 +28,4 @@ export class PersonService {
     this.peopleSubject.next(this.personStore.add(person));
   }
 
-  // getFreeAgents(): Observable<Person[]> {
-    
-  // }
 }

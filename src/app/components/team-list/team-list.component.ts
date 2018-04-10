@@ -26,7 +26,7 @@ export class TeamListComponent implements OnInit {
     private personService: PersonService,
     private teamService: TeamService
   ) {
-    this.teamService.getTeams().subscribe(t => this.teams = t);
+    this.teamService.getTeams().subscribe(t => this.getTeams(t));
   }
 
   ngOnInit() {
@@ -38,5 +38,15 @@ export class TeamListComponent implements OnInit {
   onDrop(person: Person, team: Team) {
     person = new Person(person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, team);
+  }
+
+  getTeams(teams: Team[]): void {
+    const theTeams: Team[] = [];
+    for (const team of teams) {
+      if (team.name !== '') {
+        theTeams.push(team);
+      }
+    }
+    this.teams = theTeams;
   }
 }

@@ -1,15 +1,9 @@
 <div class="team-list">
-  <div 
-    *ngFor='let team of teams'
-  >
-    <div
-      class="drop-target"
-      appDropTarget (myDrop)="onDrop($event,team)"
-    >
+  <div *ngFor='let team of teams'>
+    <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <h3>{{team.name}} Team</h3>
-      <div 
-        *ngFor='let person of team.members'>
-        <div class="team-member" class="draggable" [appDraggable]="{data:person}">
+      <div *ngFor='let person of team.members'>
+        <div [appDraggable]="{data:person}" class="team-member" class="draggable">
           <span>First Name: {{person.firstName}}</span><br>
           <span>Last Name: {{person.lastName}}</span><br>
           <span>Position: {{person.position}}</span>
