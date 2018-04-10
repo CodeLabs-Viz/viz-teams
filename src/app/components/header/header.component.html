@@ -1,12 +1,12 @@
 <!-- <h2>Choose CSV File for Upload:</h2> -->
 <div class="app-download-button">
-  <button id="realButton">
+  <button id="realButton" (click)="openUpload()">
     Import
     <input type="file" class='hiddenUpload' id='srcfile' ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
   </button>
 </div>
 <button class="app-download-button">Download</button>
-<!-- 
+<!--
 <h2>
   File Type: <span [style.color]="validation">{{valid}}</span>
 </h2> -->
