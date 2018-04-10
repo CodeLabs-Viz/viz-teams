@@ -42,7 +42,6 @@ export class PersonParserService {
       fileText += this.getLineFromPerson(p) + ('\n');
     });
   }
-  
 
   getLineFromPerson(p) {
     return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.team;

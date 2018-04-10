@@ -19,15 +19,15 @@ export class HeaderComponent implements OnInit {
   }
 
   checkExtension (val) {
-    let fileList = val.srcElement.files;
-    let fileName = fileList[0].name.split('.');
-    let extension = fileName[1];
+    const fileList = val.srcElement.files;
+    const fileName = fileList[0].name.split('.');
+    const extension = fileName[1];
     if (extension === 'csv') {
-      this.valid = "Valid"
-      this.validation = "green";
+      this.valid = 'Valid';
+      this.validation = 'green';
     } else {
-      this.valid = "Invalid";
-      this.validation = "red";
+      this.valid = 'Invalid';
+      this.validation = 'red';
     }
   }
 
