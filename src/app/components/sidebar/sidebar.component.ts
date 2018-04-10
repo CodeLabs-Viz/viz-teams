@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../../models/person';
-import { PersonService } from '../../services/person.service';import { Team } from '../../models/team';
-\
+import { PersonService } from '../../services/person.service';
+import { Team } from '../../models/team';
 
 @Component({
   selector: 'app-sidebar',
