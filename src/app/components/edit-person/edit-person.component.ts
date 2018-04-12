@@ -48,6 +48,18 @@ export class EditPersonComponent implements OnInit {
   }
 
   finishEditing(oldPerson: Person) {
+    if (this.newPerson.firstName === '') {
+      this.newPerson.firstName = this.oldPerson.firstName;
+    }
+    if (this.newPerson.lastName === '') {
+      this.newPerson.lastName = this.oldPerson.lastName;
+    }
+    if (this.newPerson.position === '') {
+      this.newPerson.position = this.oldPerson.position;
+    }
+    if (this.newPerson.teamName === '') {
+      this.newPerson.teamName = this.oldPerson.teamName;
+    }
     this.personService.updatePerson(this.oldPerson, this.newPerson);
   }
 
