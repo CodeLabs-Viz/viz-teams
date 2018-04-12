@@ -70,6 +70,6 @@ export class SidebarComponent implements OnInit {
   }
 
   removePerson(person: Person) {
-    this.personService.removePerson(person)
+    this.personService.removePerson(person);
   }
 }
