@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person';
+import { PersonService } from './person.service';
 
 @Injectable()
 export class PersonParserService {
 
   people: Array<Person> = [];
 
-  constructor() { }
+  constructor(private personService: PersonService) { }
 
   parsecsv(file) {
     let result;
@@ -21,7 +22,7 @@ export class PersonParserService {
   parseFileIntoPeople(text) {
     const people: Person[] = [];
     text.split('\n').forEach(line => {
-      people.push(this.parseLineIntoPerson(line));
+      this.personService.addPerson(this.parseLineIntoPerson(line));
     });
     return people;
   }
@@ -38,7 +39,7 @@ export class PersonParserService {
   }
   unparseIntoFile() {
     let fileText = 'Firstname, Lastname, Position, Team' + '\n';
-    this.people.forEach(p => {
+    this.personService.getPeople().forEach(p => {
       fileText += this.getLineFromPerson(p) + ('\n');
     });
   }

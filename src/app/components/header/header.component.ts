@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonParserService } from '../../services/person-parser.service';
+import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,9 @@ export class HeaderComponent implements OnInit {
 
 
 
-  constructor() {
-  }
+  constructor(
+    private personParserService: PersonParserService,
+    private personService: PersonService) {}
 
   ngOnInit() {
   }
@@ -22,6 +25,7 @@ export class HeaderComponent implements OnInit {
     const fileList = val.srcElement.files;
     const fileName = fileList[0].name.split('.');
     const extension = fileName[1];
+    this.importCsv(val);
     if (extension === 'csv') {
       this.valid = 'Valid';
       this.validation = 'green';
@@ -31,6 +35,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  importCsv(val) {
+    const file = new Blob (val.srcElement.files);
+    this.personParserService.parsecsv(file);
+  }
+
+  exportCsv(val) {
+    this.personParserService.unparseIntoFile();
+  }
 
   openUpload(): void {
     if (this.detectIE()) {
