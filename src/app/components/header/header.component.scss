@@ -7,8 +7,17 @@
     border: color orange;
     margin: color rgb(48, 46, 44);
     display: flex;
-
+    border-radius: 8px;
   }
+button {
+  transition-duration: 0.4s;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: black;
+}
+
 h2{
   text-align: center;
 }
@@ -25,6 +34,11 @@ h2{
   height: 25px;
   width: 80px;
   position: relative;
+  transition-duration: 0.4s;
+}
+
+#realButton:hover{
+  background-color: black;
 }
 
 .hiddenUpload {
