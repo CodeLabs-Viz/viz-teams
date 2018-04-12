@@ -27,16 +27,5 @@
 <span>{{ position }}</span>
 <br><br>
 
-<label>Team</label>
-<input
-  type="text"
-  class="form-control"
-  value="{{oldPerson.teamName}}"
-  (keyup)="onKeyTeamName($event)"
-  (keyup.enter)="finishEditing()">
-<span>{{ team }}</span>
-<br><br>
-
 <a routerLink="/"><button>Cancel</button></a>
-<!-- <button [disabled]="validateInputs()">Save</button> -->
-<a routerLink="/"><button (click)="finishEditing()">Save</button></a>
+<a routerLink="/" (click)="finishEditing()"><button>Save</button></a>
