@@ -5,13 +5,16 @@
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (change)="validatePerson()">
     <input type="text" [(ngModel)]="person.position" placeholder="Position" (change)="validatePerson()">
     <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (change)="validatePerson()">
+    <br>
     <button (click)="stopAdding()">Cancel</button>
     <button (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
   </div>
   <div *ngFor="let person of freeAgents">
     <div [appDraggable]="{data:person}" class="draggable" >
       {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
+      <br>
       <button (click)="removePerson(person)">Remove</button>
+      <a routerLink="/edit/{{ person.lastName }}"><button>Edit</button></a>
     </div>
   </div>
 </div>

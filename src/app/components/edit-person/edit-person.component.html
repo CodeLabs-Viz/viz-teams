@@ -1,8 +1,11 @@
+<h1>Editing {{oldPerson.firstName}} {{oldPerson.lastName}}'s Profile</h1>
+
 <label>First Name</label>
 <input
   type="text"
   class="form-control"
-  [(ngModel)]="firstName">
+  value="{{oldPerson.firstName}}"
+  (keyup)="onKeyFirstName($event)">
 <span>{{ firstName }}</span>
 <br><br>
 
@@ -10,7 +13,8 @@
 <input
   type="text"
   class="form-control"
-  [(ngModel)]="lastName">
+  value="{{oldPerson.lastName}}"
+  (keyup)="onKeyLastName($event)">
 <span>{{ lastName }}</span>
 <br><br>
 
@@ -18,7 +22,8 @@
 <input
   type="text"
   class="form-control"
-  [(ngModel)]="position">
+  value="{{oldPerson.position}}"
+  (keyup)="onKeyPosition($event)">
 <span>{{ position }}</span>
 <br><br>
 
@@ -26,9 +31,12 @@
 <input
   type="text"
   class="form-control"
-  [(ngModel)]="team">
+  value="{{oldPerson.teamName}}"
+  (keyup)="onKeyTeamName($event)"
+  (keyup.enter)="finishEditing()">
 <span>{{ team }}</span>
 <br><br>
 
 <button>Cancel</button>
-<button [disabled]="validateInputs()">Save</button>
+<!-- <button [disabled]="validateInputs()">Save</button> -->
+<a routerLink="/"><button (click)="finishEditing()">Save</button></a>

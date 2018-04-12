@@ -5,7 +5,7 @@ import { TeamListComponent } from './components/team-list/team-list.component';
 
 const routes: Routes = [
   { path: '', component: TeamListComponent},
-  { path: 'edit', component: EditPersonComponent}
+  { path: 'edit/:id', component: EditPersonComponent}
 ];
 
 @NgModule({
