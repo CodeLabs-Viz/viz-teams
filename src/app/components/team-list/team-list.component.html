@@ -4,10 +4,9 @@
       <h3>{{team.name}} Team</h3>
       <div *ngFor='let person of team.members'>
         <div [appDraggable]="{data:person}" class="team-member" class="draggable">
-          <span>First Name: {{person.firstName}}</span><br>
-          <span>Last Name: {{person.lastName}}</span><br>
-          <span>Position: {{person.position}}</span>
-          <br>
+          <span>{{person.firstName}} {{person.lastName}},
+          {{person.position}}</span>
+          
           <a routerLink="/edit/{{ person.lastName }}"><button>Edit</button></a>
         </div>
       </div>
