@@ -31,4 +31,8 @@ export class PersonService {
   updatePerson(oldPerson: Person, newPerson: Person): void {
     this.peopleSubject.next(this.personStore.update(oldPerson, newPerson));
   }
+
+  removePerson(person: Person): void {
+    this.peopleSubject.next(this.personStore.remove(person));
+  }
 }

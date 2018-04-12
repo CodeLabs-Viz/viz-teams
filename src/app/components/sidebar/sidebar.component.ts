@@ -68,4 +68,8 @@ export class SidebarComponent implements OnInit {
     person = new Person(person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, new Team('', []));
   }
+
+  removePerson(person: Person) {
+    this.personService.removePerson(person)
+  }
 }
