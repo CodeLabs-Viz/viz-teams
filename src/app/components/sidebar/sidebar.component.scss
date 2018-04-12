@@ -1,3 +1,13 @@
+button {
+    color: white;
+    background: #ffa600;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color:black;
+}
+
 .sidebar{
     height: 900px;
     background: lightgray;
