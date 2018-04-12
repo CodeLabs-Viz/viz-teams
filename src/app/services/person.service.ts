@@ -28,4 +28,7 @@ export class PersonService {
     this.peopleSubject.next(this.personStore.add(person));
   }
 
+  updatePerson(oldPerson: Person, newPerson: Person): void {
+    this.peopleSubject.next(this.personStore.update(oldPerson, newPerson));
+  }
 }
