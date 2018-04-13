@@ -21,22 +21,20 @@ export class PersonParserService {
 
   parseFileIntoPeople(text) {
     const people: Person[] = [];
-    text.split('\n').forEach(line => {
+    const fileText = text.split('\n');
+    fileText.shift();
+    fileText.pop();
+    fileText.forEach(line => {
       this.personService.addPerson(this.parseLineIntoPerson(line));
     });
     return people;
   }
 
-  parseLineIntoPerson(line) {
+  parseLineIntoPerson(line): Person {
     const props = line.split(',');
-    const person: Person = {
-      firstName: props[0],
-      lastName: props[1],
-      position: props[2],
-      teamName: props[3]
-    };
-    return person;
+    return new Person(props[0].trim(), props[1].trim(), props[2].trim(), props[3].trim());
   }
+
   unparseIntoFile() {
     let fileText = 'Firstname, Lastname, Position, Team' + '\n';
     this.personService.getPeople().forEach(p => {

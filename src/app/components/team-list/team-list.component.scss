@@ -1,27 +1,33 @@
 .team-list{
     background: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
     height: 900px;
-    border: 1px solid #ff0099;
     overflow: scroll;
-    
+
+    .team-column {
+      width: 33%;
+    }
 }
 
 .team-member {
     border: 1px solid rgb(105, 62, 62);
     margin: 1rem;
     padding: 1rem;
-    
+
 }
 
 .draggable {
-    border: 1px solid #ccc;
-    margin: 1rem;
-    padding: 1rem;
+    // margin: auto;
+    padding: 5px 0;
     cursor: move;
 }
 
 .drop-target {
-    border: 1px dashed #000000;
+    border: 1px solid lightgray;
+    box-shadow:lightgrey 2px 2px 9px 0px;
+
     margin: 1rem;
     padding: 1rem;
 }

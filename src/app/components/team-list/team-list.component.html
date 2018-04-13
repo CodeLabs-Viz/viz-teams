@@ -1,12 +1,12 @@
 <div class="team-list">
-  <div *ngFor='let team of teams'>
+  <div class="team-column" *ngFor='let team of teams'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <h3>{{team.name}} Team</h3>
       <div *ngFor='let person of team.members'>
         <div [appDraggable]="{data:person}" class="team-member" class="draggable">
           <span>{{person.firstName}} {{person.lastName}},
           {{person.position}}</span>
-          
+
           <a routerLink="/edit/{{ person.lastName }}"><button>Edit</button></a>
         </div>
       </div>
