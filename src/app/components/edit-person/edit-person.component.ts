@@ -11,21 +11,13 @@ import { Person } from '../../models/person';
   styleUrls: ['./edit-person.component.scss']
 })
 export class EditPersonComponent implements OnInit {
-  firstName = '';
-  lastName = '';
-  position = '';
-  team = '';
+  firstNameHasChanged = false;
+  lastNameHasChanged = false;
+  positionHasChanged = false;
+  teamNameHasChanged = false;
   oldPerson = new Person('', '', '', '');
+  editPerson = new Person('', '', '', '');
   newPerson = new Person('', '', '', '');
-
-  validateInputs() {
-    if (this.firstName === '' || this.lastName === ''
-      || this.position === '' || this.team === '') {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   constructor(
     private route: ActivatedRoute,
@@ -48,33 +40,53 @@ export class EditPersonComponent implements OnInit {
   }
 
   finishEditing(oldPerson: Person) {
-    if (this.newPerson.firstName === '') {
+    if (this.firstNameHasChanged) {
+      this.newPerson.firstName = this.editPerson.firstName;
+    } else {
       this.newPerson.firstName = this.oldPerson.firstName;
     }
-    if (this.newPerson.lastName === '') {
+    if (this.lastNameHasChanged) {
+      this.newPerson.lastName = this.editPerson.lastName;
+    } else {
       this.newPerson.lastName = this.oldPerson.lastName;
     }
-    if (this.newPerson.position === '') {
+    if (this.positionHasChanged) {
+      this.newPerson.position = this.editPerson.position;
+    } else {
       this.newPerson.position = this.oldPerson.position;
     }
-    this.newPerson.teamName = this.oldPerson.teamName;
+    if (this.teamNameHasChanged) {
+      this.newPerson.teamName = this.editPerson.teamName;
+    } else {
+      this.newPerson.teamName = this.oldPerson.teamName;
+    }
     this.personService.updatePerson(this.oldPerson, this.newPerson);
+    this.firstNameHasChanged = false;
+    this.lastNameHasChanged = false;
+    this.positionHasChanged = false;
+    this.teamNameHasChanged = false;
   }
 
   onKeyFirstName(event: any) {
-    this.newPerson.firstName = event.target.value;
+    this.firstNameHasChanged = true;
+    this.editPerson.firstName = event.target.value;
   }
 
   onKeyLastName(event: any) {
-    this.newPerson.lastName = event.target.value;
+    this.lastNameHasChanged = true;
+    this.editPerson.lastName = event.target.value;
   }
 
   onKeyPosition(event: any) {
-    this.newPerson.position = event.target.value;
+    this.positionHasChanged = true;
+    this.editPerson.position = event.target.value;
   }
 
   onKeyTeamName(event: any) {
-    this.newPerson.teamName = event.target.value;
+    console.log(this.teamNameHasChanged);
+    this.teamNameHasChanged = true;
+    this.editPerson.teamName = event.target.value;
+    console.log(this.teamNameHasChanged);
   }
 
   log(person: any) {
