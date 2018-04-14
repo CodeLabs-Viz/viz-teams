@@ -1,44 +1,35 @@
-.app-download-button{
-    color: white;
-    float: right;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* padding: 20px; */
-    background: #ffa600;
-    border: color orange;
-    margin: color rgb(48, 46, 44);
-    display: flex;
-    border-radius: 8px;
-  }
-button {
-  transition-duration: 0.4s;
-  border-radius: 8px;
+.topnav {
+  overflow: hidden;
+  background: url(/assets/vizTeams.gif) no-repeat center center;
+  background-color: rgb(255, 78, 0);
 }
 
-button:hover {
-  background-color: black;
-}
-
-h2{
-  text-align: center;
-}
-
-.right-align{
-  float: right;
-}
-
-#realButton {
-  background: #ffa600;
-  border: color orange;
+.topnav button {
+  float: left;
+  display: block;
   color: white;
+  background-color: rgb(255, 78, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: none;
+  transition-duration: 0.3s;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  height: 25px;
-  width: 80px;
-  position: relative;
-  transition-duration: 0.4s;
 }
 
-#realButton:hover{
-  background-color: black;
+.topnav a {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.topnav button:hover {
+  background-color: rgb(1, 173, 171);
+  color: white;
+}
+
+.topnav-right {
+  float: right;
 }
 
 .hiddenUpload {
@@ -49,3 +40,18 @@ h2{
   top: 0px;
   left: 0px;
 }
+
+#realButton {
+  background: rgb(255, 78, 0);
+  border: none;
+  color: white;
+  position: relative;
+  transition-duration: 0.3s;
+  display: block;
+}
+
+#realButton:hover{
+  background-color: rgb(1, 173, 171);
+}
+
+

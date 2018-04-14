@@ -1,4 +1,21 @@
-<!-- <h2>Choose CSV File for Upload:</h2> -->
+<div class="topnav">
+  <a routerLink="/"><button>Home</button></a>
+
+  <div class="topnav-right">
+    <button class="right-align"id="realButton" (click)="openUpload()">
+      Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
+    </button>
+    <button class="right-align">
+      Export
+    </button>
+  </div>
+</div>
+
+
+
+<!-- OLD STUFF  
+
+<h2>Choose CSV File for Upload:</h2>
 <div class="app-download-button">
   <button id="realButton" (click)="openUpload()">
     Import
@@ -7,7 +24,9 @@
 </div>
 <button id = "realButton" class="app-download-button">Export
 </button>
-<!--
+
 <h2>
   File Type: <span [style.color]="validation">{{valid}}</span>
-</h2> -->
+</h2>
+
+-->
