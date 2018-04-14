@@ -5,8 +5,11 @@
     <button class="right-align"id="realButton" (click)="openUpload()">
       Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
     </button>
-    <button class="right-align" id = "export" (click) = "exportCsv()" >
+    <button class="right-align" (click) = "exportCsv()" >
       Export
+    </button>
+    <button class = "right-align" (click) = "templateCsv()">
+      Template
     </button>
   </div>
 </div>

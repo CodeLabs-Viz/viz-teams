@@ -44,6 +44,11 @@ export class HeaderComponent implements OnInit {
     this.personParserService.unparseIntoFile();
   }
 
+  templateCsv() {
+    const fileText = 'Firstname, Lastname, Position, Team' + '\n';
+    this.personParserService.downloadFile(fileText);
+  }
+
   openUpload(): void {
     if (this.detectIE()) {
       document.getElementById('srcfile').click();

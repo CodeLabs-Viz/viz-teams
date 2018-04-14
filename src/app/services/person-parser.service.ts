@@ -44,16 +44,14 @@ export class PersonParserService {
   }
 
   getLineFromPerson(p) {
-    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.teamName;
+    return p.firstname + ',' + p.lastname + ',' + p.position + ',' + p.teamName;
   }
 
   downloadFile(data: any) {
     const blob = new Blob([data], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     window.open(url);
-}
-
-
+  }
 
 }
 
