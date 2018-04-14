@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
     this.personParserService.parsecsv(file);
   }
 
-  exportCsv(val) {
+  exportCsv() {
     this.personParserService.unparseIntoFile();
   }
 

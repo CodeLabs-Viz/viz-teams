@@ -40,11 +40,20 @@ export class PersonParserService {
     this.personService.getPeople().forEach(p => {
       fileText += this.getLineFromPerson(p) + ('\n');
     });
+    this.downloadFile(fileText);
   }
 
   getLineFromPerson(p) {
-    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.team;
+    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.teamName;
   }
+
+  downloadFile(data: any) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+}
+
+
 
 }
 
