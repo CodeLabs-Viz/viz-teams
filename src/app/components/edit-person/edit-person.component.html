@@ -6,7 +6,6 @@
   class="form-control"
   value="{{oldPerson.firstName}}"
   (keyup)="onKeyFirstName($event)">
-<span>{{ firstName }}</span>
 <br><br>
 
 <label>Last Name</label>
@@ -15,7 +14,6 @@
   class="form-control"
   value="{{oldPerson.lastName}}"
   (keyup)="onKeyLastName($event)">
-<span>{{ lastName }}</span>
 <br><br>
 
 <label>Position</label>
@@ -24,7 +22,6 @@
   class="form-control"
   value="{{oldPerson.position}}"
   (keyup)="onKeyPosition($event)">
-<span>{{ position }}</span>
 <br><br>
 
 <label>Team</label>
@@ -33,8 +30,7 @@
   class="form-control"
   value="{{oldPerson.teamName}}"
   (keyup)="onKeyTeamName($event)">
-<span>{{ teamName }}</span>
 <br><br>
 
 <a routerLink="/"><button>Cancel</button></a>
-<a routerLink="/" (click)="finishEditing()"><button>Save</button></a>
+<a routerLink="/" (click)="finishEditing(this.oldPerson)"><button>Save</button></a>

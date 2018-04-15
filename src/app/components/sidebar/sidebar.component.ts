@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   isAdding = false;
   person: Person = new Person('', '', '', '');
   canSubmit = false;
+  team: Team;
 
   constructor(private personService: PersonService) {
     this.personService.getPeople().subscribe(p => this.getFreeAgents(p));
@@ -64,7 +65,7 @@ export class SidebarComponent implements OnInit {
     this.freeAgents = freeAgents;
   }
 
-  onDrop(person: Person) {
+  onDrop(person: Person, team: Team) {
     person = new Person(person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, new Team('', []));
   }
