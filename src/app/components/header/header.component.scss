@@ -1,57 +1,51 @@
 .topnav {
   overflow: hidden;
-  background: url(/assets/vizTeams.gif) no-repeat center center;
+  background-color: rgb(255,78,0);
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: url(/assets/vizTeams.png) no-repeat center center;
   background-color: rgb(255, 78, 0);
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  button {
+    display: flex;
+    color: white;
+    background-color: rgb(255, 78, 0);
+    border: none;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: rgb(1, 173, 171);
+    color: white;
+  }
+  .template-btns {
+    display: flex;
+    flex-direction: row;
+  }
+  #realButton {
+    background: rgb(255, 78, 0);
+    border: none;
+    color: white;
+    position: relative;
+    transition-duration: 0.3s;
+    display: block;
+  }
+  
+  #realButton:hover{
+    background-color: rgb(1, 173, 171);
+  }
+  .hiddenUpload {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
 }
-
-.topnav button {
-  float: left;
-  display: block;
-  color: white;
-  background-color: rgb(255, 78, 0);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border: none;
-  transition-duration: 0.3s;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.topnav a {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.topnav button:hover {
-  background-color: rgb(1, 173, 171);
-  color: white;
-}
-
-.topnav-right {
-  float: right;
-}
-
-.hiddenUpload {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-
-#realButton {
-  background: rgb(255, 78, 0);
-  border: none;
-  color: white;
-  position: relative;
-  transition-duration: 0.3s;
-  display: block;
-}
-
-#realButton:hover{
-  background-color: rgb(1, 173, 171);
-}
-
-

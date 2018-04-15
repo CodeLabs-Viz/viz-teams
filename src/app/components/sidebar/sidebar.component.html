@@ -5,16 +5,18 @@
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (change)="validatePerson()">
     <input type="text" [(ngModel)]="person.position" placeholder="Position" (change)="validatePerson()">
     <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (change)="validatePerson()">
-    <br>
-    <button (click)="stopAdding()">Cancel</button>
-    <button (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
+    <div class="form-btns">
+      <button class="cancel" (click)="stopAdding()">Cancel</button>
+      <button class="done" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
+    </div>
   </div>
-  <div *ngFor="let person of freeAgents">
-    <div [appDraggable]="{data:person}" class="draggable" >
-      {{ person.firstName }} {{ person.lastName }}, {{ person.position }}
-      <br>
-      <button (click)="removePerson(person)">Remove</button>
-      <a routerLink="/edit/{{ person.lastName }}"><button>Edit</button></a>
+  <div class="freeAgentContainer" *ngFor="let person of freeAgents">
+    <div class="freeAgent" [appDraggable]="{data:person}">
+      <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
+      <div class="form-btns">
+        <button class="cancel" (click)="removePerson(person)">Remove</button>
+        <button class="done"><a routerLink="/edit/{{ person.lastName }}">Edit</a></button>
+      </div>
     </div>
   </div>
 </div>

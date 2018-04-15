@@ -12,8 +12,6 @@ export class HeaderComponent implements OnInit {
   valid = '';
   validation = '';
 
-
-
   constructor(
     private personParserService: PersonParserService,
     private personService: PersonService) {}

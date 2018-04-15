@@ -1,28 +1,66 @@
-button {
-    color: white;
-    background: #ffa600;
-    transition-duration: 0.4s;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .form-btns {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;            
+        button {
+            border: none;
+            margin-top: 5px;
+            width: 45%;
+        }
+        .cancel:hover {
+            background: rgb(255, 78, 0);
+        }
+    }
 }
 
-button:hover {
-    background-color:black;
-}
-
-.sidebar{
+.sidebar { 
     height: 900px;
-    background: lightgray;
-}
-
-.draggable {
-    border: 1px solid #ccc;
-    margin: 1rem;
-    padding: 1rem;
-    cursor: move;
-}
-
-.drop-target {
-    border: 1px dashed #000000;
-    margin: 1rem;
-    padding: 1rem;
-    width: 6rem;
+    background-color: lightgray;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: min-content;
+    overflow: auto;
+    button {
+        border: none;
+        width:100%;
+        padding: 10px;
+        color: white;
+        background-color: rgb(86, 94, 170);
+        transition-duration: 0.3s;
+        border-radius: 20px;
+    }
+    button:hover {
+        background-color: rgb(1, 173, 171);
+    }
+    .add-form {
+        input[type=text] {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    .freeAgentContainer {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        .freeAgent {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            border: 1px solid darkgray;
+            box-shadow:darkgray 2px 2px 9px 0px;
+            padding: 1rem;        
+        }
+    }
+    
 }

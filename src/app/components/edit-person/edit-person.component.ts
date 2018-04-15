@@ -83,14 +83,8 @@ export class EditPersonComponent implements OnInit {
   }
 
   onKeyTeamName(event: any) {
-    console.log(this.teamNameHasChanged);
     this.teamNameHasChanged = true;
     this.editPerson.teamName = event.target.value;
-    console.log(this.teamNameHasChanged);
-  }
-
-  log(person: any) {
-    console.log(person);
   }
 
 }
