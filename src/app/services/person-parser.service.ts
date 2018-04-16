@@ -50,10 +50,9 @@ export class PersonParserService {
   downloadFile(data: any) {
     const blob = new Blob([data], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
-    window.open(url);
+    const anchor = document.createElement('a');
+    anchor.download = 'VizTeams.csv';
+    anchor.href = url;
+    anchor.click();
+    }
   }
-
-}
-
-
-
