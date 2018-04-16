@@ -4,13 +4,8 @@
       <h3>{{team.name}} Team</h3>
       <div *ngFor='let person of team.members'>
         <div [appDraggable]="{data:person}" class="team-member" class="draggable">
-<<<<<<< HEAD
           <span>{{person.firstName}} {{person.lastName}},<br>
           {{person.position}}</span><br>
-=======
-          <span>{{person.firstName}} {{person.lastName}}, 
-          {{person.position}}</span>
->>>>>>> c4427601d107aec692b3c90c2b8e1c59d4a1b706
           <button (click)="edit(person)">Edit</button>
         </div>
       </div>
