@@ -25,6 +25,8 @@ button:hover {
         color: white;
         font-size: 25px;
         padding: 1rem 1rem;
+        font-size: 1.25em;
+        padding: 1rem 1rem;
         text-align: center;
         width: 90%;
     }
@@ -36,14 +38,6 @@ button:hover {
 }
 
 .team-member {
-    border: 1px solid rgb(105, 62, 62);
-    margin: 1rem;
-    padding: 1rem;
-
-}
-
-.draggable {
-    // margin: auto;
     padding: 5px 0;
     cursor: move;
 }
