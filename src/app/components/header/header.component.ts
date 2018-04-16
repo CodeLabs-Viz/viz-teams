@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
 
   templateCsv() {
     const fileText = 'Firstname, Lastname, Position, Team' + '\n';
-    this.personParserService.downloadFile(fileText);
+    this.downloadTemplate(fileText);
   }
 
   openUpload(): void {
@@ -77,5 +77,14 @@ export class HeaderComponent implements OnInit {
 
     // other browser
     return false;
+  }
+
+  downloadTemplate(data: any) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.download = 'VizTeamsTemplate.csv';
+    anchor.href = url;
+    anchor.click();
   }
 }

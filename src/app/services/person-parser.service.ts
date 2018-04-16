@@ -37,14 +37,14 @@ export class PersonParserService {
 
   unparseIntoFile() {
     let fileText = 'Firstname, Lastname, Position, Team' + '\n';
-    this.personService.getPeople().forEach(p => {
+    this.personService.getPeople().subscribe(people => { people.forEach(p => {
       fileText += this.getLineFromPerson(p) + ('\n');
-    });
+    })});
     this.downloadFile(fileText);
   }
 
   getLineFromPerson(p) {
-    return p.firstname + ',' + p.lastname + ',' + p.position + ',' + p.teamName;
+    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.teamName;
   }
 
   downloadFile(data: any) {
