@@ -1,6 +1,6 @@
 button {
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     color: white;
     background-color: rgb(86, 94, 170);
     transition-duration: 0.3s;
@@ -24,9 +24,9 @@ button:hover {
         border-radius: 2rem;
         color: white;
         font-size: 25px;
-        padding: 1rem 0rem;
+        padding: 1rem 1rem;
         text-align: center;
-        width: 100%;
+        width: 90%;
     }
 
     .team-column {
