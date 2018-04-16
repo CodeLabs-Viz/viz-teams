@@ -1,36 +1,38 @@
-<h1>Editing {{oldPerson.firstName}} {{oldPerson.lastName}}'s Profile</h1>
+<div class="edit-page">
+  <div class="edit-form">
+    <div class="form-fields">
+      <h1>Editing {{oldPerson.firstName}} {{oldPerson.lastName}}'s Profile</h1>
 
-<label>First Name</label>
-<input
-  type="text"
-  class="form-control"
-  value="{{oldPerson.firstName}}"
-  (keyup)="onKeyFirstName($event)">
-<br><br>
+      <input
+        type="text"
+        class="form-control"
+        value="{{oldPerson.firstName}}"
+        (keyup)="onKeyFirstName($event)">
 
-<label>Last Name</label>
-<input
-  type="text"
-  class="form-control"
-  value="{{oldPerson.lastName}}"
-  (keyup)="onKeyLastName($event)">
-<br><br>
+      <input
+        type="text"
+        class="form-control"
+        value="{{oldPerson.lastName}}"
+        (keyup)="onKeyLastName($event)">
 
-<label>Position</label>
-<input
-  type="text"
-  class="form-control"
-  value="{{oldPerson.position}}"
-  (keyup)="onKeyPosition($event)">
-<br><br>
+      <input
+        type="text"
+        class="form-control"
+        value="{{oldPerson.position}}"
+        (keyup)="onKeyPosition($event)">
 
-<label>Team</label>
-<input
-  type="text"
-  class="form-control"
-  value="{{oldPerson.teamName}}"
-  (keyup)="onKeyTeamName($event)">
-<br><br>
-
-<a routerLink="/"><button>Cancel</button></a>
-<a routerLink="/" (click)="finishEditing(this.oldPerson)"><button>Save</button></a>
+      <input
+        type="text"
+        class="form-control"
+        value="{{oldPerson.teamName}}"
+        (keyup)="onKeyTeamName($event)">
+    </div>
+    <div class="form-pic">
+      <h1>test test test</h1>
+    </div>
+    <div class="form-btns">
+      <button><a routerLink="/">Cancel</a></button>
+      <button><a routerLink="/" (click)="finishEditing(this.oldPerson)">Save</a></button>
+    </div>
+  </div>
+</div>

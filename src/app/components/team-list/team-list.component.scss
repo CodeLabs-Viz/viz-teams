@@ -5,9 +5,20 @@
     flex-flow: row wrap;
     height: 900px;
     overflow: scroll;
+    text-align: center;
+    h3 {
+        background-color: rgb(1, 173, 171);
+        border-radius: 2rem;
+        color: white;
+        font-size: 25px;
+        padding: 1rem 0rem;
+        text-align: center;
+        width: 100%;
+    }
 
     .team-column {
         width: 33%;
+        display: flex;
     }
 }
 
@@ -30,4 +41,5 @@
 
     margin: 1rem;
     padding: 1rem;
+    width: 100%;
 }

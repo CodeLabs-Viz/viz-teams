@@ -1,8 +1,28 @@
-html{
-    background-color: beige;
-    padding: 10px;
-    font-size: 12px;
-    border: 5px solid black;
-    
+a {
+    text-decoration: none;
+}
 
+.edit-page {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    .edit-form {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row wrap;
+        .form-fields {
+            border: dashed #ff0099;
+            padding: 1rem;
+            width: 50%;
+            input[type=text] {
+                width: 100%;
+                margin: 5px;
+            }
+        }
+        .form-pic {
+            background-color: blue;
+            height: 100%;
+            width: 50%;
+        }
+    }
 }
