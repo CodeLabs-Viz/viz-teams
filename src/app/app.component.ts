@@ -9,7 +9,7 @@ import { DragService } from './services/drag.service';
 })
 
 export class AppComponent {
-  
+
   onDrop(data: any) {
     alert(`dropped: ${data}`);
   }

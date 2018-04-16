@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../../models/person';
 import { PersonService } from '../../services/person.service';
 import { Team } from '../../models/team';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +18,9 @@ export class SidebarComponent implements OnInit {
   canSubmit = false;
   team: Team;
 
-  constructor(private personService: PersonService) {
+  constructor(
+    private personService: PersonService,
+    private router: Router) {
     this.personService.getPeople().subscribe(p => this.getFreeAgents(p));
   }
 
@@ -72,5 +75,9 @@ export class SidebarComponent implements OnInit {
 
   removePerson(person: Person) {
     this.personService.removePerson(person);
+  }
+
+  edit(person: Person) {
+    this.router.navigateByUrl('/edit/' + person.lastName);
   }
 }

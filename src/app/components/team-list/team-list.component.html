@@ -6,7 +6,7 @@
         <div [appDraggable]="{data:person}" class="team-member" class="draggable">
           <span>{{person.firstName}} {{person.lastName}},
           {{person.position}}</span>
-          <a routerLink="/edit/{{ person.lastName }}"><button>Edit</button></a>
+          <button (click)="edit(person)">Edit</button>
         </div>
       </div>
     </div>

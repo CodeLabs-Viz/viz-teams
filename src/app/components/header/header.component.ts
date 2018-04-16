@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonParserService } from '../../services/person-parser.service';
 import { PersonService } from '../../services/person.service';
+import { Person } from '../../models/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +16,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private personParserService: PersonParserService,
-    private personService: PersonService) {}
+    private personService: PersonService,
+    private router: Router) {}
 
   ngOnInit() {
   }
@@ -86,5 +89,9 @@ export class HeaderComponent implements OnInit {
     anchor.download = 'VizTeamsTemplate.csv';
     anchor.href = url;
     anchor.click();
+  }
+
+  home(): void {
+    this.router.navigateByUrl('/');
   }
 }

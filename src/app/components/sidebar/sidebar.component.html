@@ -15,7 +15,8 @@
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns">
         <button class="cancel" (click)="removePerson(person)">Remove</button>
-        <button class="done"><a routerLink="/edit/{{ person.lastName }}">Edit</a></button>
+        <!-- <a routerLink="/edit/{{ person.lastName }}">Edit</a> -->
+        <button (click)="edit(person)">Edit</button>
       </div>
     </div>
   </div>

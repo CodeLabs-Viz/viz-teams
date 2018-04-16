@@ -4,6 +4,7 @@ import { PersonParserService } from '../../services/person-parser.service';
 import { Team } from '../../models/team';
 import { PersonService } from '../../services/person.service';
 import { TeamService } from '../../services/team.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-list',
@@ -24,7 +25,8 @@ export class TeamListComponent implements OnInit {
   constructor(
     private personParsingService: PersonParserService,
     private personService: PersonService,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private router: Router
   ) {
     this.teamService.getTeams().subscribe(t => this.getTeams(t));
   }
@@ -48,5 +50,9 @@ export class TeamListComponent implements OnInit {
       }
     }
     this.teams = theTeams;
+  }
+
+  edit(person: Person): void {
+    this.router.navigateByUrl('/edit/' + person.lastName);
   }
 }
