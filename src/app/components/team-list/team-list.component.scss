@@ -1,6 +1,6 @@
 button {
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     color: white;
     background-color: rgb(86, 94, 170);
     transition-duration: 0.3s;
@@ -16,30 +16,29 @@ button:hover {
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
-    height: 900px;
-    overflow: scroll;
-    text-align: center;
+    text-align: left;
+    line-height: 1.5; 
     h3 {
         background-color: rgb(1, 173, 171);
         border-radius: 2rem;
         color: white;
         font-size: 25px;
-        padding: 1rem 1rem;
+        padding: .5rem .75rem;
         font-size: 1.25em;
-        padding: 1rem 1rem;
         text-align: center;
-        width: 90%;
     }
 
     .team-column {
         width: 33%;
         display: flex;
+        min-width: 300px;
     }
 }
 
 .team-member {
     padding: 5px 0;
     cursor: move;
+    margin-top: 1em;
 }
 
 .drop-target {
