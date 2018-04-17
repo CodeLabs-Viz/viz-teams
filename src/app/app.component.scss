@@ -3,13 +3,13 @@
 }
 
 .container{
+    height: 100%;
     display: flex;
     clear: both;
     .app-sidebar{
         width: 15%;
         min-width: 140px;
-        height: 900px;
-        overflow: auto;
+        height: 100%;
     }
     .app-team-list{
         width: 85%;
