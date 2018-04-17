@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Person } from '../models/person'; 
+import { Person } from '../models/person';
 
 @Pipe({
   name: 'sidebarSortAsc'
