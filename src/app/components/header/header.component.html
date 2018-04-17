@@ -1,15 +1,18 @@
-<div class="topnav">
-  <div class="home-btn">
-    <button (click)="home()">Home</button>
+<div class="container">
+  <div class="topnav">
+    <button (click)="home">Home</button>
   </div>
-  <div class="template-btns">
-    <button class="right-align"id="realButton" (click)="openUpload()">
+  <div class="logo">
+    <img src="/assets/vizTeams.png" alt="Viz Teams Logo">
+  </div>
+  <div class="right-links">
+    <button id="realButton" (click)="openUpload()">
       Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
     </button>
-    <button class="right-align" (click)="exportCsv()" >
+    <button (click)="exportCsv()" >
       Export
     </button>
-    <button class="right-align" (click)="templateCsv()">
+    <button (click)="templateCsv()">
       Template
     </button>
   </div>

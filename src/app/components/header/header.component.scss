@@ -1,41 +1,33 @@
-.topnav {
-  overflow: hidden;
-  background-color: rgb(255,78,0);
-  font-size: 1.1em;
+.container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  background: url(/assets/vizTeams.png) no-repeat center center;
-  background-color: rgb(255, 78, 0);
-  a {
-    text-decoration: none;
-    color: white;
-  }
+  align-items: center;
+  background-color: rgba(225, 78, 0, 1);
+  font-size: 1.1rem;
+
   button {
-    display: flex;
-    color: white;
-    background-color: rgb(255, 78, 0);
     border: none;
-    padding: 20px 16px;
-    transition-duration: 0.3s;
-    text-align: center;
-    cursor: pointer;
+    color: white;
+    height: 100%;
+    padding: 1.125em;
+    background-color: rgba(0, 0, 0, 0);
   }
   button:hover {
     background-color: rgb(1, 173, 171);
-    color: white;
+    height: 100%;
   }
-  .template-btns {
-    display: flex;
-    flex-direction: row;
+  .logo {
+    padding: .5rem;
+  }
+  .right-links {
+    height: 100%;
   }
   #realButton {
-    background: rgb(255, 78, 0);
+    background: rgba(0, 0, 0, 0);
     border: none;
     color: white;
     position: relative;
     transition-duration: 0.3s;
-    display: block;
   }
   
   #realButton:hover{
