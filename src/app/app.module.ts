@@ -18,6 +18,7 @@ import { TeamService } from './services/team.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TeamSortAscPipe } from './pipes/team-sort-asc.pipe';
 import { PersonSortAscPipe } from './pipes/person-sort-asc.pipe';
+import { SidebarSortAscPipe } from './pipes/sidebar-sort-asc.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PersonSortAscPipe } from './pipes/person-sort-asc.pipe';
     DraggableDirective,
     DropTargetDirective,
     TeamSortAscPipe,
-    PersonSortAscPipe
+    PersonSortAscPipe,
+    SidebarSortAscPipe
   ],
   imports: [
     BrowserModule,
