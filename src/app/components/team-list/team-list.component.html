@@ -3,7 +3,7 @@
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <h3>{{team.name}} Team</h3>
       <div *ngFor='let person of (team.members | personSortAsc)'>
-        <div [appDraggable]="{data:person}" class="team-member" class="draggable">
+        <div [appDraggable]="{data:person}" class="team-member">
           <span>{{person.firstName}} {{person.lastName}},<br>
           {{person.position}}</span><br>
           <button (click)="edit(person)">Edit</button>

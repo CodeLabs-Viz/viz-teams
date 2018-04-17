@@ -7,12 +7,14 @@
         <input
           type="text"
           class="form-control"
+          placeholder="First Name"
           value="{{oldPerson.firstName}}"
           (keyup)="onKeyFirstName($event)">
         <br><br>
         <input
           type="text"
           class="form-control"
+          placeholder="Last Name"
           value="{{oldPerson.lastName}}"
           (keyup)="onKeyLastName($event)">
         <br><br>
@@ -20,12 +22,14 @@
           type="text"
           class="form-control"
           value="{{oldPerson.position}}"
+          placeholder="Position"
           (keyup)="onKeyPosition($event)">
         <br><br>
         <input
           type="text"
           class="form-control"
           value="{{oldPerson.teamName}}"
+          placeholder="Team Name"
           (keyup)="onKeyTeamName($event)">
           <br><br>
       </div>
