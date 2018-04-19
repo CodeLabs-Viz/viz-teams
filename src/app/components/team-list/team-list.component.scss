@@ -18,6 +18,7 @@ button:hover {
     flex-flow: row wrap;
     text-align: left;
     line-height: 1.5; 
+    height: calc(100% - 60px);
     h3 {
         background-color: rgb(1, 173, 171);
         border-radius: 2rem;

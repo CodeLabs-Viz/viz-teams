@@ -3,15 +3,17 @@
 }
 
 .container{
-    height: 100%;
     display: flex;
     clear: both;
     .app-sidebar{
         width: 15%;
         min-width: 140px;
-        height: 100%;
+        height: calc(100vh - 60px);
+        overflow: auto;
     }
     .app-team-list{
         width: 85%;
+        height: calc(100vh - 60px);
+        overflow: auto;
     }
 }
