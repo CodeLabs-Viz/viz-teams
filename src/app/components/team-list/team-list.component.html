@@ -4,9 +4,11 @@
       <h3>{{team.name}} Team</h3>
       <div *ngFor='let person of (team.members | personSortAsc)'>
         <div [appDraggable]="{data:person}" class="team-member">
-          <div>{{person.firstName}} {{person.lastName}},</div>
-          <div>{{person.position}}</div>
-          <button (click)="edit(person)">Edit</button>
+          <div class="details">
+            <div>{{person.firstName}} {{person.lastName}},</div>
+            <div>{{person.position}}</div>
+          </div>
+          <div class="btns"><button (click)="edit(person)">Edit</button></div>
         </div>
       </div>
     </div>

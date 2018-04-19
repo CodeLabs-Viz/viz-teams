@@ -39,6 +39,22 @@ button:hover {
     padding: 5px 0;
     cursor: move;
     margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+    .btns {
+        align-self: center;
+        display: none;
+    }
+}
+
+.team-member:hover {
+    .btns {
+        display: flex;
+    }
 }
 
 .drop-target {
