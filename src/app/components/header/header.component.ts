@@ -26,10 +26,12 @@ export class HeaderComponent implements OnInit {
     const fileList = val.srcElement.files;
     const fileName = fileList[0].name.split('.');
     const extension = fileName[1];
-    this.importCsv(val);
     if (extension === 'csv') {
       this.valid = 'Valid';
       this.validation = 'green';
+      confirm('Importing will delete current data. Are you sure?');
+      this.importCsv(val);
+      (< HTMLInputElement > document.getElementById('srcfile')).value = null;
     } else {
       this.valid = 'Invalid';
       this.validation = 'red';

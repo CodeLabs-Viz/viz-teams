@@ -26,9 +26,8 @@ export class PersonParserService {
     fileText.pop();
     fileText.forEach(line => {
       people.push(this.parseLineIntoPerson(line));
-      console.log(this.personService.peopleSubject.value);
-      this.personService.setPeople(people);
-      });
+    });
+    this.personService.setPeople(people);
   }
 
   parseLineIntoPerson(line): Person {
