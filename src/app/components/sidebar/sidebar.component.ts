@@ -73,10 +73,6 @@ export class SidebarComponent implements OnInit {
     this.personService.addToTeam(person, new Team('', []));
   }
 
-  removePerson(person: Person) {
-    this.personService.removePerson(person);
-  }
-
   edit(person: Person) {
     this.router.navigateByUrl('/edit/' + person.lastName);
   }

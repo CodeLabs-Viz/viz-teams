@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { PersonService } from '../../services/person.service';
@@ -15,6 +15,7 @@ export class EditPersonComponent implements OnInit {
   lastNameHasChanged = false;
   positionHasChanged = false;
   teamNameHasChanged = false;
+  personToRemove: string;
   oldPerson = new Person('', '', '', '');
   editPerson = new Person('', '', '', '');
   newPerson = new Person('', '', '', '');
@@ -22,7 +23,8 @@ export class EditPersonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private personService: PersonService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
     this.personService.getPeople().subscribe(p => this.getPerson(p));
   }
@@ -37,6 +39,13 @@ export class EditPersonComponent implements OnInit {
         this.oldPerson = person;
       }
     }
+  }
+
+  removePerson(person: Person) {
+    this.personToRemove = this.oldPerson.firstName + ' ' + this.oldPerson.lastName;
+    confirm('Are you sure you want to remove ' + this.personToRemove + '?');
+    this.personService.removePerson(person);
+    this.router.navigateByUrl('/');
   }
 
   finishEditing(oldPerson: Person) {
@@ -65,6 +74,11 @@ export class EditPersonComponent implements OnInit {
     this.lastNameHasChanged = false;
     this.positionHasChanged = false;
     this.teamNameHasChanged = false;
+    this.router.navigateByUrl('/');
+  }
+
+  home(): void {
+    this.router.navigateByUrl('/');
   }
 
   onKeyFirstName(event: any) {

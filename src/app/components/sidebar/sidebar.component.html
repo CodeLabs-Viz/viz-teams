@@ -7,14 +7,13 @@
     <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (change)="validatePerson()">
     <div class="form-btns">
       <button class="cancel" (click)="stopAdding()">Cancel</button>
-      <button class="done" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
+      <button class="save" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
     </div>
   </div>
   <div class="freeAgentContainer" *ngFor="let person of (freeAgents | sidebarSortAsc)">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns">
-        <button class="cancel" (click)="removePerson(person)">Remove</button>
         <button (click)="edit(person)">Edit</button>
       </div>
     </div>

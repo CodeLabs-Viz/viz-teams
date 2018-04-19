@@ -94,6 +94,7 @@ export class HeaderComponent implements OnInit {
   }
 
   home(): void {
+    console.log('clicked');
     this.router.navigateByUrl('/');
   }
 }

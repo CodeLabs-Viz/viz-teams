@@ -6,13 +6,20 @@ button {
     transition-duration: 0.3s;
     border-radius: 2rem;
 }
-.cancel:hover {
+.remove:hover {
     background: rgb(255, 78, 0);
-}    
+}
+.save:hover {
+    background-color: #87c652;
+}
 button:hover {
     background-color: rgb(1, 173, 171);
 }
 
 .edit-form {
     padding-left: 2em;
+}
+
+a {
+    text-decoration: none;
 }
