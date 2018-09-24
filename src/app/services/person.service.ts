@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Team } from '../models/team';
 import { Person } from '../models/person';
 import { PersonStore } from '../services/person-store';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PersonService {
