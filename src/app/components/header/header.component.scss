@@ -5,33 +5,25 @@
   background-color: rgba(225, 78, 0, 1);
   font-size: 1.1rem;
 
+  .logo {
+    padding: .5rem;
+  }
+
+  .links {
+    height: 100%;
+  }
+
   button {
+    background: rgba(0, 0, 0, 0);
     border: none;
     color: white;
     height: 100%;
     padding: 1.125em;
-    background-color: rgba(0, 0, 0, 0);
-  }
-  button:hover {
-    background-color: rgb(1, 173, 171);
-    height: 100%;
-  }
-  .logo {
-    padding: .5rem;
-  }
-  .right-links {
-    height: 100%;
-  }
-  .realButton {
-    background: rgba(0, 0, 0, 0);
-    border: none;
-    color: white;
     position: relative;
     transition-duration: 0.3s;
+    
+    &:hover{
+      background-color: rgb(1, 173, 171);
+    }
   }
-  
-  .realButton:hover{
-    background-color: rgb(1, 173, 171);
-  }
-  
 }
