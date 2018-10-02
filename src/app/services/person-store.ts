@@ -24,9 +24,9 @@ export class PersonStore {
     return this.people;
   }
 
-  update(oldPerson: Person, newPerson: Person): Person[] {
-    const index = this.getIndex(oldPerson);
-    this.people[index] = newPerson;
+  update(person: Person): Person[] {
+    const index = this.people.indexOf(this.people.filter(x => x.id === person.id)[0]);
+    this.people[index] = person;
     return this.people;
   }
 

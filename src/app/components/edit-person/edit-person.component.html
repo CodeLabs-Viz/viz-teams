@@ -2,94 +2,19 @@
   <div class="edit-form">
     <div class="top">
       <div class="fields">
-        <h1>{{oldPerson.firstName}} {{oldPerson.lastName}}'s Profile</h1>
-        
-        <input
-          type="text"
-          class="form-control"
-          placeholder="First Name"
-          value="{{oldPerson.firstName}}"
-          (keyup)="onKeyFirstName($event)">
-        <br><br>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Last Name"
-          value="{{oldPerson.lastName}}"
-          (keyup)="onKeyLastName($event)">
-        <br><br>
-        <input
-          type="text"
-          class="form-control"
-          value="{{oldPerson.position}}"
-          placeholder="Position"
-          (keyup)="onKeyPosition($event)">
-        <br><br>
-        <input
-          type="text"
-          class="form-control"
-          value="{{oldPerson.teamName}}"
-          placeholder="Team Name"
-          (keyup)="onKeyTeamName($event)">
-          <br><br>
-      </div>
-      <div class="pic">
-
+        <h1>{{person.firstName}} {{person.lastName}}</h1>
+        <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="person.firstName">
+        <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="person.lastName">
+        <input type="text" class="form-control" placeholder="Position" [(ngModel)]="person.position">
+        <input type="text" class="form-control" placeholder="Team Name" [(ngModel)]="person.teamName">
       </div>
     </div>
     <div class="bottom">
       <div class="btns">
-        <button class="remove" (click)="removePerson(oldPerson)">Remove</button>
+        <button class="remove" (click)="removePerson(person)">Remove</button>
         <button class="cancel" (click)="home()">Cancel</button>
-        <button class="save" (click)="finishEditing(this.oldPerson)">Save</button>
+        <button class="save" (click)="finishEditing()">Save</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-<!-- <div class="edit-page">
-  <div class="edit-form">
-    <div class="form-fields">
-      <h1>Editing {{oldPerson.firstName}} {{oldPerson.lastName}}'s Profile</h1>
-
-      <input
-        type="text"
-        class="form-control"
-        value="{{oldPerson.firstName}}"
-        (keyup)="onKeyFirstName($event)">
-
-      <input
-        type="text"
-        class="form-control"
-        value="{{oldPerson.lastName}}"
-        (keyup)="onKeyLastName($event)">
-
-      <input
-        type="text"
-        class="form-control"
-        value="{{oldPerson.position}}"
-        (keyup)="onKeyPosition($event)">
-
-      <input
-        type="text"
-        class="form-control"
-        value="{{oldPerson.teamName}}"
-        (keyup)="onKeyTeamName($event)">
-    </div>
-    <div class="form-pic">
-      <h1>test test test</h1>
-    </div>
-    <div class="form-btns">
-      <a routerLink="/"><button>Cancel</button></a>
-      <a routerLink="/" (click)="finishEditing(this.oldPerson)"><button>Save</button></a>
-    </div>
-  </div>
-</div> -->

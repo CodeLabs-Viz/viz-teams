@@ -6,10 +6,12 @@ import { PersonService } from './person.service';
 export class PersonParserService {
 
   people: Array<Person> = [];
+  id = 0;
 
   constructor(private personService: PersonService) { }
 
   parsecsv(file) {
+    this.id = 0;
     let result;
     const reader = new FileReader();
     reader.onload = () => {
@@ -32,14 +34,19 @@ export class PersonParserService {
 
   parseLineIntoPerson(line): Person {
     const props = line.split(',');
-    return new Person(props[0].trim(), props[1].trim(), props[2].trim(), props[3].trim());
+    const result = new Person(this.id, props[0].trim(), props[1].trim(), props[2].trim(), props[3].trim());
+    this.id++;
+    return result;
   }
 
   unparseIntoFile() {
     let fileText = 'Firstname, Lastname, Position, Team' + '\n';
-    this.personService.getPeople().subscribe(people => { people.forEach(p => {
-      fileText += this.getLineFromPerson(p) + ('\n');
-    })});
+    this.personService.getPeople().subscribe(people => {
+        people.forEach((p) => {
+          fileText += this.getLineFromPerson(p) + ('\n');
+        }
+      );
+    });
     this.downloadFile(fileText);
   }
 

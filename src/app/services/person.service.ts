@@ -11,12 +11,16 @@ export class PersonService {
   constructor(private personStore: PersonStore) { }
 
   addToTeam(person: Person, team: Team): void {
-    const newPerson = new Person(person.firstName, person.lastName, person.position, team.name);
-    this.peopleSubject.next(this.personStore.update(person, newPerson));
+    const newPerson = new Person(person.id, person.firstName, person.lastName, person.position, team.name);
+    this.peopleSubject.next(this.personStore.update(newPerson));
   }
 
   getPeople(): Observable<Person[]> {
     return this.peopleSubject;
+  }
+
+  getPerson(id: number): Person {
+    return this.peopleSubject.getValue().filter(x => x.id === id)[0];
   }
 
   setPeople(people: Person[]): void {
@@ -27,8 +31,8 @@ export class PersonService {
     this.peopleSubject.next(this.personStore.add(person));
   }
 
-  updatePerson(oldPerson: Person, newPerson: Person): void {
-    this.peopleSubject.next(this.personStore.update(oldPerson, newPerson));
+  updatePerson(newPerson: Person): void {
+    this.peopleSubject.next(this.personStore.update(newPerson));
   }
 
   removePerson(person: Person): void {

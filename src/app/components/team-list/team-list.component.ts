@@ -11,14 +11,8 @@ import { Router } from '@angular/router';
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
-export class TeamListComponent implements OnInit {
-  @Input() people: Person[] = [
-    // {firstName: 'Andrew', lastName: 'Palmer', position: 'WebDev', team: 'Blue'},
-    // {firstName: 'Jesse', lastName: 'Smith', position: 'WebDev', team: 'Blue'},
-    // {firstName: 'Laura', lastName: 'Nothdurft', position: 'WebDev', team: 'Blue'},
-    // {firstName: 'Mathew', lastName: 'Skaggs', position: 'WebDev', team: 'Blue'},
-    // {firstName: 'Prabesh', lastName: 'Amatya', position: 'WebDev', team: 'Blue'}
-  ];
+export class TeamListComponent {
+  @Input() people: Person[] = [];
 
   valid = '';
   validation = '';
@@ -34,14 +28,8 @@ export class TeamListComponent implements OnInit {
     this.teamService.getTeams().subscribe(t => this.getTeams(t));
   }
 
-  ngOnInit() {
-    // this.people = this.personParsingService.people;
-    // this.teams = this.buildTeams(this.people)
-  }
-
-
   onDrop(person: Person, team: Team) {
-    person = new Person(person.firstName, person.lastName, person.position, person.teamName);
+    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, team);
   }
 
@@ -56,7 +44,7 @@ export class TeamListComponent implements OnInit {
   }
 
   edit(person: Person): void {
-    this.router.navigateByUrl('/edit/' + person.lastName);
+    this.router.navigateByUrl('/edit/' + person.id);
   }
 
   checkExtension (val) {
