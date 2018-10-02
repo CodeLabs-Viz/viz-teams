@@ -1,3 +1,14 @@
+<div class="button-container">
+  <button class="realButton" (click)="openUpload()">
+    Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
+  </button>
+  <button class="realButton" (click)="exportCsv()" >
+    Export
+  </button>
+  <button class="realButton" (click)="templateCsv()">
+    Template
+  </button>
+</div>
 <div class="team-list">
   <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
@@ -12,3 +23,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
