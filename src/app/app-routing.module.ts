@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { EditPersonComponent } from './components/edit-person/edit-person.component';
 import { RouterModule, Routes } from '@angular/router';
-import { TeamListComponent } from './components/team-list/team-list.component';
+import { FirebaseTestComponent } from './components/firebase-test/firebase-test.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 const routes: Routes = [
-  { path: '', component: TeamListComponent},
-  { path: 'edit/:id', component: EditPersonComponent}
+  { path: '', component: TeamsComponent},
+  { path: 'edit/:id', component: EditPersonComponent},
+  { path: 'firebase-test', component: FirebaseTestComponent}
 ];
 
 @NgModule({

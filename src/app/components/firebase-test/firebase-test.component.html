@@ -1,0 +1,20 @@
+<div *ngIf="allItems">
+  <h3>All Items</h3>
+  <div *ngFor="let item of allItems">
+    <span>{{item.id}} - {{item.value}} - {{item.color}}</span>
+  </div>
+</div>
+
+<div *ngIf="queryItems">
+  <h3>Items Where Color == Red</h3>
+  <div *ngFor="let item of queryItems">
+    <span>{{item.id}} - {{item.value}} - {{item.color}}</span>
+  </div>
+</div>
+
+<div *ngIf="singleItem">
+  <h3>Single Item</h3>
+  <div>
+    <span>{{singleItem.id}} - {{singleItem.value}} - {{singleItem.color}}</span>
+  </div>
+</div>
