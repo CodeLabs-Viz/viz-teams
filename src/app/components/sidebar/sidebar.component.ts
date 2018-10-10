@@ -14,11 +14,7 @@ export class SidebarComponent implements OnInit {
   people: Array<Person> = [];
   freeAgents: Array<Person> = [];
   isAdding = false;
-<<<<<<< Updated upstream
   person: Person = new Person(0, '', '', '', '');
-=======
-  person: Person = new Person(null,'', '', '', '');
->>>>>>> Stashed changes
   canSubmit = false;
   team: Team;
 
@@ -41,21 +37,13 @@ export class SidebarComponent implements OnInit {
   }
 
   finishAdding() {
-<<<<<<< Updated upstream
     const person = new Person(this.person.id, this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
-=======
-    const person = new Person(this.person.id,this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
->>>>>>> Stashed changes
     this.personService.addPerson(person);
     this.stopAdding();
   }
 
   clearFields() {
-<<<<<<< Updated upstream
     this.person = new Person(0, '', '', '', '');
-=======
-    this.person = new Person(null,'', '', '', '');
->>>>>>> Stashed changes
     this.canSubmit = false;
   }
 
@@ -81,11 +69,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onDrop(person: Person, team: Team) {
-<<<<<<< Updated upstream
     person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
-=======
-    person = new Person(person.id,person.firstName, person.lastName, person.position, person.teamName);
->>>>>>> Stashed changes
     this.personService.addToTeam(person, new Team('', []));
   }
 
