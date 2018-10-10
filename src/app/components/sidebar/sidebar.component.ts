@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
   people: Array<Person> = [];
   freeAgents: Array<Person> = [];
   isAdding = false;
-  person: Person = new Person('', '', '', '');
+  person: Person = new Person(0, '', '', '', '');
   canSubmit = false;
   team: Team;
 
@@ -37,13 +37,13 @@ export class SidebarComponent implements OnInit {
   }
 
   finishAdding() {
-    const person = new Person(this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
+    const person = new Person(this.person.id, this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
     this.personService.addPerson(person);
     this.stopAdding();
   }
 
   clearFields() {
-    this.person = new Person('', '', '', '');
+    this.person = new Person(0, '', '', '', '');
     this.canSubmit = false;
   }
 
@@ -69,7 +69,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onDrop(person: Person, team: Team) {
-    person = new Person(person.firstName, person.lastName, person.position, person.teamName);
+    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
     this.personService.addToTeam(person, new Team('', []));
   }
 
