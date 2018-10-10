@@ -44,11 +44,11 @@ fdescribe('SidebarComponent', () => {
 
   describe('clearFields', () => {
     it('should reset person', () => {
-      component.person = new Person('Tom', 'Bob', 'Dev', 'Green');
+      component.person = new Person(1,'Tom', 'Bob', 'Dev', 'Green');
 
       component.clearFields();
 //
-      expect(component.person).toEqual(new Person('', '', '', ''));
+      expect(component.person).toEqual(new Person(null,'', '', '', ''));
     });
 
     it('should make canSubmit false', () => {
