@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'edit/:id', component: EditPersonComponent},
   { path: 'firebase-test', component: FirebaseTestComponent},
-  { path: '**', component: TeamsComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
