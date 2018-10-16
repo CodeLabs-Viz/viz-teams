@@ -8,7 +8,7 @@ import { DraggableDirective } from '../../directives/draggable.directive';
 import { RouterModule } from '@angular/router';
 import { PersonStore } from '../../services/person-store';
 
-fdescribe('SidebarComponent', () => {
+describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
 
@@ -44,11 +44,11 @@ fdescribe('SidebarComponent', () => {
 
   describe('clearFields', () => {
     it('should reset person', () => {
-      component.person = new Person(1,'Tom', 'Bob', 'Dev', 'Green');
+      component.person = new Person(1, 'Tom', 'Bob', 'Dev', 'Green');
 
       component.clearFields();
 //
-      expect(component.person).toEqual(new Person(null,'', '', '', ''));
+      expect(component.person).toEqual(new Person(null, '', '', '', ''));
     });
 
     it('should make canSubmit false', () => {

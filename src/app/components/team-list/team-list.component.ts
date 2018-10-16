@@ -5,6 +5,7 @@ import { Team } from '../../models/team';
 import { PersonService } from '../../services/person.service';
 import { TeamService } from '../../services/team.service';
 import { Router } from '@angular/router';
+import { SidebarSortAscPipe } from '../../pipes/sidebar-sort-asc.pipe';
 
 @Component({
   selector: 'app-team-list',
@@ -23,7 +24,8 @@ export class TeamListComponent {
     private personParserService: PersonParserService,
     private personService: PersonService,
     private teamService: TeamService,
-    private router: Router
+    private router: Router,
+    private sideBarAsc: SidebarSortAscPipe
   ) {
     this.teamService.getTeams().subscribe(t => this.getTeams(t));
   }
@@ -47,7 +49,7 @@ export class TeamListComponent {
     this.router.navigateByUrl('/edit/' + person.id);
   }
 
-  checkExtension (val) {
+  checkExtension (val): void {
     const fileList = val.srcElement.files;
     const fileName = fileList[0].name.split('.');
     const extension = fileName[1];
@@ -63,16 +65,16 @@ export class TeamListComponent {
     }
   }
 
-  importCsv(val) {
+  importCsv(val): void {
     const file = new Blob (val.srcElement.files);
     this.personParserService.parsecsv(file);
   }
 
-  exportCsv() {
+  exportCsv(): void {
     this.personParserService.unparseIntoFile();
   }
 
-  templateCsv() {
+  templateCsv(): void {
     const fileText = 'Firstname, Lastname, Position, Team' + '\n';
     this.downloadTemplate(fileText);
   }
@@ -83,7 +85,7 @@ export class TeamListComponent {
     }
   }
 
-  detectIE() {
+  detectIE(): any {
     const ua = window.navigator.userAgent;
 
     const msie = ua.indexOf('MSIE ');
