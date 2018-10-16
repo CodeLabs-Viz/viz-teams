@@ -5,7 +5,6 @@ import { Team } from '../../models/team';
 import { PersonService } from '../../services/person.service';
 import { TeamService } from '../../services/team.service';
 import { Router } from '@angular/router';
-import { SidebarSortAscPipe } from '../../pipes/sidebar-sort-asc.pipe';
 
 @Component({
   selector: 'app-team-list',
@@ -25,7 +24,6 @@ export class TeamListComponent {
     private personService: PersonService,
     private teamService: TeamService,
     private router: Router,
-    private sideBarAsc: SidebarSortAscPipe
   ) {
     this.teamService.getTeams().subscribe(t => this.getTeams(t));
   }
