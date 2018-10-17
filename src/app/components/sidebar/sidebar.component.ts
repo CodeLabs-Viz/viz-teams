@@ -37,7 +37,9 @@ export class SidebarComponent implements OnInit {
   }
 
   finishAdding() {
-    const person = new Person(this.person.id, this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
+    // Temporary fix until database is hooked up
+    const randomId = Math.floor(Math.random() * 1000);
+    const person = new Person(randomId, this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
     this.personService.addPerson(person);
     this.stopAdding();
   }
@@ -49,8 +51,8 @@ export class SidebarComponent implements OnInit {
 
   validatePerson() {
     this.person.firstName !== ''
-      && this.person.lastName !== ''
-      && this.person.position !== ''
+    && this.person.lastName !== ''
+    && this.person.position !== ''
       ? this.canSubmit = true : this.canSubmit = false;
   }
 
@@ -74,6 +76,6 @@ export class SidebarComponent implements OnInit {
   }
 
   edit(person: Person) {
-    this.router.navigateByUrl('/edit/' + person.lastName);
+    this.router.navigateByUrl('/edit/' + person.id);
   }
 }
