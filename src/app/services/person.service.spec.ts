@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { PersonService } from './person.service';
+import { createStub } from '../helpers/provide-stub.spec';
 
 describe('Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PersonService]
+      providers: [{provide: PersonService, useValue: createStub(PersonService)}]
     });
   });
 

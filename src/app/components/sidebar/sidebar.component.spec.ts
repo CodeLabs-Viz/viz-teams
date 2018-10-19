@@ -6,7 +6,8 @@ import { Person } from '../../models/person';
 import { FormsModule } from '@angular/forms';
 import { DraggableDirective } from '../../directives/draggable.directive';
 import { RouterModule } from '@angular/router';
-import { PersonStore } from '../../services/person-store';
+import { SidebarSortAscPipe } from '../../pipes/sidebar-sort-asc.pipe';
+import { createStub } from '../../helpers/provide-stub.spec';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -16,7 +17,10 @@ describe('SidebarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SidebarComponent, DraggableDirective],
       imports: [FormsModule, RouterModule],
-      providers: [PersonService, PersonStore]
+      providers: [
+        { provide: PersonService, useValue: createStub(PersonService)},
+        SidebarSortAscPipe
+      ]
     })
     .compileComponents();
   }));
