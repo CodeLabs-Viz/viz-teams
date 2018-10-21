@@ -7,28 +7,26 @@ import { createStub } from '../../helpers/provide-stub.spec';
 import { PersonService } from '../../services/person.service';
 import { FormsModule } from '@angular/forms';
 import { SidebarSortAscPipe } from '../../pipes/sidebar-sort-asc.pipe';
+import { setupTestBed } from '../../helpers/setup-test-bed.spec';
 
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
   let fixture: ComponentFixture<TeamsComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        TeamsComponent,
-        SidebarComponent,
-        TeamListComponent
-      ],
-      imports: [
-        FormsModule
-      ],
-      providers: [
-        {provide: PersonService, useValue: createStub(PersonService)},
-        SidebarSortAscPipe
-      ]
-    })
-    .compileComponents();
-  }));
+  setupTestBed({
+    declarations: [
+      TeamsComponent,
+      SidebarComponent,
+      TeamListComponent
+    ],
+    imports: [
+      FormsModule
+    ],
+    providers: [
+      {provide: PersonService, useValue: createStub(PersonService)},
+      SidebarSortAscPipe
+    ]
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TeamsComponent);

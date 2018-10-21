@@ -15,6 +15,7 @@ export class EditPersonComponent {
 
   constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router) {
     const id = +this.route.snapshot.paramMap.get('id');
+    console.log(this.route.snapshot.paramMap);
     this.person = this.personService.getPerson(id);
   }
 

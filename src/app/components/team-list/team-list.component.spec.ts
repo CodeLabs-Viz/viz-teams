@@ -10,29 +10,27 @@ import { PersonStore } from '../../services/person-store';
 import { TeamService } from '../../services/team.service';
 import { Router } from '@angular/router';
 import { createStub } from '../../helpers/provide-stub.spec';
+import { setupTestBed } from '../../helpers/setup-test-bed.spec';
 
 describe('TeamListComponent', () => {
   let component: TeamListComponent;
   let fixture: ComponentFixture<TeamListComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        TeamListComponent,
-        TeamSortAscPipe,
-        PersonSortAscPipe,
-        DraggableDirective
-      ],
-      providers: [
-        PersonParserService,
-        PersonService,
-        PersonStore,
-        TeamService,
-        {provide: Router, useValue: createStub(Router)}
-      ]
-    })
-    .compileComponents();
-  }));
+  setupTestBed({
+    declarations: [
+      TeamListComponent,
+      TeamSortAscPipe,
+      PersonSortAscPipe,
+      DraggableDirective
+    ],
+    providers: [
+      PersonParserService,
+      PersonService,
+      PersonStore,
+      TeamService,
+      {provide: Router, useValue: createStub(Router)}
+    ]
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TeamListComponent);

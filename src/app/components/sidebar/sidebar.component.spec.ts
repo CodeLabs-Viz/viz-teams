@@ -8,29 +8,26 @@ import { DraggableDirective } from '../../directives/draggable.directive';
 import { RouterModule } from '@angular/router';
 import { SidebarSortAscPipe } from '../../pipes/sidebar-sort-asc.pipe';
 import { createStub } from '../../helpers/provide-stub.spec';
+import { setupTestBed } from '../../helpers/setup-test-bed.spec';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [SidebarComponent, DraggableDirective],
-      imports: [FormsModule, RouterModule],
-      providers: [
-        { provide: PersonService, useValue: createStub(PersonService)},
-        SidebarSortAscPipe
-      ]
-    })
-    .compileComponents();
-  }));
+  setupTestBed({
+    declarations: [SidebarComponent, DraggableDirective],
+    imports: [FormsModule, RouterModule],
+    providers: [
+      { provide: PersonService, useValue: createStub(PersonService)},
+      SidebarSortAscPipe
+    ]
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
 
   it('should create', () => {
     expect(component).toBeTruthy();
