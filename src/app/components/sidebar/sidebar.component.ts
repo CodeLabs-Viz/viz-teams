@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
   people: Array<Person> = [];
   freeAgents: Array<Person> = [];
@@ -22,9 +22,6 @@ export class SidebarComponent implements OnInit {
     private personService: PersonService,
     private router: Router) {
     this.personService.getPeople().subscribe(p => this.getFreeAgents(p));
-  }
-
-  ngOnInit() {
   }
 
   startAdding() {

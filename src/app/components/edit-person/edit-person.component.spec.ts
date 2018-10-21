@@ -7,7 +7,7 @@ import { createStub } from '../../helpers/provide-stub.spec';
 import { PersonService } from '../../services/person.service';
 import { setupTestBed } from '../../helpers/setup-test-bed.spec';
 
-fdescribe('EditPersonComponent', () => {
+describe('EditPersonComponent', () => {
   let component: EditPersonComponent;
   let fixture: ComponentFixture<EditPersonComponent>;
   const activatedRoute = createStub(ActivatedRoute);
