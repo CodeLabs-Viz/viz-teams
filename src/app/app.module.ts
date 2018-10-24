@@ -22,6 +22,7 @@ import { PersonParserService } from './services/person-parser.service';
 import { PersonService } from './services/person.service';
 import { PersonStore } from './services/person-store';
 import { TeamService } from './services/team.service';
+import { TeamStore } from './services/team-store';
 
 import { DraggableDirective } from './directives/draggable.directive';
 import { DropTargetDirective } from './directives/drop-target.directive';
@@ -62,7 +63,8 @@ import { LoginComponent } from './components/login/login.component';
     PersonParserService,
     PersonService,
     PersonStore,
-    TeamService
+    TeamService,
+    TeamStore
   ],
   bootstrap: [AppComponent]
 })

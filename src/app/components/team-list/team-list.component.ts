@@ -43,20 +43,29 @@ export class TeamListComponent {
     this.teams = theTeams;
   }
 
+  removeTeam(team: Team): void {
+    if(confirm("This will permanently delete this team, are you sure?")){
+      this.teamService.removeTeam(team);
+    }
+    
+  }
+
   edit(person: Person): void {
     this.router.navigateByUrl('/edit/' + person.id);
   }
 
-  checkExtension (val): void {
+  checkExtension(val): void {
     const fileList = val.srcElement.files;
     const fileName = fileList[0].name.split('.');
     const extension = fileName[1];
     if (extension === 'csv') {
       this.valid = 'Valid';
       this.validation = 'green';
-      confirm('Importing will delete current data. Are you sure?');
-      this.importCsv(val);
+      if(confirm('Importing will delete current data. Are you sure?')){
+        this.importCsv(val);
       (< HTMLInputElement > document.getElementById('srcfile')).value = null;
+      }
+      
     } else {
       this.valid = 'Invalid';
       this.validation = 'red';

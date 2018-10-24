@@ -69,7 +69,7 @@ export class SidebarComponent {
 
   onDrop(person: Person, team: Team) {
     person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
-    this.personService.addToTeam(person, new Team('', []));
+    this.personService.addToTeam(person, new Team(0, '', []));
   }
 
   edit(person: Person) {
