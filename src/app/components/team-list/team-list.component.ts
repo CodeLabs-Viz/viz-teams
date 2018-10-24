@@ -43,6 +43,10 @@ export class TeamListComponent {
     this.teams = theTeams;
   }
 
+  removeTeam(team: Team): void {
+    this.teamService.removeTeam(team);
+  }
+
   edit(person: Person): void {
     this.router.navigateByUrl('/edit/' + person.id);
   }
