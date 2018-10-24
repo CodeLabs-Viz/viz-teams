@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TeamStoreService } from './team-store.service';
+import { TeamStore } from './team-store';
 
-describe('TeamStoreService', () => {
+describe('TeamStore', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TeamStoreService = TestBed.get(TeamStoreService);
+    const service: TeamStore = TestBed.get(TeamStore);
     expect(service).toBeTruthy();
   });
 });
