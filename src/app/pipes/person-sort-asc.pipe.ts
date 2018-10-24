@@ -7,7 +7,7 @@ import { Person } from '../models/person';
 export class PersonSortAscPipe implements PipeTransform {
 
   transform(value: Person[], args?: any): any {
-    return value.sort((a, b) => a.firstName > b.firstName ? 1 : -1);
+    return value.sort((a, b) => a.lastName > b.lastName ? 1 : -1);
   }
 
 }
