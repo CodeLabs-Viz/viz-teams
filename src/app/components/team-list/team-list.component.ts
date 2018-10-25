@@ -50,6 +50,10 @@ export class TeamListComponent {
     
   }
 
+  addTeam() {
+    
+  }
+
   edit(person: Person): void {
     this.router.navigateByUrl('/edit/' + person.id);
   }

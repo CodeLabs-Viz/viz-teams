@@ -92,6 +92,8 @@
     width: 250px;
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
+    text-align: center;
 
     .hiddenUpload {
         width: 100%;
