@@ -33,6 +33,11 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/user/user.component';
+import { UserResolver } from './components/user/user.resolver';
+import { AuthGuard } from './core/auth.guard';
+import { AuthService } from './core/auth.service';
+import { UserService } from './core/user.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +62,8 @@ import { UserComponent } from './components/user/user.component';
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DragService,
@@ -65,7 +71,11 @@ import { UserComponent } from './components/user/user.component';
     PersonParserService,
     PersonService,
     PersonStore,
-    TeamService
+    TeamService,
+    AuthService,
+    UserService,
+    UserResolver,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
