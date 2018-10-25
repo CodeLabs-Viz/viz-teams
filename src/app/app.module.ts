@@ -31,7 +31,8 @@ import { SidebarSortAscPipe } from './pipes/sidebar-sort-asc.pipe';
 import { TeamSortAscPipe } from './pipes/team-sort-asc.pipe';
 import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { RegisterComponent } from './components/register/register.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,9 @@ import { LoginComponent } from './components/login/login.component';
     TeamSortAscPipe,
     FirebaseTestComponent,
     TeamsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    UserComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
