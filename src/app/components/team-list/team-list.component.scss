@@ -100,6 +100,8 @@
         position: absolute;
         top: 0px;
         left: 0px;
+        cursor: pointer;
+        font-size: 0%;
     }
 
     button {
@@ -109,6 +111,7 @@
         padding: 0.5em;
         background-color: rgba(0, 0, 0, 0);
     }
+
     button:hover {
         background-color: rgb(86, 94, 170);
         color: white;
@@ -132,5 +135,6 @@
 
     .realButton:hover{
         background-color: rgb(86, 94, 170);
+        cursor: pointer;
     }
 }
