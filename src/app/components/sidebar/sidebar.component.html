@@ -1,5 +1,5 @@
 <div class="sidebar" appDropTarget (myDrop)="onDrop($event,team)">
-  <button *ngIf="!isAdding" (click)="startAdding()">Add</button>
+  <button *ngIf="!isAdding" (click)="startAdding()">Add Person</button>
   <div *ngIf="isAdding" class="add-form">
     <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (change)="validatePerson()">
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (change)="validatePerson()">
