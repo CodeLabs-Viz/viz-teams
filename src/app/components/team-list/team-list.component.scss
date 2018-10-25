@@ -89,7 +89,7 @@
 .button-container {
     padding: 5px;
     float: right;
-    width: 250px;
+    width: auto; 
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
@@ -133,6 +133,7 @@
         color: rgb(86, 94, 170);
         position: relative;
         transition-duration: 0.3s;
+        margin-right: 10px;
     }
 
     .realButton:hover{
