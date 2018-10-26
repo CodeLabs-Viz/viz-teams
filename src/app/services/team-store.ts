@@ -16,6 +16,7 @@ export class TeamStore {
 
   add(team: Team): Team[] {
     this.teams.push(team);
+
     return this.teams;
   }
 
