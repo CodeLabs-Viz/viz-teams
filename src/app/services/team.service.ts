@@ -28,6 +28,13 @@ export class TeamService {
 
     this.teamsSubject.next(this.teamStore.init(teams));
 
+
+
+
+  }
+
+  addTeam(team: Team): void {
+    this.teamsSubject.next(this.teamStore.add(team));
   }
 
   getTeams(): Observable<Team[]> {
