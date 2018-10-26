@@ -53,6 +53,33 @@ export class SidebarComponent {
       ? this.canSubmit = true : this.canSubmit = false;
   }
 
+  startAddingTeam() {
+    this.isAddingTeam = true;
+  }
+
+  stopAddingTeam() {
+    this.isAddingTeam = false;
+    this.clearFields();
+  }
+
+  finishAddingTeam() {
+    // Temporary fix until database is hooked up
+    const randomId = Math.floor(Math.random() * 1000);
+    const team = new Team(randomId, this.team.name);
+    this.teamsService.addPerson(team);
+    this.stopAddingTeam();
+  }
+
+  clearTeamFields() {
+    this.team = new Team(0, '', '', '', '');
+    this.canSubmit = false;
+  }
+
+  validateTeam() {
+    this.team.name !== ''
+      ? this.canSubmit = true : this.canSubmit = false;
+  }
+
   isDisabled() {
     return !this.canSubmit;
   }

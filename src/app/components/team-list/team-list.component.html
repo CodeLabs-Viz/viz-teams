@@ -1,6 +1,4 @@
 <div class="button-container">
-  <button class="realButton" (click)="addTeam()">Add Team
-  </button>
   <button class="realButton" (click)="openUpload()">
     Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
   </button>
@@ -14,7 +12,7 @@
 <div class="team-list">
   <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
-      <h3>{{team.name}} Team <button (click)="removeTeam(team)">Delete</button></h3> 
+      <h3>{{team.name}} Team <button (click)="removeTeam(team)">Delete</button></h3>
       <div *ngFor='let person of (team.members | personSortAsc)'>
         <div [appDraggable]="{data:person}" class="team-member">
           <div class="details">
