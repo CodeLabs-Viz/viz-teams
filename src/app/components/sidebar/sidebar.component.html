@@ -15,7 +15,7 @@
     <input type="text" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
       <div class="form-btns">
       <button class="cancel" (click)="stopAddingTeam()">Cancel</button>
-      <button class="save" (click)="finishAddingTeam()" [disabled]="isDisabled()">Done</button>
+      <button class="save" (click)="finishAddingTeam()" [disabled]="isDisabledTeam()">Done</button>
     </div>
   </div>
   <div class="freeAgentContainer" *ngFor="let person of (freeAgents | sidebarSortAsc)">

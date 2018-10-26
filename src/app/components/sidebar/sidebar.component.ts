@@ -53,6 +53,10 @@ export class SidebarComponent {
       ? this.canSubmit = true : this.canSubmit = false;
   }
 
+  isDisabled() {
+    return !this.canSubmit;
+  }
+
   startAddingTeam() {
     this.isAddingTeam = true;
   }
@@ -80,7 +84,7 @@ export class SidebarComponent {
       ? this.canSubmit = true : this.canSubmit = false;
   }
 
-  isDisabled() {
+  isDisabledTeam() {
     return !this.canSubmit;
   }
 
