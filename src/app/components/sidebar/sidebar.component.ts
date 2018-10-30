@@ -17,7 +17,7 @@ export class SidebarComponent {
   person: Person = new Person(0, '', '', '', '');
   canSubmit = false;
   team: Team;
-
+  isAddingTeam = false;
   constructor(
     private personService: PersonService,
     private router: Router) {
@@ -66,18 +66,7 @@ export class SidebarComponent {
     this.clearFields();
   }
 
-  finishAddingTeam() {
-    // Temporary fix until database is hooked up
-    const randomId = Math.floor(Math.random() * 1000);
-    const team = new Team(randomId, this.team.name);
-    this.teamsService.addPerson(team);
-    this.stopAddingTeam();
-  }
-
-  clearTeamFields() {
-    this.team = new Team(0, '', '', '', '');
-    this.canSubmit = false;
-  }
+  
 
   validateTeam() {
     this.team.name !== ''
