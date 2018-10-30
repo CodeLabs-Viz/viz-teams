@@ -18,6 +18,8 @@ export class TeamListComponent {
   validation = '';
 
   teams: Team[] = [];
+  team: Team = new Team(0 ,"" ,[] );
+  canSubmit = false;
 
   constructor(
     private personParserService: PersonParserService,
@@ -52,6 +54,18 @@ export class TeamListComponent {
 
   addTeam() {
     
+      // Temporary fix until database is hooked up
+      const randomId = Math.floor(Math.random() * 1000);
+      const thisTeam = new Team(randomId, this.team.name, []);
+      this.teamService.addTeam(thisTeam);
+      this.team = new Team(0,"",[]);
+     
+    
+  }
+
+  validateTeam() {
+    this.team.name !== ''
+      ? this.canSubmit = true : this.canSubmit = false;
   }
 
   edit(person: Person): void {

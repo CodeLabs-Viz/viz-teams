@@ -1,4 +1,8 @@
 <div class="button-container">
+
+    <button class='realButton' onclick="document.getElementById('addTeamModal').style.display='block'">
+        Add New Team
+      </button>
   <button class="realButton" (click)="openUpload()">
     Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
   </button>
@@ -26,3 +30,21 @@
     </div>
   </div>
 </div>
+<div id="addTeamModal" class="w3-modal">
+    <div class="w3-modal-content" style="width: 300px">
+      <div class="w3-container">
+        <span onclick="document.getElementById('addTeamModal').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Add Team</h2>
+        <div class="add-form">
+            <input type="text" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
+            <div class="button-container" style="float: none; justify-content: center">
+              <button class="realButton" (click)="addTeam()" onclick="document.getElementById('addTeamModal').style.display='none'">Save</button>
+              <button class="realButton" onclick="document.getElementById('addTeamModal').style.display='none'">Cancel</button>
+            </div>
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
