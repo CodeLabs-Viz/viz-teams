@@ -34,3 +34,7 @@ export class EditPersonComponent {
     this.router.navigateByUrl('/');
   }
 }
+
+
+
+
