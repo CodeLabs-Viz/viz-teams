@@ -10,14 +10,7 @@
       <button class="save" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
     </div>
   </div><br>
-  <button *ngIf="!isAddingTeam" (click)="startAddingTeam()">Add Team</button>
-  <div *ngIf="isAddingTeam" class="add-form">
-    <input type="text" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
-      <div class="form-btns">
-      <button class="cancel" (click)="stopAddingTeam()">Cancel</button>
-      <button class="save" (click)="finishAddingTeam()" [disabled]="isDisabledTeam()">Done</button>
-    </div>
-  </div>
+ 
   <div class="freeAgentContainer" *ngFor="let person of (freeAgents | sidebarSortAsc)">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
