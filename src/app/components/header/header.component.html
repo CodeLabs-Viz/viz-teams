@@ -10,7 +10,8 @@
       Login/Register
     </button>
     <ng-template #showUser>
-      <button (click)="this.auth.auth.signOut()">{{user.email}}</button>
+      Logged in as: {{user.email}}
+      <button (click)="this.auth.auth.signOut()">Log Out</button>
     </ng-template>
   </div>
 </div>
