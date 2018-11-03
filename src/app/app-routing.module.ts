@@ -14,12 +14,11 @@ const routes: Routes = [
   //Replace the above line with the the below line once testing is done.
   //{ path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent,  resolve: { data: UserResolver}},
   { path: 'edit/:id', component: EditPersonComponent},
   { path: 'firebase-test', component: FirebaseTestComponent},
   { path: '**', redirectTo: '' },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
-  { path: 'user', component: UserComponent,  resolve: { data: UserResolver}}
-
 ];
 
 @NgModule({

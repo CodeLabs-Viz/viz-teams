@@ -4,10 +4,6 @@
     margin-bottom: 40px;
   }
   
-  .row{
-    margin-top: 10px;
-  }
-  
   .error{
     color: red;
   }
@@ -15,4 +11,41 @@
   .success{
     color: green;
   }
+
+  .input-container{
+    text-align: center;
+    align-items: center;
+  }
   
+  .button {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    width: 35%;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px auto;
+    display: block;
+    background: #e14e00;
+    align-items: center;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background: #01adab
+  }
+
+.input {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  display: block;
+  width: 30%;
+  margin: 10px auto;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
