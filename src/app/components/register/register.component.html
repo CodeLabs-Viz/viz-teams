@@ -1,0 +1,21 @@
+<h1 class="header">Create an account with Firebase or Social Providers</h1>
+
+<div class="input-container">
+  <form [formGroup]="registerForm">
+    <input class="input" type="email" formControlName="email" placeholder="email">
+    <input class="input" type="password" formControlName="password" placeholder="password">
+    <label class="error">{{errorMessage}}</label>
+    <label class="success">{{successMessage}}</label>
+  </form> 
+
+  <button class="button" type="submit" (click)="tryRegister(registerForm.value)" >
+    Register
+  </button>
+
+  <button class="button" type="button" (click)="tryGoogleLogin()">
+    Register with Google
+  </button>
+
+  <p>Already have an account? <a routerLink="login">Login</a></p>
+  
+</div>

@@ -6,8 +6,12 @@
     <button class="header-home-button" routerLink="home">
       Home
     </button>
-    <button class="header-login-button" routerLink="login">
+    <button class="header-login-button" routerLink="login" *ngIf="!user; else showUser">
       Login/Register
     </button>
+    <ng-template #showUser>
+      Logged in as: {{user.email}}
+      <button (click)="this.auth.auth.signOut()">Log Out</button>
+    </ng-template>
   </div>
 </div>

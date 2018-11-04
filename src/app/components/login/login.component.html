@@ -1,1 +1,25 @@
-<div>Login</div>
+<h1 class="header">Login with Firebase or Social Providers</h1>
+
+  
+    <div class="input-container">
+      <form [formGroup]="loginForm">
+          <input class="input" type="email" formControlName="email" placeholder="email">
+          <input class="input" type="password"  formControlName="password" placeholder="password">
+          <label class="error">{{errorMessage}}</label>
+      </form>
+
+      <button class="button" type="submit" (click)="tryLogin(loginForm.value)">
+          Login
+      </button>
+
+      <button class="button" type="button" (click)="tryGoogleLogin()">
+        Login with Google
+      </button>
+      
+      <p>No account yet? <a href="/register">Create an account</a></p>
+
+      
+  </div>
+
+      
+

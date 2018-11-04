@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() {}
+  user: User;
+
+  constructor(private auth: AngularFireAuth) {
+    this.auth.user.subscribe(x=>this.user = x);
+  }
 }

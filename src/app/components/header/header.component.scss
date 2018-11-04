@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(225, 78, 0, 1);
+  background-color: #e14e00;
   font-size: 1.1rem;
 
   .logo {
@@ -23,7 +23,7 @@
     transition-duration: 0.3s;
     
     &:hover{
-      background-color: rgb(1, 173, 171);
+      background-color: #01adab;
     }
   }
 }
