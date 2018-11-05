@@ -15,6 +15,7 @@
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns">
+        <button>Delete</button>
         <button (click)="edit(person)">Edit</button>
       </div>
     </div>
