@@ -95,4 +95,12 @@ export class SidebarComponent {
   edit(person: Person) {
     this.router.navigateByUrl('/edit/' + person.id);
   }
+
+  delete(person: Person) {
+    
+    if (confirm('Are you sure you want to remove ' + person.firstName + " " + person.lastName + '?')) {
+      this.personService.removePerson(person);
+    }
+    
+  }
 }
