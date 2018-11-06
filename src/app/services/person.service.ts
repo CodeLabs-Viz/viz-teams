@@ -15,6 +15,11 @@ export class PersonService {
     this.peopleSubject.next(this.personStore.update(newPerson));
   }
 
+  addToFreeAgents(person: Person) {
+    const newPerson = new Person(person.id, person.firstName, person.lastName, person.position, "");
+    this.updatePerson(newPerson);
+  }
+
   getPeople(): Observable<Person[]> {
     return this.peopleSubject;
   }

@@ -9,6 +9,10 @@ export class TeamStore {
     this.teams = [];
   }
 
+  currentTeams(): Team[] {
+    return this.teams;
+  }
+
   init(teams: Team[]): Team[] {
     this.teams = teams;
     return this.teams;

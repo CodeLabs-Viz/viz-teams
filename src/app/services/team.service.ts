@@ -16,7 +16,12 @@ export class TeamService {
   }
 
   buildTeams(people: Person[]): void {
-    const teams: Array<Team> = [];
+    let teams: Team[] = this.teamsSubject.getValue();    
+    teams.forEach(team => {
+      team.members = [];
+      this.teamsSubject.next(this.teamStore.update(team));
+    })
+    
     people.forEach(person => {
       if (!teams.find(t => t.name === person.teamName)) {
         const randomId = Math.floor(Math.random() * 1000);
@@ -26,11 +31,8 @@ export class TeamService {
       }
     });
 
+    
     this.teamsSubject.next(this.teamStore.init(teams));
-
-
-
-
   }
 
   addTeam(team: Team): void {
