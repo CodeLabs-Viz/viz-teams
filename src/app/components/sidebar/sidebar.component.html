@@ -11,12 +11,12 @@
     </div>
   </div><br>
  
-  <div class="freeAgentContainer" *ngFor="let person of (freeAgents | sidebarSortAsc)">
+  <div class="freeAgentContainer w3-container" *ngFor="let person of (freeAgents | sidebarSortAsc)">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
-      <div class="form-btns">
-        <button>Delete</button>
-        <button (click)="edit(person)">Edit</button>
+      <div class="form-btns w3-container w3-center">
+        <i class="fas fa-trash w3-hover-text-red w3-padding"></i>
+        <i class="fas fa-edit w3-hover-text-green w3-padding" (click)="edit(person)"></i>
       </div>
     </div>
   </div>
