@@ -21,15 +21,26 @@
         background-color: rgb(1, 173, 171);
         
     }
+   
 
     h3 {
         background-color: rgb(1, 173, 171);
         border-radius: 2rem;
         color: white;
         font-size: 25px;
-        padding: .5rem .75rem;
+        padding: .5rem .5rem;
         font-size: 1.25em;
         text-align: center;
+        white-space: normal; 
+        text-overflow: hidden;
+        flex-flow: nowrap;
+
+        i {            
+            
+            display: none;            
+        }
+    
+        
 
         button {
           border: none;
@@ -43,6 +54,11 @@
 
         button:hover {
           background-color: rgb(86, 94, 170);
+        }
+    }
+    h3:hover {
+        i {
+            display: inline-flex;
         }
     }
 
@@ -71,7 +87,7 @@
 
 .team-member:hover {
     .btns {
-        display: flex;
+        display: inherit;
     }
 }
 
