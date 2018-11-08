@@ -1,10 +1,10 @@
 <div class="sidebar" appDropTarget (myDrop)="onDrop($event,team)">
   <button *ngIf="!isAdding" (click)="startAdding()">Add Person</button>
   <div *ngIf="isAdding" class="add-form">
-    <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (change)="validatePerson()">
-    <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (change)="validatePerson()">
-    <input type="text" [(ngModel)]="person.position" placeholder="Position" (change)="validatePerson()">
-    <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (change)="validatePerson()">
+    <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (ngModelChange)="validatePerson()">
+    <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (ngModelChange)="validatePerson()">
+    <input type="text" [(ngModel)]="person.position" placeholder="Position" (ngModelChange)="validatePerson()">
+    <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (ngModelChange)="validatePerson()">
     <div class="form-btns">
       <button class="cancel" (click)="stopAdding()">Cancel</button>
       <button class="save" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
