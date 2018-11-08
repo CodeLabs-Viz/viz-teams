@@ -5,22 +5,22 @@
         <h1>Edit Team Member</h1>
         <form class="w3-container">
           <div class="form-group">
-            <input type="text" class="form-control w3-input w3-border" name="firstName" id="firstName" [(ngModel)]="person.firstName">
+            <input type="text" class="form-control w3-input w3-border" name="firstName" id="firstName" [(ngModel)]="person.firstName" (ngModelChange)="validatePerson()">
             <label for="firstName">First Name</label>
           </div>
 
           <div class="form-group">
-            <input type="text" class="w3-input w3-border" name="lastName" id="lastName" [(ngModel)]="person.lastName">
+            <input type="text" class="w3-input w3-border" name="lastName" id="lastName" [(ngModel)]="person.lastName" (ngModelChange)="validatePerson()">
             <label for="lastName">Last Name</label>
           </div>
 
           <div class="form-group">
-              <input type="text" class="w3-input w3-border" name="position" id="position" [(ngModel)]="person.position">
+              <input type="text" class="w3-input w3-border" name="position" id="position" [(ngModel)]="person.position" (ngModelChange)="validatePerson()">
               <label for="position">Position</label>
             </div>
 
           <div class="form-group">
-              <input type="text" class="w3-input w3-border" name="teamName" id="teamName" [(ngModel)]="person.teamName">
+              <input type="text" class="w3-input w3-border" name="teamName" id="teamName" [(ngModel)]="person.teamName" (ngModelChange)="validatePerson()">
               <label for="teamName">Team Name</label>
           </div>
 
@@ -42,7 +42,7 @@
     <div class="w3-bar">
       <button class="w3-button" (click)="removePerson(person)">Remove</button>
       <button class="w3-button" (click)="home()">Cancel</button>
-      <button class="w3-button" (click)="finishEditing()">Save</button>
+      <button class="w3-button" (click)="finishEditing()" [disabled]="isDisabled()">Save</button>
     </div> 
 </div>
 

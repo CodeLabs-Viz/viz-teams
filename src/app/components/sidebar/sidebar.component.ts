@@ -47,9 +47,9 @@ export class SidebarComponent {
   }
 
   validatePerson() {
-    this.person.firstName !== ''
-    && this.person.lastName !== ''
-    && this.person.position !== ''
+    this.person.firstName.trim() !== ''
+    && this.person.lastName.trim()  !== ''
+    && this.person.position.trim()  !== ''
       ? this.canSubmit = true : this.canSubmit = false;
   }
 

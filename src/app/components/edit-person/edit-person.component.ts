@@ -12,6 +12,7 @@ import { Person } from '../../models/person';
 export class EditPersonComponent {
   personToRemove: string;
   person = new Person(0, '', '', '', '');
+  canSubmit = false;
 
   constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router) {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -26,8 +27,22 @@ export class EditPersonComponent {
   }
 
   finishEditing() {
-    this.personService.updatePerson(this.person);
-    this.home();
+    
+      this.personService.updatePerson(this.person);
+      this.home();
+  }
+
+  isDisabled() {
+    return !this.canSubmit;
+  }
+
+  validatePerson() { 
+     
+    this.person.firstName.trim() !== ''
+    && this.person.lastName.trim() !== ''
+    && this.person.position.trim() !== ''
+    ? this.canSubmit = true : this.canSubmit = false;
+    
   }
 
   home(): void {
