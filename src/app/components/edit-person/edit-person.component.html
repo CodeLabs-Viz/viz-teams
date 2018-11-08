@@ -1,50 +1,48 @@
 <div class="container">
   <div class="edit-form">
-    <div class="top">
       <div class="fields">
-        <h1>Edit Team Member</h1>
-        <form class="w3-container">
-          <div class="form-group">
-            <input type="text" class="form-control w3-input w3-border" name="firstName" id="firstName" [(ngModel)]="person.firstName" (ngModelChange)="validatePerson()">
-            <label for="firstName">First Name</label>
-          </div>
+        <form class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16" style="width:50%; margin: auto; margin-top:70px">
+          <h2 class="w3-center">Edit Team Member</h2>
 
-          <div class="form-group">
-            <input type="text" class="w3-input w3-border" name="lastName" id="lastName" [(ngModel)]="person.lastName" (ngModelChange)="validatePerson()">
-            <label for="lastName">Last Name</label>
-          </div>
-
-          <div class="form-group">
-              <input type="text" class="w3-input w3-border" name="position" id="position" [(ngModel)]="person.position" (ngModelChange)="validatePerson()">
-              <label for="position">Position</label>
+          <div class="w3-row w3-section">
+              <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
+                <div class="w3-rest">
+                  <input class="w3-input w3-border" name="firstName" id="firstName" type="text" placeholder="First Name" [(ngModel)]="person.firstName" (ngModelChange)="validatePerson()">
+                </div>
             </div>
 
-          <div class="form-group">
-              <input type="text" class="w3-input w3-border" name="teamName" id="teamName" [(ngModel)]="person.teamName" (ngModelChange)="validatePerson()">
-              <label for="teamName">Team Name</label>
-          </div>
+          <div class="w3-row w3-section">
+              <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
+                 <div class="w3-rest">
+                  <input class="w3-input w3-border" name="lastName" id="lastName" type="text" placeholder="Last Name" [(ngModel)]="person.lastName" (ngModelChange)="validatePerson()">
+                </div>
 
-          <div class="w3-container w3-card-4">
-            <h4>Proficiencies</h4>
-            <p>
-            <input class="w3-check" type="checkbox">
-            <label>CSS</label></p>
-            <p>
-            <input class="w3-check" type="checkbox">
-            <label>HTML</label></p>
-            <p>
-            <input class="w3-check" type="checkbox">
-            <label>JavaScript</label></p>
+           </div>
+           <div class="w3-row w3-section">
+              <div class="w3-col" style="width:55px"><i class="w3-xxlarge far fa-id-card"></i></div>
+                <div class="w3-rest">
+                  <input class="w3-input w3-border" name="position" id="position" type="text" placeholder="Position" [(ngModel)]="person.position" (ngModelChange)="validatePerson()">
+                </div>
+            </div>
+
+            <div class="w3-row w3-section">
+                <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-users"></i></div>
+                  <div class="w3-rest">
+                    <input class="w3-input w3-border" name="teamName" id="teamName" type="text" placeholder="Team Name" [(ngModel)]="person.teamName" (ngModelChange)="validatePerson()">
+                  </div>
+              </div>
+              
+          <div class="w3-bar">
+            <div class="w3-right">
+              <button class="w3-button w3-red" style="margin-right: 15px" (click)="removePerson(person)">Remove</button>
+              <button class="w3-button w3-purple" style="margin-right: 15px" (click)="home()">Cancel</button>
+              <button class="w3-button w3-teal" (click)="finishEditing()" [disabled]="isDisabled()">Save</button>
+            </div>
           </div>
         </form>
-    </div>
-
-    <div class="w3-bar">
-      <button class="w3-button" (click)="removePerson(person)">Remove</button>
-      <button class="w3-button" (click)="home()">Cancel</button>
-      <button class="w3-button" (click)="finishEditing()" [disabled]="isDisabled()">Save</button>
+      </div>
     </div> 
-</div>
+  </div>
 
 
 
