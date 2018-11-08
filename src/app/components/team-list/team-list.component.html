@@ -31,20 +31,23 @@
   </div>
 </div>
 <div id="addTeamModal" class="w3-modal">
-    <div class="w3-modal-content" style="width: 300px">
-      <div class="w3-container">
-        <span onclick="document.getElementById('addTeamModal').style.display='none'" 
+    <div class="w3-modal-content" style="width: 600px">
+      <header class="w3-container w3-teal">
+        <span class="w3-teal" onclick="document.getElementById('addTeamModal').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
         <h2>Add Team</h2>
-        <div class="add-form">
-            <input type="text" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
-            <div class="button-container" style="float: none; justify-content: center">
-              <button class="realButton" (click)="addTeam()" onclick="document.getElementById('addTeamModal').style.display='none'">Save</button>
-              <button class="realButton" onclick="document.getElementById('addTeamModal').style.display='none'">Cancel</button>
+      </header>
+        <div class="add-form w3-container" style="width: 100%">
+            <input type="text" style="width: 100%" class="w3-margin-right w3-margin-top" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
+            <div class="w3-right" style="width: 100%">
+              <button class="w3-button w3-teal w3-margin w3-right" (click)="addTeam()" onclick="document.getElementById('addTeamModal').style.display='none'">Save</button>
+              <button class="w3-button w3-red w3-margin w3-right" onclick="document.getElementById('addTeamModal').style.display='none'">Cancel</button>
+             
+              
             </div>
           </div>
         
         
-      </div>
+        
     </div>
   </div>
