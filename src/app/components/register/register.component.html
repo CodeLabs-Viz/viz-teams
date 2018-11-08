@@ -1,38 +1,61 @@
-<div class="container">
-  <div class="edit-form">
-    <div class="top">
-      <div class="fields">
-        <h1>Enter Registration Information</h1>
-        <form class="w3-container">
-          <div class="form-group">
-            <input type="text" class="form-control w3-input w3-border" name="firstName" id="firstName">
-            <label for="firstName">First Name</label>
+<html>
+<head>
+  <title>Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div w3-container>
+  <div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16" style="width:50%; margin: auto; margin-top:70px">
+    <h2 class="w3-center">Registration</h2>
+    <form>
+      <div class="form-group">
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
+          <div class="w3-rest">
+            <input type="text" class="w3-input w3-border" name="firstName" id="firstName" placeholder="First Name">
           </div>
-
-          <div class="form-group">
-            <input type="text" class="w3-input w3-border" name="lastName" id="lastName">
-            <label for="lastName">Last Name</label>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
+          <div class="w3-rest">
+            <input type="text" class="w3-input w3-border" name="lastName" id="lastName" placeholder="Last Name">
           </div>
-
-          <div class="form-group">
-              <input type="email" class="w3-input w3-border" name="email" id="email">
-              <label for="email">email</label>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
+          <div class="w3-rest">
+            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email">
           </div>
-
-          <div class="form-group">
-              <input type="password" class="w3-input w3-border" name="password" id="password">
-              <label for="password">Password</label>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge far fa-id-card"></i></div>
+          <div class="w3-rest">
+            <input type="text" class="w3-input w3-border" name="position" id="position" placeholder="Position">
           </div>
-
-          <div class="form-group">
-            <input type="password" class="w3-input w3-border" name="password_confirm" id="password_confirm">
-            <label for="password_confirm">Confirm Password</label>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
+          <div class="w3-rest">
+            <input type="email" class="w3-input w3-border" name="password" id="password" placeholder="Password">
           </div>
-        </form>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
+          <div class="w3-rest">
+            <input type="text" class="w3-input w3-border" name="password_confirm" id="password_confirm" placeholder="Password Confirmation">
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
 
     <div class="w3-bar">
-      <button class="w3-button">Register</button>
-    </div> 
+      <div class="w3-right">
+       <button class="w3-button w3-red" style="margin-right: 15px" routerLink="home">Cancel</button>
+       <button class="w3-button w3-teal" style="margin-right: 15px" (click)="Register">Register</button>
+      </div> 
+    </div>
+  </div>
 </div>
+</body>
+</html>
+
