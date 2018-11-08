@@ -1,1 +1,39 @@
-<div>Login</div>
+<html>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div w3-container>
+  <div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16" style="width:50%; margin: auto; margin-top:70px">
+    <h2 class="w3-center">Login</h2>
+    <form>
+      <div class="form-group">
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
+          <div class="w3-rest">
+            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
+          <div class="w3-rest">
+            <input type="email" class="w3-input w3-border" name="password" id="password" placeholder="Password">
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+    <div class="w3-bar">
+        <div class="w3-right">
+            <div class="w3-text-teal" style="vertical-align:middle; float:left; margin-right: 15px; margin-top: 10px">Not a member?</div>
+            <!-- Why isn't this register route working? -->
+            <button class="w3-button w3-purple" style="margin-right: 15px" routerLink="register">Sign up</button>
+            <button class="w3-button w3-teal" style="margin-right: 15px" (click)="login">Login</button>
+        </div> 
+    </div>
+  </div>
+</div>
+</body>
+</html>
