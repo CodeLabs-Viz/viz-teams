@@ -96,11 +96,11 @@ export class SidebarComponent {
     this.router.navigateByUrl('/edit/' + person.id);
   }
 
-  delete(person: Person) {
-    
-    if (confirm('Are you sure you want to remove ' + person.firstName + " " + person.lastName + '?')) {
+  removePerson(person: Person) {
+    const personToRemove = this.person.firstName + ' ' + this.person.lastName;
+    if(confirm('Are you sure you want to remove ' + personToRemove + '?')){
       this.personService.removePerson(person);
-    }
     
+    }
   }
 }

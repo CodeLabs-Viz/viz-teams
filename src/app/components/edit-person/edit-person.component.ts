@@ -21,9 +21,10 @@ export class EditPersonComponent {
 
   removePerson(person: Person) {
     this.personToRemove = this.person.firstName + ' ' + this.person.lastName;
-    confirm('Are you sure you want to remove ' + this.personToRemove + '?');
-    this.personService.removePerson(person);
-    this.home();
+    if(confirm('Are you sure you want to remove ' + this.personToRemove + '?')){
+      this.personService.removePerson(person);
+      this.home();
+    }
   }
 
   finishEditing() {
