@@ -38,19 +38,7 @@
     flex-direction: column;
     min-height: min-content;
     overflow: auto;
-    button {
-        border: none;
-        width:100%;
-        padding: 10px;
-        color: white;
-        background-color: rgb(86, 94, 170);
-        transition-duration: 0.3s;
-        border-radius: 2rem;
-    }
-    button:hover {
-        background-color: rgb(1, 173, 171);
-        cursor: pointer;
-    }
+    
     .add-form {
         input[type=text] {
             width: 100%;
