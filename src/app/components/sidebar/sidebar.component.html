@@ -5,10 +5,9 @@
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (ngModelChange)="validatePerson()">
     <input type="text" [(ngModel)]="person.position" placeholder="Position" (ngModelChange)="validatePerson()">
     <input type="text" [(ngModel)]="person.teamName" placeholder="Team Name" (ngModelChange)="validatePerson()">
-    <div class="form-btns">
-      <button class="cancel" (click)="stopAdding()">Cancel</button>
-      <button class="save" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
-    </div>
+    <div class="w3-center">
+      <button class="w3-button w3-red w3-padding" style="margin-right: 5%"(click)="stopAdding()">Cancel</button>  
+      <button class="w3-button w3-teal w3-padding" (click)="finishAdding()" [disabled]="isDisabled()">Done</button>
   </div><br>
  
   <div class="freeAgentContainer w3-container" *ngFor="let person of (freeAgents | sidebarSortAsc)">
