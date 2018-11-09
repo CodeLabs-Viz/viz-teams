@@ -36,13 +36,20 @@
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
           <div class="w3-rest">
-            <input type="email" class="w3-input w3-border" name="password" id="password" placeholder="Password">
+            <input type="password" class="w3-input w3-border" name="password" id="password" placeholder="Password" ngModel #password="ngModel" required>
+            <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+              Password is required
+            </div>
           </div>
         </div>
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
           <div class="w3-rest">
-            <input type="text" class="w3-input w3-border" name="password_confirm" id="password_confirm" placeholder="Password Confirmation">
+            <input type="password" class="w3-input w3-border" name="passwordConfirm" id="passwordConfirm" placeholder="Password Confirmation" ngModel #pwConfirm="ngModel" required compare="password">
+            <div class="text-danger" *ngIf="pwConfirm.invalid && (pwConfirm.dirty || pwConfirm.touched)">
+              <div class="w3-text-red" *ngIf="pwConfirm.errors['required']">Password confirm is required!</div>
+              <div class="w3-text-red" *ngIf="pwConfirm.errors['compare']">Password confirm does not match!</div>
+            </div>
           </div>
         </div>
       </div>
