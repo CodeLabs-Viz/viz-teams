@@ -9,39 +9,45 @@
     <h2 class="w3-center">Registration</h2>
     <form>
       <div class="form-group">
+        <!-- firstName -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
           <div class="w3-rest">
             <input type="text" class="w3-input w3-border" name="firstName" id="firstName" placeholder="First Name">
           </div>
         </div>
+        <!-- lastName -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
           <div class="w3-rest">
             <input type="text" class="w3-input w3-border" name="lastName" id="lastName" placeholder="Last Name">
           </div>
         </div>
+        <!-- email -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
           <div class="w3-rest">
-            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email">
+            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email">       
           </div>
         </div>
+        <!-- position -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge far fa-id-card"></i></div>
           <div class="w3-rest">
             <input type="text" class="w3-input w3-border" name="position" id="position" placeholder="Position">
           </div>
         </div>
+        <!-- password -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
           <div class="w3-rest">
             <input type="password" class="w3-input w3-border" name="password" id="password" placeholder="Password" ngModel #password="ngModel" required>
-            <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div class="text-danger w3-text-red" *ngIf="password.invalid && (password.dirty || password.touched)">
               Password is required
             </div>
           </div>
         </div>
+        <!-- passwordConfirm -->
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
           <div class="w3-rest">
