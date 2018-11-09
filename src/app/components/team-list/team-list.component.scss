@@ -8,20 +8,8 @@
     line-height: 1.5;
     height: calc(100% - 60px);
 
-    button {
-        border: none;
-        padding: 5px 10px;
-        color: white;
-        background-color: rgb(86, 94, 170);
-        transition-duration: 0.3s;
-        border-radius: 2rem;
-    }
+  
 
-    button:hover {
-        background-color: rgb(1, 173, 171);
-        
-    }
-   
 
     h3 {
         background-color: rgb(1, 173, 171);
@@ -31,16 +19,16 @@
         padding: .5rem .5rem;
         font-size: 1.25em;
         text-align: center;
-        white-space: normal; 
+        white-space: normal;
         text-overflow: hidden;
         flex-flow: nowrap;
 
-        i {            
-            
-            display: none;            
+        i {
+
+            display: none;
         }
-    
-        
+
+
 
         button {
           border: none;
@@ -105,7 +93,7 @@
 .button-container {
     padding: 5px;
     float: right;
-    width: auto; 
+    width: auto;
     display: flex;
     justify-content: space-between;
     white-space: nowrap;

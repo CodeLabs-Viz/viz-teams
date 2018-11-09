@@ -1,18 +1,16 @@
-<div class="button-container">
-
-    <button class='realButton' onclick="document.getElementById('addTeamModal').style.display='flex'">
-        Add New Team
+<div class="w3-display-container" style="height: calc(100% - 60px)" *ngIf="!teams || teams.length === 0">
+  <div class="w3-display-middle w3-center">
+    <p class="w3-center">Would you like to add a team?</p>
+    <button class='w3-button w3-teal w3-center' onclick="document.getElementById('addTeamModal').style.display='flex'">
+        Add Team
       </button>
-  <button class="realButton" (click)="openUpload()">
-    Import <input type="file" class="hiddenUpload" id="srcfile" ngModel (change)="checkExtension($event)" accept=".csv" visibility="hidden">
-  </button>
-  <button class="realButton" (click)="exportCsv()" >
-    Export
-  </button>
-  <button class="realButton" (click)="templateCsv()">
-    Template
-  </button>
-  
+  </div>
+</div>
+
+<div class="button-container" *ngIf="teams.length > 0">
+  <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
+      Add Team
+    </button>
 </div>
 <div class="team-list">
   <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
