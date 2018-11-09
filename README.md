@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## User Registration
 
-New user registration via email & password is done into Firebase using the firebase API, register component, and user model.
+New user registration via email & password is done into Firebase using the firebase API, register component, validation service, and person model.

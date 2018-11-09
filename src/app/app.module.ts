@@ -26,6 +26,7 @@ import { TeamStore } from './services/team-store';
 
 import { DraggableDirective } from './directives/draggable.directive';
 import { DropTargetDirective } from './directives/drop-target.directive';
+import { CompareValidatorDirective } from './directives/compare-validator.directive';
 
 import { PersonSortAscPipe } from './pipes/person-sort-asc.pipe';
 import { SidebarSortAscPipe } from './pipes/sidebar-sort-asc.pipe';
@@ -49,7 +50,8 @@ import { RegisterComponent } from './components/register/register.component';
     FirebaseTestComponent,
     TeamsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompareValidatorDirective
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
