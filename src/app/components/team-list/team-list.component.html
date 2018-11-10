@@ -15,14 +15,16 @@
 <div class="team-list">
   <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
-      <h3>{{team.name}} Team <i (click)="removeTeam(team)" class="fas fa-trash w3-hover-text-red"></i></h3>
+      <div class="w3-container w3-teal w3-margin">
+        <h3>{{team.name}} Team <i (click)="removeTeam(team)" class="fas fa-trash w3-hover-text-red"></i></h3>
+      </div>
       <div *ngFor='let person of (team.members | personSortAsc)'>
         <div [appDraggable]="{data:person}" class="team-member">
           <div class="details">
             <div>{{person.firstName}} {{person.lastName}},</div>
             <div>{{person.position}}</div>
           </div>
-          <div class="btns"><i (click)="edit(person)" class="fas fa-edit w3-hover-text-teal" style='font-size:24px'></i></div>
+          <div class="btns"><i (click)="edit(person)" class="fas fa-edit w3-hover-text-teal"></i></div>
         </div>
       </div>
     </div>
