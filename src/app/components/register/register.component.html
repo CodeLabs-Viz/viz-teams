@@ -7,7 +7,7 @@
 <div w3-container>
   <div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16" style="width:50%; margin: auto; margin-top:70px">
     <h2 class="w3-center">Registration</h2>
-    <form>
+    <form (ngSubmit) = "onSubmit(registerForm)" #registerForm="ngForm">
       <div class="form-group">
         <!-- firstName -->
         <div class="w3-row w3-section">
@@ -60,11 +60,11 @@
         </div>
       </div>
     </form>
-
+    <!-- register and cancel button -->
     <div class="w3-bar">
       <div class="w3-right">
        <button class="w3-button w3-red" style="margin-right: 15px" routerLink="home">Cancel</button>
-       <button class="w3-button w3-teal" style="margin-right: 15px" (click)="Register">Register</button>
+       <button type="submit" [disabled]="!registerForm.valid" class="w3-button w3-teal" style="margin-right: 15px" (click)="Register">Register</button>
       </div> 
     </div>
   </div>
