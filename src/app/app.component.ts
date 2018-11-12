@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from './models/person';
 import { DragService } from './services/drag.service';
-import * as firebase from 'firebase' 
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
