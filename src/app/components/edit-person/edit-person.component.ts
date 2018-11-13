@@ -13,10 +13,17 @@ export class EditPersonComponent {
   personToRemove: string;
   person = new Person(0, '', '', '', '');
   canSubmit = false;
+  backupPerson = new Person(0, '', '', '', '');
 
   constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router) {
     const id = +this.route.snapshot.paramMap.get('id');
     this.person = this.personService.getPerson(id);
+  }
+
+  ngOnInit() {
+    this.backupPersonToEdit(this.person);
+
+    console.log(this.backupPerson);
   }
 
   removePerson(person: Person) {
@@ -25,6 +32,21 @@ export class EditPersonComponent {
       this.personService.removePerson(person);
       this.home();
     }
+  }
+
+  backupPersonToEdit(original: Person) {
+    this.backupPerson.firstName = original.firstName;
+    this.backupPerson.lastName = original.lastName;
+    this.backupPerson.position = original.position;
+    this.backupPerson.teamName = original.teamName;
+    this.backupPerson.id = original.id;
+  }
+  restoreBackup() {
+    this.person.id = this.backupPerson.id;
+    this.person.firstName = this.backupPerson.firstName;
+    this.person.lastName = this.backupPerson.lastName;
+    this.person.position = this.backupPerson.position;
+    this.person.teamName = this.backupPerson.teamName;
   }
 
   finishEditing() {
@@ -47,6 +69,7 @@ export class EditPersonComponent {
   }
 
   home(): void {
+    this.restoreBackup();
     this.router.navigateByUrl('/');
   }
 }
