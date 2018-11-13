@@ -2,7 +2,7 @@
   <div class="app-sidebar">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="app-team-list">
+  <div [ngClass]="teams.length > 0 ? 'app-team-list team-view' : 'app-team-list no-team-view'">
     <app-team-list></app-team-list>
   </div>
 </div>

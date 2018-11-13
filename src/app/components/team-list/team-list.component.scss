@@ -1,16 +1,23 @@
+.no-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.add-team {
+    position: absolute;
+    top: 76px;
+    right: 16px;
+}
+
 .team-list{
     clear: both;
     background: white;
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
-    text-align: left;
-    line-height: 1.5;
+    text-align: left; 
     height: calc(100% - 60px);
-    
-
-  
-
 
     h3 {
         font-size: 25px;
@@ -22,11 +29,8 @@
         flex-flow: nowrap;
 
         i {
-
             display: none;
         }
-
-
 
         button {
           border: none;

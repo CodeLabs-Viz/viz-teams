@@ -1,18 +1,18 @@
-<div class="w3-display-container" style="height: calc(100% - 60px)" *ngIf="!teams || teams.length === 0">
-  <div class="w3-display-middle w3-center">
-    <p class="w3-center">Would you like to add a team?</p>
-    <button class='w3-button w3-teal w3-center' onclick="document.getElementById('addTeamModal').style.display='flex'">
+<div *ngIf="teams.length === 0" class="no-team w3-container">  
+    <div class="w3-large w3-margin">Would you like to add a team?</div>
+    <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
         Add Team
-      </button>
-  </div>
+      </button> 
 </div>
 
-<div class="button-container" *ngIf="teams.length > 0">
-  <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
-      Add Team
-    </button>
-</div>
-<div class="team-list">
+
+
+<div *ngIf="teams.length > 0" class="team-list" >
+    
+        <button class='w3-button w3-teal add-team' onclick="document.getElementById('addTeamModal').style.display='flex'">
+            Add Team
+          </button>
+      
   <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <div class="w3-container w3-teal w3-margin">
