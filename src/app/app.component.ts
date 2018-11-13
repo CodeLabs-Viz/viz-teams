@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Person } from './models/person';
 import { DragService } from './services/drag.service';
 
@@ -8,10 +8,14 @@ import { DragService } from './services/drag.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   onDrop(data: any) {
     alert(`dropped: ${data}`);
+  }
+
+  ngOnInit(){
+
   }
 
 }
