@@ -1,6 +1,6 @@
 <div class="sidebar" appDropTarget (myDrop)="onDrop($event,team)">
-  <button class= "w3-button w3-purple w3-padding" style="width: 100%" *ngIf="!isAdding" (click)="startAdding()">Add Person <i class="fas fa-user w3-padding"></i></button>
-  <div *ngIf="isAdding" class="add-form">
+  <button class= "w3-button w3-purple w3-padding w3-animate-top" style="width: 100%" *ngIf="!isAdding" (click)="startAdding()">Add Person <i class="fas fa-user w3-padding"></i></button>
+  <div *ngIf="isAdding" class="add-form w3-animate-top">
     <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (ngModelChange)="validatePerson()">
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (ngModelChange)="validatePerson()">
     <input type="text" [(ngModel)]="person.position" placeholder="Position" (ngModelChange)="validatePerson()">
@@ -12,7 +12,7 @@
   </div>
   <br>
 
-  <div class="freeAgentContainer w3-container" *ngFor="let person of (freeAgents | sidebarSortAsc)">
+  <div class="freeAgentContainer w3-container w3-animate-right" *ngFor="let person of (freeAgents | sidebarSortAsc)">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns w3-container w3-center">
