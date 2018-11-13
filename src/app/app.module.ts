@@ -26,6 +26,7 @@ import { TeamStore } from './services/team-store';
 
 import { DraggableDirective } from './directives/draggable.directive';
 import { DropTargetDirective } from './directives/drop-target.directive';
+import { CompareValidatorDirective } from './directives/compare-validator.directive';
 
 import { PersonSortAscPipe } from './pipes/person-sort-asc.pipe';
 import { SidebarSortAscPipe } from './pipes/sidebar-sort-asc.pipe';
@@ -33,6 +34,7 @@ import { TeamSortAscPipe } from './pipes/team-sort-asc.pipe';
 import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { RegisterComponent } from './components/register/register.component';
     FirebaseTestComponent,
     TeamsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompareValidatorDirective
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -66,7 +69,8 @@ import { RegisterComponent } from './components/register/register.component';
     PersonService,
     PersonStore,
     TeamService,
-    TeamStore
+    TeamStore,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
