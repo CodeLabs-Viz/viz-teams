@@ -1,4 +1,3 @@
-// import * as firebase from 'firebase';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService { 
 
-  constructor(private afAuth : AngularFireAuth) { }
+  constructor(private afAuth : AngularFireAuth) {}
 
   signUp(email: string , password: string) {
     console.log('signUp called in auth.servie.ts');
@@ -18,7 +17,7 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email , password).then(response => console.log(response)).catch();
   }
 
-  logout(){
-    this.afAuth.auth.signOut();
+  logout() {
+    this.afAuth.auth.signOut().then(response => console.log(response)).catch();
   }
 }

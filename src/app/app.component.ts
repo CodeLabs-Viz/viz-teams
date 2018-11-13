@@ -11,9 +11,9 @@ import { AuthService } from './services/auth.service';
 
 export class AppComponent implements OnInit {
 
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService) {}
 
-  logout(){
+  logout() {
     this.auth.logout();
   }
 

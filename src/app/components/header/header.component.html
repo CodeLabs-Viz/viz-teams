@@ -3,12 +3,14 @@
     <img routerLink="home" src="/assets/vizTeams.png" alt="Viz Teams Logo">    
   </div>
   <div class="links">
+    <!-- login button -->
     <button class="header-login-button" routerLink="login">
       Login
     </button>
-
+    <!-- register button -->
     <button class="header-register-button" routerLink="register">
       Register
     </button>
   </div>
+  <div><button (click)="logout()">Logout</button></div>
 </div>
