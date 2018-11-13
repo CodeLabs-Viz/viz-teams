@@ -1,4 +1,4 @@
-<div *ngIf="teams.length === 0" class="no-team w3-container">  
+<div *ngIf="teams.length === 0" class="no-team w3-container w3-animate-top">  
     <div class="w3-large w3-margin">Would you like to add a team?</div>
     <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
         Add Team
@@ -13,7 +13,7 @@
             Add Team
           </button>
       
-  <div class="team-column" *ngFor='let team of (teams | teamSortAsc)'>
+  <div class="team-column w3-animate-top" *ngFor='let team of (teams | teamSortAsc)'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <div class="w3-container w3-teal w3-margin">
         <h3>{{team.name}} Team <i (click)="removeTeam(team)" class="fas fa-trash w3-hover-text-red"></i></h3>
