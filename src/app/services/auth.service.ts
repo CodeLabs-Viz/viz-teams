@@ -17,4 +17,8 @@ export class AuthService {
   login(email: string , password: string){
     this.afAuth.auth.signInWithEmailAndPassword(email , password).then(response => console.log(response)).catch();
   }
+
+  logout(){
+    this.afAuth.auth.signOut();
+  }
 }
