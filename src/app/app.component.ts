@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from './models/person';
 import { DragService } from './services/drag.service';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    firebase.initializeApp({
-      apiKey: 'AIzaSyBBFLTGAmv6yvIFns7H2XAKV5flYLEm-7U',
-      authDomain: 'viz-teams.firebaseapp.com'
-    });
+
   }
 
 }

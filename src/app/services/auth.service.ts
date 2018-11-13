@@ -1,15 +1,16 @@
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
+import {AngularFireAuth} from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService { 
 
-    signUp(email: string, password: string){
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch()
+  constructor(private afAuth : AngularFireAuth) { }
 
-      error => console.log('ERROR HAPPENED')
-    }
-  constructor() { }
+  signUp(email: string , password: string) {
+    console.log('signUp called in auth.servie.ts');
+    this.afAuth.auth.createUserWithEmailAndPassword(email , password).catch(error => console.log(error));
+  }
 }

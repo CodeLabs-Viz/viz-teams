@@ -27,7 +27,7 @@
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
           <div class="w3-rest">
-            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email">       
+            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email" ngModel #email="ngModel" required>       
           </div>
         </div>
         <!-- position -->
@@ -59,14 +59,14 @@
           </div>
         </div>
       </div>
-    </form>
     <!-- register and cancel button -->
     <div class="w3-bar">
       <div class="w3-right">
        <button class="w3-button w3-red" style="margin-right: 15px" routerLink="home">Cancel</button>
-       <button type="submit" [disabled]="!registerForm.valid" class="w3-button w3-teal" style="margin-right: 15px" (click)="Register">Register</button>
+       <button type="submit" [disabled]="!registerForm.valid" class="w3-button w3-teal" style="margin-right: 15px">Register</button>
       </div> 
     </div>
+  </form>
   </div>
 </div>
 </body>
