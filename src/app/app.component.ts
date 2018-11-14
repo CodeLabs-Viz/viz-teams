@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
     this.auth.logout();
   }
 
+  isLoggedIn() {
+    return this.auth.isLoggedIn();
+  }
+
   onDrop(data: any) {
     alert(`dropped: ${data}`);
   }
