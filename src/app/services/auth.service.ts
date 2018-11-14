@@ -1,15 +1,31 @@
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService { 
 
+  private authState: Observable<firebase.User>
   private currentUser: firebase.User = null;
 
-  constructor(private afAuth : AngularFireAuth, private router: Router) {}
+  constructor(private afAuth : AngularFireAuth, private router: Router) {
+    this.authState = this.afAuth.authState;
+    this.authState.subscribe(user => {
+      if (user) {
+        this.currentUser = user;
+      } else {
+        this.currentUser = null;
+      }
+    });
+  }
+
+  getAuthState() {
+    return this.authState;
+  }
 
   signUp(email: string , password: string) {
     console.log('signUp called in auth.servie.ts');
