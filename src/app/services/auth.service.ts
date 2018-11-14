@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService { 
 
+  private currentUser: firebase.User = null;
+
   constructor(private afAuth : AngularFireAuth, private router: Router) {}
 
   signUp(email: string , password: string) {
@@ -26,4 +28,12 @@ export class AuthService {
     this.afAuth.auth.signOut().then(response => console.log(response)).catch(error => console.log(error));
     this.router.navigate(["/login"]);
   }
+
+  isLoggedIn() {
+    if (this.currentUser == null) {
+      return false;
+    }
+    return true;
+  }
+
 }
