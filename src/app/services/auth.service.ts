@@ -33,6 +33,7 @@ export class AuthService {
     if (this.currentUser == null) {
       return false;
     }
+    console.log('this user has logged in using auth.service.ts');
     return true;
   }
 
