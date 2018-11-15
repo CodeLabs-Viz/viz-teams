@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log("onSubmit in register.component.ts was called.");
     const email = form.value.email;
     const password = form.value.password;
 

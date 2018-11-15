@@ -1,46 +1,55 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Team } from '../models/team';
-import { Person } from '../models/person';
-import { PersonStore } from '../services/person-store';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Person} from '../models/person';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {Team} from '../models/team';
 
 @Injectable()
 export class PersonService {
-  peopleSubject: BehaviorSubject<Person[]> = new BehaviorSubject<Person[]>([]);
+  person: Person;
+  teams: Team[] = [];
 
-  constructor(private personStore: PersonStore) { }
-
-  addToTeam(person: Person, team: Team): void {
-    const newPerson = new Person(person.id, person.firstName, person.lastName, person.position, team.name);
-    this.peopleSubject.next(this.personStore.update(newPerson));
+  constructor(private db: AngularFirestore) {
   }
 
-  addToFreeAgents(person: Person) {
-    const newPerson = new Person(person.id, person.firstName, person.lastName, person.position, "");
-    this.updatePerson(newPerson);
+  getMembers(): Observable<Person[]> {
+    return this.db.collection('person').valueChanges() as Observable<Person[]>;
   }
 
-  getPeople(): Observable<Person[]> {
-    return this.peopleSubject;
+  getPerson(id: string): Observable<Person> {
+    return this.db.collection('person').doc(id).valueChanges() as Observable<Person>;
   }
 
-  getPerson(id: number): Person {
-    return this.peopleSubject.getValue().filter(x => x.id === id)[0];
+  addPerson(firstName: string, lastName: string, position: string, teamId: string) {
+    this.db.collection('person').add({
+      id: null,
+      firstName: firstName,
+      lastName: lastName,
+      position: position,
+      teamId: 'eifOc9Ci7tx3UIelR7qG'
+    })
+      .then(function (docRef) {
+        docRef.update({
+          id: docRef.id
+        });
+      });
   }
 
-  setPeople(people: Person[]): void {
-    this.peopleSubject.next(this.personStore.init(people));
+  addToTeam(person: Person, teamId: string) {
+    this.db.collection('person').doc(person.id).update({
+      teamId: teamId
+    });
   }
 
-  addPerson(person: Person): void {
-    this.peopleSubject.next(this.personStore.add(person));
+  deletePerson(id: string) {
+    this.db.collection('person').doc(id).delete();
   }
 
-  updatePerson(newPerson: Person): void {
-    this.peopleSubject.next(this.personStore.update(newPerson));
-  }
-
-  removePerson(person: Person): void {
-    this.peopleSubject.next(this.personStore.remove(person));
+  updatePerson(person: Person): void {
+    this.db.collection('person').doc(person.id).update({
+      firstName: person.firstName,
+      lastName: person.lastName,
+      position: person.position
+    });
   }
 }

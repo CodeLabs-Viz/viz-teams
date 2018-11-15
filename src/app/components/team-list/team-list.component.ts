@@ -1,137 +1,53 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Person } from '../../models/person';
-import { PersonParserService } from '../../services/person-parser.service';
-import { Team } from '../../models/team';
-import { PersonService } from '../../services/person.service';
-import { TeamService } from '../../services/team.service';
-import { Router } from '@angular/router';
+import {Component, OnInit, Input} from '@angular/core';
+import {Person} from '../../models/person';
+import {Team} from '../../models/team';
+import {PersonService} from '../../services/person.service';
+import {TeamService} from '../../services/team.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
-export class TeamListComponent implements OnInit{
-  valid = '';
-  validation = '';
+export class TeamListComponent implements OnInit {
 
   teams: Team[] = [];
-  team: Team = new Team(0 ,"");
-  canSubmit = false;
   people: Person[] = [];
+  teamName = '';
 
   constructor(
-    private personParserService: PersonParserService,
     private personService: PersonService,
     private teamService: TeamService,
     private router: Router,
-  ) {}
+  ) {
+  }
 
-  ngOnInit(){
-    this.teamService.getTeams().subscribe(x=> this.teams = x);
-    this.teamService.getMembers().subscribe(x=> this.people = x);
+  ngOnInit() {
+    this.teamService.getTeams().subscribe(x => this.teams = x);
+    this.personService.getMembers().subscribe(x => this.people = x);
 
   }
 
-  onDrop(person: Person, team: Team) {
-    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamId);
+  // TODO: add validation on creating a team, so that duplicate teams can't exist
+  addTeam() {
+    this.teamService.addTeam(null, this.teamName);
+    this.teamName = '';
+  }
+
+  onDrop(person: Person, team: string) {
     this.personService.addToTeam(person, team);
   }
 
-  getTeams(teams: Team[]): void {
-    const theTeams: Team[] = [];
-    for (const team of teams) {
-      if (team.name !== '') {
-        theTeams.push(team);
-      }
-    }
-    this.teams = theTeams;
+  deleteTeam(id: string, people: Person[]) {
+    this.teamService.deleteTeam(id, people);
   }
 
-
-  validateTeam() {
-    this.team.name !== ''
-      ? this.canSubmit = true : this.canSubmit = false;
+  canSubmit() {
+    return this.teamName === '';
   }
 
   edit(person: Person): void {
     this.router.navigateByUrl('/edit/' + person.id);
-  }
-
-  checkExtension(val): void {
-    const fileList = val.srcElement.files;
-    const fileName = fileList[0].name.split('.');
-    const extension = fileName[1];
-    if (extension === 'csv') {
-      this.valid = 'Valid';
-      this.validation = 'green';
-      if(confirm('Importing will delete current data. Are you sure?')){
-        this.importCsv(val);
-      (< HTMLInputElement > document.getElementById('srcfile')).value = null;
-      }
-      
-    } else {
-      this.valid = 'Invalid';
-      this.validation = 'red';
-    }
-  }
-
-  importCsv(val): void {
-    const file = new Blob (val.srcElement.files);
-    this.personParserService.parsecsv(file);
-  }
-
-  exportCsv(): void {
-    this.personParserService.unparseIntoFile();
-  }
-
-  templateCsv(): void {
-    const fileText = 'Firstname, Lastname, Position, Team' + '\n';
-    this.downloadTemplate(fileText);
-  }
-
-  openUpload(): void {
-    if (this.detectIEorFirefox()) {
-      document.getElementById('srcfile').click();
-    }
-  }
-
-  detectIEorFirefox(): boolean {
-    const ua = window.navigator.userAgent;
-
-    const msie = ua.indexOf('MSIE ');
-    if (msie > 0) {
-      // IE 10 or older => return version number
-      return true;
-    }
-
-    const trident = ua.indexOf('Trident/');
-    if (trident > 0) {
-      // IE 11 => return version number
-      return true;
-    }
-
-    const edge = ua.indexOf('Edge/');
-    if (edge > 0) {
-      // Edge (IE 12+) => return version number
-      return true;
-    }
-
-    const firefox = ua.indexOf('Firefox/');
-    if (firefox > 0) {
-      return true;
-    }
-
-    // other browser
-    return false;
-  }
-
-  downloadTemplate(data: any) {
-    const blob = new Blob([data], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const anchor = document.createElement('a');
-    anchor.download = 'VizTeamsTemplate.csv';
-    anchor.href = url;
-    anchor.click();
   }
 }

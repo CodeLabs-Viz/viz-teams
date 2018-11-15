@@ -10,8 +10,7 @@ export class PersonFilterPipe implements PipeTransform {
     if (!people || !teamId) {
       return people;
     }
-    console.log(people, teamId);
-    return people.filter(person => person.teamId === teamId)
+    return people.filter(person => person.teamId === teamId);
   }
 
 }

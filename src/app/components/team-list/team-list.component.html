@@ -13,10 +13,10 @@
             Add Team
           </button>
       
-  <div class="team-column w3-animate-top" *ngFor='let team of (teams | teamSortAsc)'>
-    <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
+  <div class="team-column w3-animate-top" *ngFor='let team of (teams | teamFilter:"eifOc9Ci7tx3UIelR7qG")'>
+    <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team.id)">
       <div class="w3-container w3-teal w3-margin">
-        <h3>{{team.name}} Team <i (click)="removeTeam(team)" class="fas fa-trash w3-hover-text-red"></i></h3>
+        <h3>{{team.name}} Team <i (click)="deleteTeam(team.id, people)" class="fas fa-trash w3-hover-text-red"></i></h3>
       </div>
       <div *ngFor='let person of people | personFilter:team.id'>
         <div [appDraggable]="{data:person}" class="team-member">
@@ -38,10 +38,10 @@
       <h2>Add Team</h2>
     </header>
     <div class="w3-container w3-margin">
-      <input class="w3-input" type="text" [(ngModel)]="team.name" placeholder="Team Name" (change)="validateTeam()">
+      <input class="w3-input" type="text" [(ngModel)]="teamName" placeholder="Team Name">
     </div>
     <div class="w3-container w3-margin">
-      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" (click)="addTeam()"
+      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" [disabled]="canSubmit()" (click)="addTeam()"
               onclick="document.getElementById('addTeamModal').style.display='none'">
         Save
       </button>

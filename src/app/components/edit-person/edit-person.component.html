@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="edit-form">
+  <div *ngIf="person" class="edit-form">
       <div class="fields">
         <form class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16 w3-animate-top" style="width:50%; margin: auto; margin-top:70px">
           <h2 class="w3-center">Edit Team Member</h2>
@@ -25,12 +25,6 @@
               </div>
             </div>
 
-            <div class="w3-row w3-section">
-                <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-users"></i></div>
-                  <div class="w3-rest">
-                    <input class="w3-input w3-border" name="teamId" id="teamId" type="text" placeholder="Team Name" [(ngModel)]="person.teamId" (ngModelChange)="validatePerson()">
-                  </div>
-              </div>
             <h2 class="w3-center">Proficiencies</h2>
               <form class="w3-container w3-white w3-text-teal w3-padding-16 w3-border" style= "margin-bottom: 15px">
               <div style="margin-top: 10px">
@@ -154,7 +148,7 @@
               
           <div class="w3-bar">
             <div class="w3-right">
-              <button class="w3-button w3-red" style="margin-right: 15px" (click)="removePerson(person)">Remove</button>
+              <button class="w3-button w3-red" style="margin-right: 15px" (click)="deletePerson(person.id)">Remove</button>
               <button class="w3-button w3-purple" style="margin-right: 15px" (click)="home()">Cancel</button>
               <button class="w3-button w3-teal" (click)="finishEditing()" [disabled]="isDisabled()">Save</button>
             </div>
@@ -169,4 +163,3 @@
 
 
 
-    

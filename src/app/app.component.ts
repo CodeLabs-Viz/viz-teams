@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Person } from './models/person';
-import { DragService } from './services/drag.service';
-import * as firebase from 'firebase/app';
-import { AuthService } from './services/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +10,8 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   user = null;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) {
+  }
 
   logout() {
     this.auth.logout();
@@ -27,7 +25,7 @@ export class AppComponent implements OnInit {
     alert(`dropped: ${data}`);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.auth.getAuthState().subscribe((user) => this.user = user);
   }
 

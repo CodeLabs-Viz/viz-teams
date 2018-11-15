@@ -18,9 +18,7 @@ import { TeamListComponent } from './components/team-list/team-list.component';
 
 import { DragService } from './services/drag.service';
 import { FirebaseTestService } from './services/firebase-test.service';
-import { PersonParserService } from './services/person-parser.service';
 import { PersonService } from './services/person.service';
-import { PersonStore } from './services/person-store';
 import { TeamService } from './services/team.service';
 
 import { DraggableDirective } from './directives/draggable.directive';
@@ -35,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { PersonFilterPipe } from './pipes/person-filter.pipe';
+import { TeamFilterPipe } from './pipes/team-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,8 @@ import { PersonFilterPipe } from './pipes/person-filter.pipe';
     LoginComponent,
     RegisterComponent,
     CompareValidatorDirective,
-    PersonFilterPipe
+    PersonFilterPipe,
+    TeamFilterPipe
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -66,9 +66,7 @@ import { PersonFilterPipe } from './pipes/person-filter.pipe';
   providers: [
     DragService,
     FirebaseTestService,
-    PersonParserService,
     PersonService,
-    PersonStore,
     TeamService,
     AuthService
   ],
