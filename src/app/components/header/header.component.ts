@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
 
 }
