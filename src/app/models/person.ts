@@ -3,13 +3,13 @@ export class Person {
   firstName: string;
   lastName: string;
   position: string;
-  teamName: string;
+  teamId: string;
 
-  constructor(id: number, firstName: string, lastName: string, position: string, teamName: string) {
+  constructor(id: number, firstName: string, lastName: string, position: string, teamId: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
-    this.teamName = teamName;
+    this.teamId = teamId;
   }
 }

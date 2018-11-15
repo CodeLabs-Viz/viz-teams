@@ -11,27 +11,30 @@ import { Router } from '@angular/router';
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
-export class TeamListComponent {
-  @Input() people: Person[] = [];
-
+export class TeamListComponent implements OnInit{
   valid = '';
   validation = '';
 
   teams: Team[] = [];
-  team: Team = new Team(0 ,"" ,[] );
+  team: Team = new Team(0 ,"");
   canSubmit = false;
+  people: Person[] = [];
 
   constructor(
     private personParserService: PersonParserService,
     private personService: PersonService,
     private teamService: TeamService,
     private router: Router,
-  ) {
-    this.teamService.getTeams().subscribe(t => this.getTeams(t));
+  ) {}
+
+  ngOnInit(){
+    this.teamService.getTeams().subscribe(x=> this.teams = x);
+    this.teamService.getMembers().subscribe(x=> this.people = x);
+
   }
 
   onDrop(person: Person, team: Team) {
-    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
+    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamId);
     this.personService.addToTeam(person, team);
   }
 
@@ -45,23 +48,6 @@ export class TeamListComponent {
     this.teams = theTeams;
   }
 
-  removeTeam(team: Team): void {
-    if(confirm("This will permanently delete this team, are you sure?")){
-      this.teamService.removeTeam(team);
-    }
-    
-  }
-
-  addTeam() {
-    
-      // Temporary fix until database is hooked up
-      const randomId = Math.floor(Math.random() * 1000);
-      const thisTeam = new Team(randomId, this.team.name, []);
-      this.teamService.addTeam(thisTeam);
-      this.team = new Team(0,"",[]);
-     
-    
-  }
 
   validateTeam() {
     this.team.name !== ''

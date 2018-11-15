@@ -36,7 +36,7 @@ export class SidebarComponent {
   finishAdding() {
     // Temporary fix until database is hooked up
     const randomId = Math.floor(Math.random() * 1000);
-    const person = new Person(randomId, this.person.firstName, this.person.lastName, this.person.position, this.person.teamName);
+    const person = new Person(randomId, this.person.firstName, this.person.lastName, this.person.position, this.person.teamId);
     this.personService.addPerson(person);
     this.stopAdding();
   }
@@ -80,7 +80,7 @@ export class SidebarComponent {
   getFreeAgents(people: Person[]): void {
     const freeAgents: Person[] = [];
     for (const person of people) {
-      if (person.teamName === '') {
+      if (person.teamId === '') {
         freeAgents.push(person);
       }
     }
@@ -88,7 +88,7 @@ export class SidebarComponent {
   }
 
   onDrop(person: Person, team: Team) {
-    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamName);
+    person = new Person(person.id, person.firstName, person.lastName, person.position, person.teamId);
     this.personService.addToFreeAgents(person);
   }
 

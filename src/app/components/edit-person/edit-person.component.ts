@@ -38,7 +38,7 @@ export class EditPersonComponent {
     this.backupPerson.firstName = original.firstName;
     this.backupPerson.lastName = original.lastName;
     this.backupPerson.position = original.position;
-    this.backupPerson.teamName = original.teamName;
+    this.backupPerson.teamId = original.teamId;
     this.backupPerson.id = original.id;
   }
   restoreBackup() {
@@ -46,7 +46,7 @@ export class EditPersonComponent {
     this.person.firstName = this.backupPerson.firstName;
     this.person.lastName = this.backupPerson.lastName;
     this.person.position = this.backupPerson.position;
-    this.person.teamName = this.backupPerson.teamName;
+    this.person.teamId = this.backupPerson.teamId;
   }
 
   finishEditing() {

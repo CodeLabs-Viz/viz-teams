@@ -3,7 +3,7 @@ import { PersonService } from './person.service';
 import { Team } from '../models/team';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Person } from '../models/person';
-import { TeamStore } from '../services/team-store';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
 export class TeamService {
@@ -11,44 +11,18 @@ export class TeamService {
 
 
 
-  constructor(private teamStore: TeamStore, private personService: PersonService) {
-     this.personService.getPeople().subscribe(p => this.buildTeams(p));
+  constructor(private personService: PersonService, private db: AngularFirestore) {
+ 
   }
 
-  buildTeams(people: Person[]): void {
-    let teams: Team[] = this.teamsSubject.getValue();    
-    teams.forEach(team => {
-      team.members = [];
-      this.teamsSubject.next(this.teamStore.update(team));
-    })
-    
-    people.forEach(person => {
-      if (!teams.find(t => t.name === person.teamName)) {
-        const randomId = Math.floor(Math.random() * 1000);
-        teams.push(new Team(randomId, person.teamName, [person]));
-      } else {
-        teams[teams.indexOf(teams.find(t => t.name === person.teamName))].members.push(person);
-      }
-    });
-
-    
-    this.teamsSubject.next(this.teamStore.init(teams));
-  }
-
-  addTeam(team: Team): void {
-    this.teamsSubject.next(this.teamStore.add(team));
-  }
 
   getTeams(): Observable<Team[]> {
-    return this.teamsSubject;
+    return this.db.collection('team').valueChanges() as Observable<Team[]>;
   }
 
-  removeTeam(team: Team): void {
-    let people = team.members;
-    people.forEach(person => {
-      person.teamName = '';
-      this.personService.updatePerson(person);
-    });
-    this.teamsSubject.next(this.teamStore.remove(this.teamStore.getTeam(this.teamStore.getIndex(team))));
+  getMembers(): Observable<Person[]> {
+    return this.db.collection('person').valueChanges() as Observable<Person[]>;
   }
+
+
 }

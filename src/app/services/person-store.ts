@@ -41,7 +41,7 @@ export class PersonStore {
   }
 
   isPersonEqual(a: Person, b: Person) {
-    return a.firstName === b.firstName && a.lastName === b.lastName && a.position === b.position && a.teamName === b.teamName;
+    return a.firstName === b.firstName && a.lastName === b.lastName && a.position === b.position && a.teamId === b.teamId;
   }
 
   getPerson(index: number): Person {

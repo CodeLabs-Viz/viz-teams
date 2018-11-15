@@ -3,11 +3,9 @@ import { Person } from './person';
 export class Team {
   id: number;
   name: string;
-  members: Person[];
 
-  constructor(id: number, name: string, members: Person[]) {
+  constructor(id: number, name: string) {
     this.id = id;
     this.name = name;
-    this.members = members;
   }
 }

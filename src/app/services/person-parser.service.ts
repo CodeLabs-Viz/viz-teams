@@ -51,7 +51,7 @@ export class PersonParserService {
   }
 
   getLineFromPerson(p) {
-    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.teamName;
+    return p.firstName + ',' + p.lastName + ',' + p.position + ',' + p.teamId;
   }
 
   downloadFile(data: any) {
