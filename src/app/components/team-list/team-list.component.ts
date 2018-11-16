@@ -15,6 +15,8 @@ export class TeamListComponent implements OnInit {
   teams: Team[] = [];
   people: Person[] = [];
   teamName = '';
+  sub1 = false;
+  sub2 = false;
 
   constructor(
     private personService: PersonService,
@@ -24,9 +26,14 @@ export class TeamListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.teamService.getTeams().subscribe(x => this.teams = x);
-    this.personService.getMembers().subscribe(x => this.people = x);
-
+    this.teamService.getTeams().subscribe(x => {
+      this.teams = x;
+      this.sub1 = true;
+    });
+    this.personService.getMembers().subscribe(x => {
+      this.people = x;
+      this.sub2 = true;
+    });
   }
 
   // TODO: add validation on creating a team, so that duplicate teams can't exist

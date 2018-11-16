@@ -11,7 +11,7 @@
   </div>
   <br>
 
-  <div class="freeAgentContainer w3-container w3-animate-right" *ngFor="let person of (people | personFilter:'eifOc9Ci7tx3UIelR7qG')">
+  <div class="freeAgentContainer w3-container w3-animate-left" *ngFor="let person of (people | personFilter:'eifOc9Ci7tx3UIelR7qG')">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns w3-container w3-center">

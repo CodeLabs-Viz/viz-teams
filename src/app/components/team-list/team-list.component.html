@@ -1,18 +1,23 @@
-<div *ngIf="teams.length === 0" class="no-team w3-container w3-animate-top">  
-    <div class="w3-large w3-margin">Would you like to add a team?</div>
-    <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
-        Add Team
-      </button> 
+<div class="w3-center" *ngIf="!sub1 && !sub2">
+  <div class="w3-container w3-xxxlarge">
+    Loading...
+  </div>
+  <div class="w3-container w3-margin">
+    <i class='fas fa-spinner w3-spin w3-xxxlarge'></i>
+  </div>
 </div>
 
+<div *ngIf="sub1 && sub2 && teams.length === 0" class="no-team w3-container w3-animate-top">
+  <div class="w3-large w3-margin">Would you like to add a team?</div>
+  <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
+    Add Team
+  </button>
+</div>
 
-
-<div *ngIf="teams.length > 0" class="team-list" >
-    
-        <button class='w3-button w3-teal add-team' onclick="document.getElementById('addTeamModal').style.display='flex'">
-            Add Team
-          </button>
-      
+<div *ngIf="teams.length > 0" class="team-list">
+  <button class='w3-button w3-teal add-team' onclick="document.getElementById('addTeamModal').style.display='flex'">
+    Add Team
+  </button>
   <div class="team-column w3-animate-top" *ngFor='let team of (teams | teamFilter:"eifOc9Ci7tx3UIelR7qG")'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team.id)">
       <div class="w3-container w3-teal w3-margin">
@@ -41,7 +46,8 @@
       <input class="w3-input" type="text" [(ngModel)]="teamName" placeholder="Team Name">
     </div>
     <div class="w3-container w3-margin">
-      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" [disabled]="canSubmit()" (click)="addTeam()"
+      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right"
+              [disabled]="canSubmit()" (click)="addTeam()"
               onclick="document.getElementById('addTeamModal').style.display='none'">
         Save
       </button>
