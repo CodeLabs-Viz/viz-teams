@@ -12,7 +12,7 @@ import {Person} from '../../models/person';
 })
 export class EditPersonComponent implements OnInit {
   person: Person;
-  canSubmit = false;
+  saveDisabled: boolean;
 
   constructor(private route: ActivatedRoute, private personService: PersonService, private router: Router) {
     const id = this.route.snapshot.paramMap.get('id');
@@ -22,34 +22,41 @@ export class EditPersonComponent implements OnInit {
   ngOnInit() {
   }
 
-  deletePerson(id: string) {
-    const personToRemove = this.person.firstName + ' ' + this.person.lastName;
+  deletePerson(person: Person) {
+    const personToRemove = person.firstName + ' ' + person.lastName;
     if (confirm('Are you sure you want to remove ' + personToRemove + '?')) {
-      this.personService.deletePerson(id);
-      this.home();
+      this.personService.deletePerson(person.id);
+      this.router.navigateByUrl('/');
     }
   }
 
   finishEditing() {
     this.personService.updatePerson(this.person);
-    this.home();
-  }
-
-  isDisabled() {
-    return !this.canSubmit;
+    this.router.navigateByUrl('/');
   }
 
   validatePerson() {
-
-    this.person.firstName.trim() !== ''
-    && this.person.lastName.trim() !== ''
-    && this.person.position.trim() !== ''
-      ? this.canSubmit = true : this.canSubmit = false;
-
+    this.person.firstName === ''
+    || this.person.lastName === ''
+    || this.person.position === ''
+      ? this.saveDisabled = true : this.saveDisabled = false;
   }
 
-  home(): void {
-    this.router.navigateByUrl('/');
+  toggleDropdown(sectionId, iconId) {
+    const section = document.getElementById(sectionId);
+    const icon = document.getElementById(iconId);
+
+    if (section.className.indexOf('w3-show') === -1) {
+      section.className += ' w3-show';
+    } else {
+      section.className = section.className.replace(' w3-show', '');
+    }
+
+    if (icon.className.includes('fa fa-caret-down')) {
+      icon.className = icon.className.replace('fa fa-caret-down', ' fa fa-caret-up');
+    } else {
+      icon.className = icon.className.replace('fa fa-caret-up', ' fa fa-caret-down');
+    }
   }
 }
 

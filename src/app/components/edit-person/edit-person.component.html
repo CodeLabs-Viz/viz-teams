@@ -1,165 +1,110 @@
-<div class="container">
-  <div *ngIf="person" class="edit-form">
-      <div class="fields">
-        <form class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16 w3-animate-top" style="width:50%; margin: auto; margin-top:70px">
-          <h2 class="w3-center">Edit Team Member</h2>
+<div *ngIf="person" class="w3-center-card w3-container w3-animate-top">
+  <form class="w3-container w3-half w3-card-4 w3-light-grey w3-text-teal">
+    <h2 class="w3-center">Edit Team Member</h2>
 
-          <div class="w3-row w3-section">
-            <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
-              <div class="w3-rest">
-                <input class="w3-input w3-border" name="firstName" id="firstName" type="text" placeholder="First Name" [(ngModel)]="person.firstName" (ngModelChange)="validatePerson()">
-              </div>
-            </div>
-
-          <div class="w3-row w3-section">
-            <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
-              <div class="w3-rest">
-                <input class="w3-input w3-border" name="lastName" id="lastName" type="text" placeholder="Last Name" [(ngModel)]="person.lastName" (ngModelChange)="validatePerson()">
-              </div>
-            </div>
-
-           <div class="w3-row w3-section">
-            <div class="w3-col" style="width:55px"><i class="w3-xxlarge far fa-id-card"></i></div>
-              <div class="w3-rest">
-                <input class="w3-input w3-border" name="position" id="position" type="text" placeholder="Position" [(ngModel)]="person.position" (ngModelChange)="validatePerson()">
-              </div>
-            </div>
-
-            <h2 class="w3-center">Proficiencies</h2>
-              <form class="w3-container w3-white w3-text-teal w3-padding-16 w3-border" style= "margin-bottom: 15px">
-              <div style="margin-top: 10px">
-              <label style="margin-left: 42px;">Front End </label>
-              <i onClick="
-              if(this.className.indexOf('fa-caret-up') == -1){
-                this.classList.replace('fa-caret-down', 'fa-caret-up');
-              } else {
-                this.classList.replace('fa-caret-up', 'fa-caret-down');
-              }
-
-              var x = document.getElementById('Demo1');
-              if (x.className.indexOf('w3-show') == -1) {
-                x.className += ' w3-show';
-              } else {
-                x.className = x.className.replace(' w3-show', '');
-              }             
-              "
-              class="fa fa-caret-down"></i>
-                <div id="Demo1" class="w3-container w3-hide w3-animate-right">
-                  <p>
-                    <input style="margin-left: 42px;" class="w3-check" type="checkbox">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-                    
-                    <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-                    
-                    <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-
-                    <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-                    
-                    <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-                    
-                    <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                    <label style="margin-left: 10px; font-size: large;">Skill</label>
-                  </p>
-                </div>
-              </div>
-                <div style="margin-top: 10px">
-                <label style="margin-left: 42px;">Back End </label>
-                <i onClick="
-                if(this.className.indexOf('fa-caret-up') == -1){
-                  this.classList.replace('fa-caret-down', 'fa-caret-up');
-                } else {
-                  this.classList.replace('fa-caret-up', 'fa-caret-down');
-                }
-
-                var x = document.getElementById('Demo2');
-                if (x.className.indexOf('w3-show') == -1) {
-                  x.className += ' w3-show';
-                } else {
-                  x.className = x.className.replace(' w3-show', '');
-                }             
-                "
-                class="fa fa-caret-down"></i>
-                  <div id="Demo2" class="w3-container w3-hide w3-animate-right">
-                    <p>
-                      <input style="margin-left: 42px;" class="w3-check" type="checkbox">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-                      
-                      <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-                      
-                      <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-
-                      <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-                      
-                      <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-                      
-                      <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                      <label style="margin-left: 10px; font-size: large;">Skill</label>
-                    </p>
-                  </div>
-                </div>
-                <div style="margin-top: 10px; margin-bottom: 10px;">
-                  <label style="margin-left: 42px;">Dev-Ops </label>
-                  <i onClick="
-                  if(this.className.indexOf('fa-caret-up') == -1){
-                    this.classList.replace('fa-caret-down', 'fa-caret-up');
-                  } else {
-                    this.classList.replace('fa-caret-up', 'fa-caret-down');
-                  }
-  
-                  var x = document.getElementById('Demo3');
-                  if (x.className.indexOf('w3-show') == -1) {
-                    x.className += ' w3-show';
-                  } else {
-                    x.className = x.className.replace(' w3-show', '');
-                  }             
-                  "
-                  class="fa fa-caret-down"></i>
-                    <div id="Demo3" class="w3-container w3-hide w3-animate-right">
-                      <p>
-                        <input style="margin-left: 42px;" class="w3-check" type="checkbox">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-                        
-                        <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-                        
-                        <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-  
-                        <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-                        
-                        <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-                        
-                        <input class="w3-check" type="checkbox" style="margin-left: 10px">
-                        <label style="margin-left: 10px; font-size: large;">Skill</label>
-                      </p>
-                    </div>
-                  </div>
-              </form>
-              
-          <div class="w3-bar">
-            <div class="w3-right">
-              <button class="w3-button w3-red" style="margin-right: 15px" (click)="deletePerson(person.id)">Remove</button>
-              <button class="w3-button w3-purple" style="margin-right: 15px" (click)="home()">Cancel</button>
-              <button class="w3-button w3-teal" (click)="finishEditing()" [disabled]="isDisabled()">Save</button>
-            </div>
-          </div>
-        </form>
-        
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="firstName" type="text" placeholder="First Name"
+               [(ngModel)]="person.firstName" (ngModelChange)="validatePerson()">
       </div>
-    </div> 
-  </div>
+    </div>
 
-  
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="lastName" type="text" placeholder="Last Name"
+               [(ngModel)]="person.lastName" (ngModelChange)="validatePerson()">
+      </div>
+    </div>
 
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge far fa-id-card"></i></div>
+      <div class="w3-rest">
+        <input class="w3-input w3-border" name="position" type="text" placeholder="Position"
+               [(ngModel)]="person.position" (ngModelChange)="validatePerson()">
+      </div>
+    </div>
 
+    <h2 class="w3-center">Proficiencies</h2>
+    <div class="w3-row w3-section w3-padding-large w3-white w3-text-teal w3-border">
+      <div class="w3-container w3-margin">
+        <span class="w3-cursor"(click)="toggleDropdown('frontEnd', 'frontIcon')">
+          Front-End <i id="frontIcon" class="fa fa-caret-down w3-cursor"></i>
+        </span>
+      </div>
+      <div id="frontEnd" class="w3-hide w3-row w3-padding w3-animate-right" style="margin-left: 64px">
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">HTML</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">CSS</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">JavaScript</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">Angular</label>
+        </div>
+      </div>
+      <div class="w3-container w3-margin">
+        <span class="w3-cursor"(click)="toggleDropdown('backEnd', 'backIcon')">
+          Back-End <i id="backIcon" class="fa fa-caret-down w3-cursor"></i>
+        </span>
+      </div>
+      <div id="backEnd" class="w3-hide w3-row w3-padding w3-animate-right" style="margin-left: 64px">
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">Java</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">C#</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">SQL</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">TDD</label>
+        </div>
+      </div>
+      <div class="w3-container w3-margin">
+        <span class="w3-cursor"(click)="toggleDropdown('devOps', 'devOpsIcon')">
+          Dev-Ops <i id="devOpsIcon" class="fa fa-caret-down w3-cursor"></i>
+        </span>
+      </div>
+      <div id="devOps" class="w3-hide w3-row w3-padding w3-animate-right" style="margin-left: 64px">
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">Jenkins</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">Docker</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">Kubernetes</label>
+        </div>
+        <div class="w3-quarter w3-container">
+          <input class="w3-check " type="checkbox">
+          <label class="w3-margin">AWS</label>
+        </div>
+      </div>
+    </div>
 
+    <div class="w3-display-container w3-half w3-right w3-margin-bottom">
+      <div class="w3-center">
+        <button class="w3-button w3-teal w3-margin-left w3-right" [disabled]="saveDisabled" (click)="finishEditing(person)">Save</button>
+        <button class="w3-button w3-purple w3-margin-left w3-right" routerLink="home">Cancel</button>
+        <button class="w3-button w3-red w3-right" (click)="deletePerson(person)">Remove</button>
+      </div>
+    </div>
+  </form>
+</div>
