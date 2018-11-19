@@ -1,74 +1,92 @@
-<html>
-<head>
-  <title>Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<div w3-container>
-  <div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16 w3-animate-top" style="width:50%; margin: auto; margin-top:70px">
+<div class="w3-center-card w3-container w3-animate-top">
+  <form (ngSubmit)="onSubmit(regForm)" #regForm="ngForm"
+        class="w3-container w3-half w3-card-4 w3-light-grey w3-text-teal">
     <h2 class="w3-center">Registration</h2>
-    <form (ngSubmit) = "onSubmit(registerForm)" #registerForm="ngForm">
-      <div class="form-group">
-        <!-- firstName -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
-          <div class="w3-rest">
-            <input type="text" class="w3-input w3-border" name="firstName" id="firstName" placeholder="First Name">
-          </div>
-        </div>
-        <!-- lastName -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fa fa-user-alt"></i></div>
-          <div class="w3-rest">
-            <input type="text" class="w3-input w3-border" name="lastName" id="lastName" placeholder="Last Name">
-          </div>
-        </div>
-        <!-- email -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
-          <div class="w3-rest">
-            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email" ngModel #email="ngModel" required>       
-          </div>
-        </div>
-        <!-- position -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge far fa-id-card"></i></div>
-          <div class="w3-rest">
-            <input type="text" class="w3-input w3-border" name="position" id="position" placeholder="Position">
-          </div>
-        </div>
-        <!-- password -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
-          <div class="w3-rest">
-            <input type="password" class="w3-input w3-border" name="password" id="password" placeholder="Password (min 6 characters)" ngModel #password="ngModel" required>
-            <div class="text-danger w3-text-red" *ngIf="password.invalid && (password.dirty || password.touched)">
-              Password is required
-            </div>
-          </div>
-        </div>
-        <!-- passwordConfirm -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
-          <div class="w3-rest">
-            <input type="password" class="w3-input w3-border" name="passwordConfirm" id="passwordConfirm" placeholder="Password Confirmation" ngModel #pwConfirm="ngModel" required compare="password">
-            <div class="text-danger" *ngIf="pwConfirm.invalid && (pwConfirm.dirty || pwConfirm.touched)">
-              <div class="w3-text-red" *ngIf="pwConfirm.errors['required']">Password confirm is required!</div>
-              <div class="w3-text-red" *ngIf="pwConfirm.errors['compare']">Password confirm does not match!</div>
-            </div>
-          </div>
-        </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          name="first"
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          ngModel>
       </div>
-    <!-- register and cancel button -->
-    <div class="w3-bar">
-      <div class="w3-right">
-       <button class="w3-button w3-red" style="margin-right: 15px" routerLink="home">Cancel</button>
-       <button type="submit" [disabled]="!registerForm.valid" class="w3-button w3-teal" style="margin-right: 15px">Register</button>
-      </div> 
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          name="last"
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          ngModel>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fas fa-envelope"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          name="email"
+          type="text"
+          placeholder="Email"
+          name="email"
+          ngModel>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge far fa-id-card"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          name="position"
+          type="text"
+          placeholder="Position"
+          name="position"
+          ngModel>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fas fa-lock"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          type="password"
+          name="password"
+          type="text"
+          placeholder="Password"
+          name="password"
+          ngModel>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fas fa-lock"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          type="password"
+          name="passwordConfirmation"
+          type="text"
+          placeholder="Password Confirmation"
+          name="confirmation"
+          ngModel>
+      </div>
+    </div>
+    <div class="w3-display-container w3-half w3-right w3-margin-bottom">
+      <div class="w3-center">
+        <button type="submit" class="w3-button w3-teal w3-margin-left w3-right">Save</button>
+        <button routerLink="/login" class="w3-button w3-red w3-right">Cancel</button>
+      </div>
     </div>
   </form>
-  </div>
 </div>
-</body>
-</html>
-

@@ -8,25 +8,16 @@ import {AuthService} from './services/auth.service';
 })
 
 export class AppComponent implements OnInit {
-  user = null;
 
-  constructor(private auth: AuthService) {
+  constructor(private authService: AuthService) {
   }
 
-  logout() {
-    this.auth.logout();
-  }
-
-  isLoggedIn() {
-    return this.auth.isLoggedIn();
+  ngOnInit() {
+    // this.authService.initAuthListener();
   }
 
   onDrop(data: any) {
     alert(`dropped: ${data}`);
-  }
-
-  ngOnInit() {
-    this.auth.getAuthState().subscribe((user) => this.user = user);
   }
 
 }

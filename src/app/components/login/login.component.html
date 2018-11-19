@@ -1,39 +1,40 @@
-<html>
-<head>
-  <title>Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<div w3-container>
-  <div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-padding-16 w3-animate-top" style="width:50%; margin: auto; margin-top:70px">
+<div class="w3-center-card w3-container w3-animate-top">
+  <form (ngSubmit)="onSubmit(logForm)" #logForm="ngForm"
+        class="w3-container w3-half w3-card-4 w3-light-grey w3-text-teal">
     <h2 class="w3-center">Login</h2>
-    <form (ngSubmit) = "onSubmit(loginForm)" #loginForm="ngForm">
-      <div class="form-group">
-        <!-- email -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-envelope"></i></div>
-          <div class="w3-rest">
-            <input type="email" class="w3-input w3-border" name="email" id="email" placeholder="Email" ngModel #email="ngModel" required>
-          </div>
-        </div>
-        <!-- password -->
-        <div class="w3-row w3-section">
-          <div class="w3-col" style="width:55px"><i class="w3-xxlarge fas fa-lock"></i></div>
-          <div class="w3-rest">
-            <input type="password" class="w3-input w3-border" name="password" id="password" placeholder="Password" ngModel #password="ngModel" required>
-          </div>
-        </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fas fa-envelope"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          name="email"
+          type="text"
+          placeholder="Email"
+          ngModel
+        >
       </div>
-      <!-- signup and login button -->
-      <div class="w3-bar">
-        <div class="w3-right">
-          <div class="w3-text-teal" style="vertical-align:middle; float:left; margin-right: 15px; margin-top: 10px">Not a member?</div>
-          <button class="w3-button w3-purple" style="margin-right: 15px" routerLink="/register">Sign up</button>
-          <button type="submit" [disabled]="!loginForm.valid" class="w3-button w3-teal" style="margin-right: 15px">Login</button>
-        </div> 
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="w3-xxlarge fas fa-lock"></i></div>
+      <div class="w3-rest">
+        <input
+          class="w3-input w3-border"
+          type="password"
+          name="password"
+          placeholder="Password"
+          ngModel
+        >
       </div>
-    </form>
-  </div>
+    </div>
+
+    <div class="w3-display-container w3-half w3-right w3-margin-bottom">
+      <div class="w3-center">
+        <button class="w3-button w3-teal w3-margin-left w3-right">Login</button>
+        <button routerLink="/register" class="w3-button w3-purple w3-right">Sign Up</button>
+        <div id="no-cursor" class="w3-button w3-hover-none w3-hover-text-teal w3-right">Not a member?</div>
+      </div>
+    </div>
+  </form>
 </div>
-</body>
-</html>

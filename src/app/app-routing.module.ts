@@ -5,6 +5,7 @@ import { FirebaseTestComponent } from './components/firebase-test/firebase-test.
 import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent} from './components/register/register.component';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: TeamsComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [ AuthGuard]
 })
 export class AppRoutingModule { }
