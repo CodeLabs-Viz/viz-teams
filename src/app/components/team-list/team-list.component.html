@@ -1,15 +1,19 @@
-<div class="w3-center" *ngIf="!sub1 && !sub2">
-  <div class="w3-container w3-xxxlarge">
-    Loading...
-  </div>
-  <div class="w3-container w3-margin">
-    <i class='fas fa-spinner w3-spin w3-xxxlarge'></i>
+<div id="loading" class="w3-loading-modal-modal" *ngIf="!sub1 && !sub2">
+  <div class="w3-modal-content ">
+    <div class="w3-center">
+      <div class="w3-container w3-xxxlarge">
+        Building teams...
+      </div>
+      <div class="w3-container w3-margin">
+        <i class='fas fa-spinner w3-spin w3-xxxlarge'></i>
+      </div>
+    </div>
   </div>
 </div>
 
 <div *ngIf="teams.length > 0" class="team-list">
   <button class="add-team w3-button w3-teal"
-          onclick="document.getElementById('loadingModal').style.display='flex'">
+          onclick="document.getElementById('addTeamModal').style.display='flex'">
     Add Team
   </button>
   <div class="team-column" *ngFor='let team of teams | teamFilter:"eifOc9Ci7tx3UIelR7qG" | teamSortAsc'>
@@ -47,7 +51,7 @@
       <input class="w3-input" type="text" [(ngModel)]="teamName" placeholder="Team Name">
     </div>
     <div class="w3-container w3-margin">
-      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" (click)="addTeam()"
+      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" (click)="addTeam(teamName);loading('loadingModal')"
               onclick="document.getElementById('addTeamModal').style.display='none'" [disabled]="canSubmit()">
         Save
       </button>
@@ -63,7 +67,7 @@
   <div class="w3-modal-content ">
     <div class="w3-center">
       <div class="w3-container w3-xxxlarge">
-        Loading...
+        Building teams...
       </div>
       <div class="w3-container w3-margin">
         <i class='fas fa-spinner w3-spin w3-xxxlarge'></i>

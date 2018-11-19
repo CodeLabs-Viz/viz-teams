@@ -1,9 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Person} from '../../models/person';
-import {Team} from '../../models/team';
-import {PersonService} from '../../services/person.service';
-import {TeamService} from '../../services/team.service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Person } from '../../models/person';
+import { Team } from '../../models/team';
+import { PersonService } from '../../services/person.service';
+import { TeamService } from '../../services/team.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-list',
@@ -58,5 +58,13 @@ export class TeamListComponent implements OnInit {
 
   edit(person: Person): void {
     this.router.navigateByUrl('/edit/' + person.id);
+  }
+
+  loading(id) {
+    const section = document.getElementById(id);
+    section.style.display = 'flex';
+    setTimeout(function () {
+      section.style.display = 'none';
+    }, 500);
   }
 }
