@@ -16,7 +16,7 @@
           required
           #firstName="ngModel"
         >
-        <div *ngIf="!firstName.valid && firstName.touched" class="w3-container w3-text-red">First name required</div>
+        <div *ngIf="!firstName.valid && firstName.touched" class="w3-container w3-animate-right w3-text-red">First name required</div>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
           required
           #lastName="ngModel"
         >
-        <div *ngIf="!lastName.valid && lastName.touched" class="w3-container w3-text-red">Last name required</div>
+        <div *ngIf="!lastName.valid && lastName.touched" class="w3-container w3-animate-right w3-text-red">Last name required</div>
       </div>
     </div>
 
@@ -51,8 +51,8 @@
           email
           #email="ngModel"
         >
-        <div *ngIf="email.value.trim() !== '' &&!email.valid && email.touched" class="w3-container w3-text-red">Invalid email</div>
-        <div *ngIf="email.value.trim() === '' && email.touched" class="w3-container w3-text-red">Email Required</div>
+        <div *ngIf="email.value !== '' &&!email.valid && email.touched" class="w3-container w3-animate-right w3-text-red">Invalid email</div>
+        <div *ngIf="email.value === '' && email.touched" class="w3-container w3-animate-right w3-text-red">Email Required</div>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
           required
           #position="ngModel"
         >
-        <div *ngIf="!position.valid && position.touched" class="w3-container w3-text-red">Position required</div>
+        <div *ngIf="!position.valid && position.touched" class="w3-container w3-animate-right w3-text-red">Position required</div>
       </div>
     </div>
 
@@ -86,7 +86,7 @@
           required
           #password="ngModel"
         >
-        <div *ngIf="!password.valid && password.touched" class="w3-container w3-text-red">Password required</div>
+        <div *ngIf="!password.valid && password.touched" class="w3-container w3-animate-right w3-text-red">Password required</div>
       </div>
     </div>
 
@@ -103,8 +103,8 @@
           required
           #passConfirmation="ngModel"
         >
-        <div *ngIf="!passConfirmation.valid && passConfirmation.touched" class="w3-container w3-text-red">Password confirmation required</div>
-        <div *ngIf="passConfirmation.value !== password.value && passConfirmation.touched" class="w3-container w3-text-red">Passwords do not match</div>
+        <div *ngIf="!passConfirmation.valid && passConfirmation.touched" class="w3-container w3-animate-right w3-text-red">Password confirmation required</div>
+        <div *ngIf="passConfirmation.value !== password.value && passConfirmation.touched" class="w3-container w3-animate-right w3-text-red">Passwords do not match</div>
       </div>
     </div>
     <div class="w3-display-container w3-half w3-right w3-margin-bottom">
