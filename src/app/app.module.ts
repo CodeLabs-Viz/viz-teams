@@ -34,6 +34,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { PersonFilterPipe } from './pipes/person-filter.pipe';
 import { TeamFilterPipe } from './pipes/team-filter.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { TeamFilterPipe } from './pipes/team-filter.pipe';
     RegisterComponent,
     CompareValidatorDirective,
     PersonFilterPipe,
-    TeamFilterPipe
+    TeamFilterPipe,
+    TruncatePipe
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

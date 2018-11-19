@@ -23,8 +23,8 @@ export class EditPersonComponent implements OnInit {
   }
 
   deletePerson(person: Person) {
-    const personToRemove = person.firstName + ' ' + person.lastName;
-    if (confirm('Are you sure you want to remove ' + personToRemove + '?')) {
+    const personToDelete = person.firstName + ' ' + person.lastName;
+    if (confirm('Are you sure you want to remove ' + personToDelete + '?')) {
       this.personService.deletePerson(person.id);
       this.router.navigateByUrl('/');
     }

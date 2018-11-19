@@ -42,12 +42,14 @@ export class TeamListComponent implements OnInit {
     this.teamName = '';
   }
 
-  onDrop(person: Person, team: string) {
-    this.personService.addToTeam(person, team);
+  onDrop(person: Person, team: Team) {
+    this.personService.addToTeam(person, team.id);
   }
 
   deleteTeam(team: Team, people: Person[]) {
-    this.teamService.deleteTeam(team.id, people);
+    if (confirm('Are you sure you want to delete ' + team.name + ' team?')) {
+      this.teamService.deleteTeam(team.id, people);
+    }
   }
 
   canSubmit() {
