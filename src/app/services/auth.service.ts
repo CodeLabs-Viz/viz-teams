@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {User} from '../models/user.model';
 import {Subject} from 'rxjs';
 import {Router} from '@angular/router';
@@ -8,13 +8,16 @@ import {AuthData} from '../models/authData.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit {
 
   private user: User;
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
 
   constructor(private router: Router, private afauth: AngularFireAuth) {
+  }
+
+  ngOnInit() {
   }
 
   initAuthListener() {
@@ -59,15 +62,11 @@ export class AuthService {
   isAuth() {
     return this.isAuthenticated;
   }
+
+  getUser() {
+    return this.afauth.user;
+  }
 }
-
-
-
-
-
-
-
-
 
 
 // import {AngularFireAuth} from '@angular/fire/auth';

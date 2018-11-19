@@ -1,5 +1,5 @@
 <div class="sidebar" appDropTarget (myDrop)="onDrop($event, 'eifOc9Ci7tx3UIelR7qG')">
-  <button class= "w3-button w3-purple w3-padding w3-animate-top" style="width: 100%" *ngIf="!isAdding" (click)="startAdding()">Add Person <i class="fas fa-user w3-padding"></i></button>
+  <button class= "w3-button w3-purple w3-padding" style="width: 100%" *ngIf="!isAdding" (click)="startAdding()">Add Person <i class="fas fa-user w3-padding"></i></button>
   <div *ngIf="isAdding" class="add-form w3-animate-top">
     <input type="text" [(ngModel)]="person.firstName" placeholder="First Name" (ngModelChange)="validatePerson()">
     <input type="text" [(ngModel)]="person.lastName" placeholder="Last Name" (ngModelChange)="validatePerson()">
@@ -11,11 +11,11 @@
   </div>
   <br>
 
-  <div class="freeAgentContainer w3-container w3-animate-left" *ngFor="let person of (people | personFilter:'eifOc9Ci7tx3UIelR7qG')">
+  <div class="freeAgentContainer w3-container" *ngFor="let person of (people | personFilter:'eifOc9Ci7tx3UIelR7qG')">
     <div class="freeAgent" [appDraggable]="{data:person}">
       <p>{{ person.firstName }} {{ person.lastName }}, {{ person.position }}</p>
       <div class="form-btns w3-container w3-center">
-        <i class="fas fa-trash w3-hover-text-red w3-padding" (click)="removePerson(person.id)"></i>
+        <i class="fas fa-trash w3-hover-text-red w3-padding" (click)="removePerson(person)"></i>
         <i class="fas fa-edit w3-hover-text-green w3-padding" (click)="edit(person)"></i>
       </div>
     </div>

@@ -1,13 +1,25 @@
-<div class="container">
-  <div class="logo">
-    <img routerLink="home" src="/assets/vizTeams.png" alt="Viz Teams Logo">    
+<div class="w3-bar w3-orange">
+  <div class="w3-container w3-padding w3-half">
+    <img routerLink="/home" class="w3-cursor" src="/assets/vizTeams.png" alt="Viz-Teams Logo">
   </div>
-  <div class="links">
-    <!-- login button -->
-    <button *ngIf="!isAuth" class="header-login-button" routerLink="login">
-      Login
-    </button>
-    <!-- logout button -->
-    <button *ngIf="isAuth" class="header-logout-button" (click)="onLogout()">Logout</button>
+  <div class="w3-half">
+    <button *ngIf="userEmail" class="w3-button w3-padding-20 w3-right" (click)="toggleDropdown('logout')">{{userEmail}}</button>
+    <button *ngIf="isAuth" id="logout" class="w3-hide w3-button w3-teal w3-padding-20 w3-animate-top w3-right" (click)="onLogout()">Logout</button>
   </div>
 </div>
+
+
+<!--<div class="container">-->
+<!--<div class="logo">-->
+<!--<img routerLink="home" src="/assets/vizTeams.png" alt="Viz Teams Logo">    -->
+<!--</div>-->
+<!--<div class="links">-->
+<!--<button *ngIf="user" (click)="log()">{{user.email}}</button>-->
+<!--&lt;!&ndash; login button &ndash;&gt;-->
+<!--<button *ngIf="!isAuth" class="header-login-button" routerLink="login">-->
+<!--Login-->
+<!--</button>-->
+<!--&lt;!&ndash; logout button &ndash;&gt;-->
+<!--<button *ngIf="isAuth" class="header-logout-button" (click)="onLogout()">Logout</button>-->
+<!--</div>-->
+<!--</div>-->

@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.authService.initAuthListener();
+    this.authService.initAuthListener();
   }
 
   onDrop(data: any) {

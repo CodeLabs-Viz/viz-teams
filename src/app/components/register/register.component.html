@@ -12,7 +12,11 @@
           type="text"
           placeholder="First Name"
           name="firstName"
-          ngModel>
+          ngModel
+          required
+          #firstName="ngModel"
+        >
+        <div *ngIf="!firstName.valid && firstName.touched" class="w3-container w3-text-red">First name required</div>
       </div>
     </div>
 
@@ -25,7 +29,11 @@
           type="text"
           placeholder="Last Name"
           name="lastName"
-          ngModel>
+          ngModel
+          required
+          #lastName="ngModel"
+        >
+        <div *ngIf="!lastName.valid && lastName.touched" class="w3-container w3-text-red">Last name required</div>
       </div>
     </div>
 
@@ -38,7 +46,13 @@
           type="text"
           placeholder="Email"
           name="email"
-          ngModel>
+          ngModel
+          required
+          email
+          #email="ngModel"
+        >
+        <div *ngIf="email.value.trim() !== '' &&!email.valid && email.touched" class="w3-container w3-text-red">Invalid email</div>
+        <div *ngIf="email.value.trim() === '' && email.touched" class="w3-container w3-text-red">Email Required</div>
       </div>
     </div>
 
@@ -51,7 +65,11 @@
           type="text"
           placeholder="Position"
           name="position"
-          ngModel>
+          ngModel
+          required
+          #position="ngModel"
+        >
+        <div *ngIf="!position.valid && position.touched" class="w3-container w3-text-red">Position required</div>
       </div>
     </div>
 
@@ -62,10 +80,13 @@
           class="w3-input w3-border"
           type="password"
           name="password"
-          type="text"
           placeholder="Password"
           name="password"
-          ngModel>
+          ngModel
+          required
+          #password="ngModel"
+        >
+        <div *ngIf="!password.valid && password.touched" class="w3-container w3-text-red">Password required</div>
       </div>
     </div>
 
@@ -76,15 +97,19 @@
           class="w3-input w3-border"
           type="password"
           name="passwordConfirmation"
-          type="text"
           placeholder="Password Confirmation"
           name="confirmation"
-          ngModel>
+          ngModel
+          required
+          #passConfirmation="ngModel"
+        >
+        <div *ngIf="!passConfirmation.valid && passConfirmation.touched" class="w3-container w3-text-red">Password confirmation required</div>
+        <div *ngIf="passConfirmation.value !== password.value && passConfirmation.touched" class="w3-container w3-text-red">Passwords do not match</div>
       </div>
     </div>
     <div class="w3-display-container w3-half w3-right w3-margin-bottom">
       <div class="w3-center">
-        <button type="submit" class="w3-button w3-teal w3-margin-left w3-right">Save</button>
+        <button type="submit" class="w3-button w3-teal w3-margin-left w3-right" [disabled]="!regForm.valid">Save</button>
         <button routerLink="/login" class="w3-button w3-red w3-right">Cancel</button>
       </div>
     </div>

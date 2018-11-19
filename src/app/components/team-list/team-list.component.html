@@ -8,11 +8,11 @@
 </div>
 
 <div *ngIf="teams.length > 0" class="team-list">
-  <button class="add-team w3-button w3-teal w3-animate-top"
-          onclick="document.getElementById('addTeamModal').style.display='flex'">
-    Add Teams
+  <button class="add-team w3-button w3-teal"
+          onclick="document.getElementById('loadingModal').style.display='flex'">
+    Add Team
   </button>
-  <div class="team-column w3-animate-top" *ngFor='let team of teams | teamFilter:"eifOc9Ci7tx3UIelR7qG" | teamSortAsc'>
+  <div class="team-column" *ngFor='let team of teams | teamFilter:"eifOc9Ci7tx3UIelR7qG" | teamSortAsc'>
     <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
       <div class="team-header w3-display-container w3-padding w3-margin-top w3-teal w3-center">
         <h4>{{team.name | truncate:[12, '...']}}</h4>
@@ -20,7 +20,7 @@
           <div class="w3-container w3-hover-none w3-hover-text-red"><i class='fas fa-trash'></i></div>
         </div>
       </div>
-      <div *ngFor='let person of people | personFilter:team.id'>
+      <div *ngFor='let person of people | personFilter:team.id;'>
         <div [appDraggable]="{data:person}" class="team-member">
           <div class="details">
             <div>{{person.firstName}} {{person.lastName}},</div>
@@ -55,6 +55,19 @@
               onclick="document.getElementById('addTeamModal').style.display='none'">
         Cancel
       </button>
+    </div>
+  </div>
+</div>
+
+<div id="loadingModal" class="w3-modal">
+  <div class="w3-modal-content ">
+    <div class="w3-center">
+      <div class="w3-container w3-xxxlarge">
+        Loading...
+      </div>
+      <div class="w3-container w3-margin">
+        <i class='fas fa-spinner w3-spin w3-xxxlarge'></i>
+      </div>
     </div>
   </div>
 </div>

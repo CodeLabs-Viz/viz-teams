@@ -44,14 +44,6 @@ describe('SidebarComponent', () => {
   });
 
   describe('clearFields', () => {
-    it('should reset person', () => {
-      component.person = new Person(1, 'Tom', 'Bob', 'Dev', 'Green');
-
-      component.clearFields();
-//
-      expect(component.person).toEqual(new Person(null, '', '', '', ''));
-    });
-
     it('should make canSubmit false', () => {
       component.canSubmit = true;
 
