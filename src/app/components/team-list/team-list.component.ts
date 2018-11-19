@@ -46,8 +46,8 @@ export class TeamListComponent implements OnInit {
     this.personService.addToTeam(person, team);
   }
 
-  deleteTeam(id: string, people: Person[]) {
-    this.teamService.deleteTeam(id, people);
+  deleteTeam(team: Team, people: Person[]) {
+    this.teamService.deleteTeam(team.id, people);
   }
 
   canSubmit() {

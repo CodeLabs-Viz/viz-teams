@@ -1,149 +1,184 @@
-.no-team {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.no-teams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+.has-teams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
 .add-team {
-    position: absolute;
-    top: 76px;
-    right: 16px;
+  position: absolute;
+  top: 76px;
+  right: 16px;
+}
+
+.team-header:hover {
+  .fa-trash {
+    display: block;
+    margin: 8px;
+  }
+}
+
+.fa-trash {
+  display: none;
+  margin: 8px
 }
 
 .team-list{
-    clear: both;
-    background: white;
+  clear: both;
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  text-align: left;
+  line-height: 1.5;
+  height: calc(100% - 60px);
+
+  //button {
+  //    border: none;
+  //    padding: 5px 10px;
+  //    color: white;
+  //    background-color: rgb(86, 94, 170);
+  //    transition-duration: 0.3s;
+  //    border-radius: 2rem;
+  //}
+  //
+  //button:hover {
+  //    background-color: rgb(1, 173, 171);
+  //
+  //}
+
+  //h3 {
+  //    background-color: rgb(1, 173, 171);
+  //    border-radius: 2rem;
+  //    color: white;
+  //    font-size: 25px;
+  //    padding: .5rem .75rem;
+  //    font-size: 1.25em;
+  //    text-align: center;
+  //
+  //    button {
+  //      border: none;
+  //      font-size: 15px;
+  //      padding: 5px 10px;
+  //      color: white;
+  //      background-color: rgb(1, 173, 171);
+  //      transition-duration: 0.3s;
+  //      border-radius: 2rem;
+  //    }
+  //
+  //    button:hover {
+  //      background-color: rgb(86, 94, 170);
+  //    }
+  //}
+
+  .team-column {
+    width: 33%;
     display: flex;
-    justify-content: space-evenly;
-    flex-flow: row wrap;
-    text-align: left; 
-    height: calc(100% - 60px);
-
-    h3 {
-        font-size: 25px;
-        padding: 1rem 1rem;
-        font-size: 1.25em;
-        text-align: center;
-        white-space: normal;
-        text-overflow: hidden;
-        flex-flow: nowrap;
-
-        i {
-            display: none;
-        }
-
-        button {
-          border: none;
-          font-size: 15px;
-          padding: 5px 10px;
-          color: white;
-          background-color: rgb(1, 173, 171);
-          transition-duration: 0.3s;
-          border-radius: 2rem;
-        }
-
-        button:hover {
-          background-color: rgb(86, 94, 170);
-        }
-    }
-    h3:hover {
-        i {
-            display: inline-flex;
-        }
-    }
-
-    .team-column {
-        width: 33%;
-        display: flex;
-        min-width: 300px;
-    }
+    min-width: 300px;
+  }
 }
 
 .team-member {
-    padding: 5px 0;
-    cursor: move;
-    margin-top: 1em;
+  padding: 5px 0;
+  cursor: move;
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  .details {
     display: flex;
-    justify-content: space-between;
-    .details {
-        display: flex;
-        flex-direction: column;
-    }
-    .btns {
-        align-self: center;
-        display: none;
-    }
+    flex-direction: column;
+  }
+  #edit {
+    align-self: center;
+    display: none;
+  }
 }
 
 .team-member:hover {
-    .btns {
-        display: inherit;
-    }
+  #edit {
+    display: flex;
+  }
 }
 
 .drop-target {
-    border: 1px solid lightgray;
-    box-shadow:lightgrey 2px 2px 9px 0px;
+  border: 1px solid lightgray;
+  box-shadow:lightgrey 2px 2px 9px 0px;
 
-    margin: 1rem;
-    padding: 1rem;
-    width: 100%;
-    padding-top: 0rem;
-    align-self: flex-start
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
+  padding-top: 0rem;
+  align-self: flex-start
 }
 
 .button-container {
-    padding: 5px;
-    float: right;
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    white-space: nowrap;
-    text-align: center;
+  padding: 5px;
+  float: right;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  text-align: center;
 
-    .hiddenUpload {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        cursor: pointer;
-        font-size: 0%;
-    }
+  .hiddenUpload {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    font-size: 0%;
+  }
 
-    button {
-        border: none;
-        color: rgb(86, 94, 170);
-        height: 100%;
-        padding: 0.5em;
-        background-color: rgba(0, 0, 0, 0);
-    }
+  button {
+    border: none;
+    color: rgb(86, 94, 170);
+    height: 100%;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0);
+  }
 
-    button:hover {
-        background-color: rgb(86, 94, 170);
-        color: white;
-        height: 100%;
-        cursor: pointer;
-    }
-    .logo {
-        padding: .5rem;
-    }
-    .right-links {
-        height: 100%;
-    }
-    .realButton {
-        background: rgba(0, 0, 0, 0);
-        border: 3px solid rgb(86, 94, 170);
-        border-radius: 5px;
-        color: rgb(86, 94, 170);
-        position: relative;
-        transition-duration: 0.3s;
-        margin-right: 10px;
-    }
+  button:hover {
+    background-color: rgb(86, 94, 170);
+    color: white;
+    height: 100%;
+    cursor: pointer;
+  }
+  .logo {
+    padding: .5rem;
+  }
+  .right-links {
+    height: 100%;
+  }
+  .realButton {
+    background: rgba(0, 0, 0, 0);
+    border: 3px solid rgb(86, 94, 170);
+    border-radius: 5px;
+    color: rgb(86, 94, 170);
+    position: relative;
+    transition-duration: 0.3s;
+    margin-right: 10px;
+  }
 
-    .realButton:hover{
-        background-color: rgb(86, 94, 170);
-        cursor: pointer;
-    }
+  .realButton:hover{
+    background-color: rgb(86, 94, 170);
+    cursor: pointer;
+  }
+}
+
+#edit {
+  display: none;
+}
+
+#edit:hover {
+  display: flex;
 }

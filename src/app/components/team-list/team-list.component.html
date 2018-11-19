@@ -7,53 +7,105 @@
   </div>
 </div>
 
-<div *ngIf="sub1 && sub2 && teams.length === 0" class="no-team w3-container w3-animate-top">
-  <div class="w3-large w3-margin">Would you like to add a team?</div>
-  <button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">
-    Add Team
-  </button>
-</div>
-
 <div *ngIf="teams.length > 0" class="team-list">
-  <button class='w3-button w3-teal add-team' onclick="document.getElementById('addTeamModal').style.display='flex'">
-    Add Team
+  <button class="add-team w3-button w3-teal w3-animate-top"
+          onclick="document.getElementById('addTeamModal').style.display='flex'">
+    Add Teams
   </button>
-  <div class="team-column w3-animate-top" *ngFor='let team of (teams | teamFilter:"eifOc9Ci7tx3UIelR7qG")'>
-    <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team.id)">
-      <div class="w3-container w3-teal w3-margin">
-        <h3>{{team.name}} Team <i (click)="deleteTeam(team.id, people)" class="fas fa-trash w3-hover-text-red"></i></h3>
+  <div class="team-column w3-animate-top" *ngFor='let team of teams | teamFilter:"eifOc9Ci7tx3UIelR7qG"'>
+    <div class="drop-target" appDropTarget (myDrop)="onDrop($event,team)">
+      <div class="team-header w3-display-container w3-padding w3-margin-top w3-teal w3-center">
+        <h4>{{team.name}}</h4>
+        <div class="w3-display-right" (click)="deleteTeam(team.id, people)">
+          <div class="w3-container w3-hover-none w3-hover-text-red"><i class='fas fa-trash'></i></div>
+        </div>
       </div>
       <div *ngFor='let person of people | personFilter:team.id'>
         <div [appDraggable]="{data:person}" class="team-member">
           <div class="details">
-            <div>{{person.firstName}} {{person.lastName}}</div>
+            <div>{{person.firstName}} {{person.lastName}},</div>
             <div>{{person.position}}</div>
           </div>
-          <div class="btns"><i (click)="edit(person)" class="fas fa-edit w3-hover-text-teal"></i></div>
+          <div id="edit" class="btns">
+            <div class="w3-container w3-hover-none w3-hover-text-green" (click)="edit(person)"><i
+              class='fas fa-edit'></i></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div id="addTeamModal" class="w3-modal">
   <div class="w3-modal-content w3-card-4 w3-animate-top">
     <header class="w3-container w3-teal w3-center">
-  <span onclick="document.getElementById('addTeamModal').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
+      <span onclick="document.getElementById('addTeamModal').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
       <h2>Add Team</h2>
     </header>
     <div class="w3-container w3-margin">
       <input class="w3-input" type="text" [(ngModel)]="teamName" placeholder="Team Name">
     </div>
     <div class="w3-container w3-margin">
-      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right"
-              [disabled]="canSubmit()" (click)="addTeam()"
-              onclick="document.getElementById('addTeamModal').style.display='none'">
+      <button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right" (click)="addTeam()"
+              onclick="document.getElementById('addTeamModal').style.display='none'" [disabled]="canSubmit()">
         Save
       </button>
-      <button class="w3-button w3-red w3-right" onclick="document.getElementById('addTeamModal').style.display='none'">
+      <button class="w3-button w3-red w3-right"
+              onclick="document.getElementById('addTeamModal').style.display='none'">
         Cancel
       </button>
     </div>
   </div>
 </div>
+
+<!--<div *ngIf="sub1 && sub2 && teams.length === 0" class="no-team w3-container w3-animate-top">-->
+  <!--<div class="w3-large w3-margin">Would you like to add a team?</div>-->
+  <!--<button class='w3-button w3-teal' onclick="document.getElementById('addTeamModal').style.display='flex'">-->
+    <!--Add Team-->
+  <!--</button>-->
+<!--</div>-->
+
+<!--<div *ngIf="teams.length > 0" class="team-list">-->
+  <!--<button class='w3-button w3-teal add-team' onclick="document.getElementById('addTeamModal').style.display='flex'">-->
+    <!--Add Team-->
+  <!--</button>-->
+  <!--<div class="team-column w3-animate-top" *ngFor='let team of (teams | teamFilter:"eifOc9Ci7tx3UIelR7qG")'>-->
+    <!--<div class="drop-target" appDropTarget (myDrop)="onDrop($event,team.id)">-->
+      <!--<div class="w3-container w3-teal w3-margin">-->
+        <!--<h3>{{team.name}} Team <i (click)="deleteTeam(team.id, people)" class="fas fa-trash w3-hover-text-red"></i></h3>-->
+      <!--</div>-->
+      <!--<div *ngFor='let person of people | personFilter:team.id'>-->
+        <!--<div [appDraggable]="{data:person}" class="team-member">-->
+          <!--<div class="details">-->
+            <!--<div>{{person.firstName}} {{person.lastName}}</div>-->
+            <!--<div>{{person.position}}</div>-->
+          <!--</div>-->
+          <!--<div class="btns"><i (click)="edit(person)" class="fas fa-edit w3-hover-text-teal"></i></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div id="addTeamModal" class="w3-modal">-->
+  <!--<div class="w3-modal-content w3-card-4 w3-animate-top">-->
+    <!--<header class="w3-container w3-teal w3-center">-->
+  <!--<span onclick="document.getElementById('addTeamModal').style.display='none'"-->
+        <!--class="w3-button w3-display-topright">&times;</span>-->
+      <!--<h2>Add Team</h2>-->
+    <!--</header>-->
+    <!--<div class="w3-container w3-margin">-->
+      <!--<input class="w3-input" type="text" [(ngModel)]="teamName" placeholder="Team Name">-->
+    <!--</div>-->
+    <!--<div class="w3-container w3-margin">-->
+      <!--<button class="w3-button w3-teal w3-margin-bottom w3-margin-left w3-right"-->
+              <!--[disabled]="canSubmit()" (click)="addTeam()"-->
+              <!--onclick="document.getElementById('addTeamModal').style.display='none'">-->
+        <!--Save-->
+      <!--</button>-->
+      <!--<button class="w3-button w3-red w3-right" onclick="document.getElementById('addTeamModal').style.display='none'">-->
+        <!--Cancel-->
+      <!--</button>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
