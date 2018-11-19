@@ -10,7 +10,9 @@ export class PersonFilterPipe implements PipeTransform {
     if (!people || !teamId) {
       return people;
     }
-    return people.filter(person => person.teamId === teamId);
+    const filteredPeople = people.filter(person => person.teamId === teamId);
+
+    return filteredPeople.sort((a, b) => a.lastName > b.lastName ? 1 : -1);
   }
 
 }

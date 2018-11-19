@@ -56,15 +56,18 @@ export class SidebarComponent implements OnInit {
     return !this.canSubmit;
   }
 
-  onDrop(person: Person, teamId: string) {
-    this.personService.addToTeam(person, teamId);
+  onDrop(person: Person, freeAgents) {
+    this.personService.addToTeam(person, freeAgents);
   }
 
   edit(person: Person) {
     this.router.navigateByUrl('/edit/' + person.id);
   }
 
-  removePerson(id: string) {
-    this.personService.deletePerson(id);
+  removePerson(person: Person) {
+    const personToDelete = person.firstName + ' ' + person.lastName;
+    if (confirm('Are you sure you want to delete ' + personToDelete + '?')) {
+      this.personService.deletePerson(person.id);
+    }
   }
 }
