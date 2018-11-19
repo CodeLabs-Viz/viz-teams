@@ -37,8 +37,8 @@ export class TeamListComponent implements OnInit {
   }
 
   // TODO: add validation on creating a team, so that duplicate teams can't exist
-  addTeam() {
-    this.teamService.addTeam(null, this.teamName);
+  addTeam(teamName: string) {
+    this.teamService.addTeam(null, teamName);
     this.teamName = '';
   }
 
