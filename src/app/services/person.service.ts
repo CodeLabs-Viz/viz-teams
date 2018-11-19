@@ -26,7 +26,15 @@ export class PersonService {
       firstName: firstName,
       lastName: lastName,
       position: position,
-      teamId: 'eifOc9Ci7tx3UIelR7qG'
+      teamId: 'eifOc9Ci7tx3UIelR7qG',
+      html: false,
+      css: false,
+      javascript: false,
+      angular: false,
+      java: false,
+      cSharp: false,
+      sql: false,
+      tdd: false
     })
       .then(function (docRef) {
         docRef.update({
@@ -49,7 +57,15 @@ export class PersonService {
     this.db.collection('person').doc(person.id).update({
       firstName: person.firstName,
       lastName: person.lastName,
-      position: person.position
+      position: person.position,
+      html: person.html,
+      css: person.css,
+      javascript: person.javascript,
+      angular: person.angular,
+      java: person.java,
+      cSharp: person.cSharp,
+      sql: person.sql,
+      tdd: person.tdd
     });
   }
 }

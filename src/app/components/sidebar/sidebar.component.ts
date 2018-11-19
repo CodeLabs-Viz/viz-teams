@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
 
   people: Person[] = [];
   isAdding = false;
-  person: Person = new Person('', '', '', '', '');
+  person: Person = new Person('', '', '', '', '', null, null, null, null, null, null, null, null);
   canSubmit = false;
   team: Team;
 
@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit {
   }
 
   clearFields() {
-    this.person = new Person('', '', '', '', '');
+    this.person = new Person('', '', '', '', '', null, null, null, null, null, null, null, null);
     this.canSubmit = false;
   }
 
